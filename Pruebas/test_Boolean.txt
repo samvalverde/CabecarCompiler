@@ -1,0 +1,80 @@
+; Proyecto - Etapa 0: Prueba de Booleano
+; Samuel Valverde A.
+; IC5701 - Compiladores e Intérpretes, GR 2
+; II Semestre 2024
+
+; ---------------------------------------------------------------
+datos segment
+    boolean db ?               ; Almacena el valor booleano ingresado
+    msgEntrada db 'Ingrese Y/N para Booleano: $'
+    msgSalidaTrue db 'El valor ingresado es Verdadero (1).$'
+    msgSalidaFalse db 'El valor ingresado es Falso (0).$'
+    blank db 13, 10, '$'
+datos ends
+
+; ---------------------------------------------------------------
+pila segment stack 'stack'
+    dw 256 dup (?)
+pila ends
+
+Print Macro mensaje
+    mov ah, 09h
+    lea dx, mensaje
+    int 21h
+EndM
+
+; ---------------------------------------------------------------
+codigo segment
+
+    assume cs:codigo, ds:datos, ss:pila
+
+obtenerBooleano proc near
+    ; Leer un booleano desde el teclado (Y/N)
+    mov ah, 01h
+    int 21h
+    cmp al, 'Y'
+    je esVerdadero
+    cmp al, 'N'
+    je esFalso
+    ret
+
+esVerdadero:
+    mov boolean, 1
+    ret
+
+esFalso:
+    mov boolean, 0
+    ret
+obtenerBooleano endP
+
+imprimirBooleano proc near
+    ; Mostrar el valor booleano guardado
+    cmp boolean, 1
+    je mostrarTrue
+    Print msgSalidaFalse
+    ret
+
+mostrarTrue:
+    Print msgSalidaTrue
+    ret
+imprimirBooleano endP
+
+main:
+    mov ax, datos
+    mov ds, ax
+
+    mov ax, pila
+    mov ss, ax
+    ;   ------------------------------------------------------------------
+    Print msgEntrada
+    ;   ------------------------------------------------------------------
+    call obtenerBooleano
+    ;   ------------------------------------------------------------------
+    Print blank
+    call imprimirBooleano
+    ;   ------------------------------------------------------------------
+    mov ax, 4C00h
+    int 21h
+
+codigo ends
+end main

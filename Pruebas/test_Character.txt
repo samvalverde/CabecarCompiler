@@ -1,0 +1,65 @@
+; Proyecto - Etapa 0: Prueba de Caracter
+; Samuel Valverde A.
+; IC5701 - Compiladores e Intérpretes, GR 2
+; II Semestre 2024
+
+; ---------------------------------------------------------------
+datos segment
+    char db ?                  ; Almacena el caracter ingresado
+    msgEntrada db 'Ingrese un caracter: $'
+    msgSalida db 'El caracter ingresado es: $'
+    blank db 13, 10, '$'
+datos ends
+
+; ---------------------------------------------------------------
+pila segment stack 'stack'
+    dw 256 dup (?)
+pila ends
+
+Print Macro mensaje
+    mov ah, 09h
+    lea dx, mensaje
+    int 21h
+EndM
+
+; ---------------------------------------------------------------
+codigo segment
+
+    assume cs:codigo, ds:datos, ss:pila
+
+obtenerCaracter proc near
+    ; Leer un caracter desde el teclado
+    mov ah, 01h
+    int 21h
+    mov char, al              ; Guardar el caracter ingresado
+    ret
+obtenerCaracter endP
+
+imprimirCaracter proc near
+    ; Mostrar el caracter guardado
+    mov al, char
+    mov ah, 02h
+    int 21h
+    ret
+imprimirCaracter endP
+
+main:
+    mov ax, datos
+    mov ds, ax
+
+    mov ax, pila
+    mov ss, ax
+    ;   ------------------------------------------------------------------
+    Print msgEntrada
+    ;   ------------------------------------------------------------------
+    call obtenerCaracter
+    ;   ------------------------------------------------------------------
+    Print blank
+    Print msgSalida
+    call imprimirCaracter
+    ;   ------------------------------------------------------------------
+    mov ax, 4C00h
+    int 21h
+
+codigo ends
+end main
