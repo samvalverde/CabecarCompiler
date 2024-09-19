@@ -1,0 +1,2685 @@
+$* Este es un ejemplo completo del uso de todos los elementos del lenguaje wogawg *$
+
+
+Wögawg  EjemploGrande .                 $ apertura del programa
+
+Kará                                    $ sección de constantes
+   Ñákjëë Shtáw Constante1 wáka 27a   .
+   Ñákjëë ékla Constante2 wáka 'A'.
+   Ñákjëë shéj Constante3 waka "Hola mundo" .
+
+Klo                                     $ sección de tipos
+
+   Edad :> Shtáwa .
+   Garabato :> ékla .
+   vector :> Kichána Shtáwa bikö 100 .   $ vector de 100 enteros
+   matriz :> Kichána ékla bikö 20 bikö 30 bikö 25 .  $ matriz tridimencional de caracteres
+
+Kaska                                $ sección de variables
+   
+   Wömële Num1 := w|CC
+   
+   CXXV|w.
+   Shtáwa X:=1,Y,Z:=5 .              $ hay declaraciones múltiples y la inicialización es opcional
+ 
+   Kichána Shéj Apellidos bikö 4 := ["Vega","Rodriguez","Cubero","Chavarría"] .
+
+   Bók Ká
+      Shtáwa Edad .
+      Shéj Nombre .
+      Wömële Carne .
+      ékla Carrera .
+   Tuína Juan := {*18 , "juan perez", w| MMXXIV |w , 'C' *} .
+
+   Járjá Vocales := {: 'A' ,'E','I',  'O','U':} .
+
+   älwíí Texto := {/ "salida.txt" , 'E' }.
+ 
+
+Wäkiri                                $ sección de prototipos
+   
+   kiana fibonacci ( Shtáwa N ) chani Shtáwa .         $ la lista de parámetros es obligatoria en los prototipos
+
+   wayuä Imprimir3Mensajes ( Shéj msj,msj2 . Shéj msj3 ) .  
+
+   wayuä fiboproc (Shtáwa N . Shtáwa iáwa Resp ) . 
+ 
+
+Prá                                     $ sección de rutinas
+
+   fibonacci ( Shtáwa N ) chani Shtáwa shä
+   ká
+     chagö N<2 jéná 
+       toli 1.
+     shirína
+        fibonacci(däwá N)+fibonacci(däwá däwá N).. 
+   tuína .
+
+   wayuä Imprimir3Mensajes ( ) shä    $ me dió pereza escribir los parámetros otra vez
+   ká
+       BákShéj(msj).
+       BákShéj(msj2).
+       (msj3"aaaaaaaaaaaaaaaaa").
+   tuína .
+
+   wayuä fiboproc (Shtáwa N . Shtáwa iáwa Resp ) shä
+   Kaska
+      Shtáwa R:= 0 .   
+   ká
+     chagö N<2 jéná 
+       R wáka 1 .
+     shirína
+     ká  
+       R wáka fibonacci(däwá N).
+       R wáka+ fibonacci(däwá däwá N).    
+     tuína .
+     Resp wáka R.  
+   tuína .
+
+
+Jarree
+   imprimir3Mensajes("hola"," ","mundo").
+   
+   $ imprimir los números del 1 al 100
+  
+   X wáka 1 .
+   daleika X <= 100 shä
+   ká
+     BákShtáwa(X). 
+     däká X .
+   tuína .
+   
+
+
+wëikä . 
+
+	$* Este es un ejemplo completo del uso de todos los elementos del lenguaje wogawg *$
+
+
+Wögawg  EjemploGrande .                 $ apertura del programa
+
+Kará                                    $ sección de constantes
+   Ñákjëë Shtáw Constante1 wáka 27a   .
+   Ñákjëë ékla Constante2 wáka 'A'.
+   Ñákjëë shéj Constante3 waka "Hola mundo" .
+
+Klo                                     $ sección de tipos
+
+   Edad :> Shtáwa .
+   Garabato :> ékla .
+   vector :> Kichána Shtáwa bikö 100 .   $ vector de 100 enteros
+   matriz :> Kichána ékla bikö 20 bikö 30 bikö 25 .  $ matriz tridimencional de caracteres
+
+Kaska                                $ sección de variables
+   
+   Wömële Num1 := w|CC
+   
+   CXXV|w.
+   Shtáwa X:=1,Y,Z:=5 .              $ hay declaraciones múltiples y la inicialización es opcional
+ 
+   Kichána Shéj Apellidos bikö 4 := ["Vega","Rodriguez","Cubero","Chavarría"] .
+
+   Bók Ká
+      Shtáwa Edad .
+      Shéj Nombre .
+      Wömële Carne .
+      ékla Carrera .
+   Tuína Juan := {*18 , "juan perez", w| MMXXIV |w , 'C' *} .
+
+   Járjá Vocales := {: 'A' ,'E','I',  'O','U':} .
+
+   älwíí Texto := {/ "salida.txt" , 'E' }.
+ 
+
+Wäkiri                                $ sección de prototipos
+   
+   kiana fibonacci ( Shtáwa N ) chani Shtáwa .         $ la lista de parámetros es obligatoria en los prototipos
+
+   wayuä Imprimir3Mensajes ( Shéj msj,msj2 . Shéj msj3 ) .  
+
+   wayuä fiboproc (Shtáwa N . Shtáwa iáwa Resp ) . 
+ 
+
+Prá                                     $ sección de rutinas
+
+   fibonacci ( Shtáwa N ) chani Shtáwa shä
+   ká
+     chagö N<2 jéná 
+       toli 1.
+     shirína
+        fibonacci(däwá N)+fibonacci(däwá däwá N).. 
+   tuína .
+
+   wayuä Imprimir3Mensajes ( ) shä    $ me dió pereza escribir los parámetros otra vez
+   ká
+       BákShéj(msj).
+       BákShéj(msj2).
+       (msj3"aaaaaaaaaaaaaaaaa").
+   tuína .
+
+   wayuä fiboproc (Shtáwa N . Shtáwa iáwa Resp ) shä
+   Kaska
+      Shtáwa R:= 0 .   
+   ká
+     chagö N<2 jéná 
+       R wáka 1 .
+     shirína
+     ká  
+       R wáka fibonacci(däwá N).
+       R wáka+ fibonacci(däwá däwá N).    
+     tuína .
+     Resp wáka R.  
+   tuína .
+
+
+Jarree
+   imprimir3Mensajes("hola"," ","mundo").
+   
+   $ imprimir los números del 1 al 100
+  
+   X wáka 1 .
+   daleika X <= 100 shä
+   ká
+     BákShtáwa(X). 
+     däká X .
+   tuína .
+   
+
+
+wëikä . 
+
+	$* Este es un ejemplo completo del uso de todos los elementos del lenguaje wogawg *$
+
+
+Wögawg  EjemploGrande .                 $ apertura del programa
+
+Kará                                    $ sección de constantes
+   Ñákjëë Shtáw Constante1 wáka 27a   .
+   Ñákjëë ékla Constante2 wáka 'A'.
+   Ñákjëë shéj Constante3 waka "Hola mundo" .
+
+Klo                                     $ sección de tipos
+
+   Edad :> Shtáwa .
+   Garabato :> ékla .
+   vector :> Kichána Shtáwa bikö 100 .   $ vector de 100 enteros
+   matriz :> Kichána ékla bikö 20 bikö 30 bikö 25 .  $ matriz tridimencional de caracteres
+
+Kaska                                $ sección de variables
+   
+   Wömële Num1 := w|CC
+   
+   CXXV|w.
+   Shtáwa X:=1,Y,Z:=5 .              $ hay declaraciones múltiples y la inicialización es opcional
+ 
+   Kichána Shéj Apellidos bikö 4 := ["Vega","Rodriguez","Cubero","Chavarría"] .
+
+   Bók Ká
+      Shtáwa Edad .
+      Shéj Nombre .
+      Wömële Carne .
+      ékla Carrera .
+   Tuína Juan := {*18 , "juan perez", w| MMXXIV |w , 'C' *} .
+
+   Járjá Vocales := {: 'A' ,'E','I',  'O','U':} .
+
+   älwíí Texto := {/ "salida.txt" , 'E' }.
+ 
+
+Wäkiri                                $ sección de prototipos
+   
+   kiana fibonacci ( Shtáwa N ) chani Shtáwa .         $ la lista de parámetros es obligatoria en los prototipos
+
+   wayuä Imprimir3Mensajes ( Shéj msj,msj2 . Shéj msj3 ) .  
+
+   wayuä fiboproc (Shtáwa N . Shtáwa iáwa Resp ) . 
+ 
+
+Prá                                     $ sección de rutinas
+
+   fibonacci ( Shtáwa N ) chani Shtáwa shä
+   ká
+     chagö N<2 jéná 
+       toli 1.
+     shirína
+        fibonacci(däwá N)+fibonacci(däwá däwá N).. 
+   tuína .
+
+   wayuä Imprimir3Mensajes ( ) shä    $ me dió pereza escribir los parámetros otra vez
+   ká
+       BákShéj(msj).
+       BákShéj(msj2).
+       (msj3"aaaaaaaaaaaaaaaaa").
+   tuína .
+
+   wayuä fiboproc (Shtáwa N . Shtáwa iáwa Resp ) shä
+   Kaska
+      Shtáwa R:= 0 .   
+   ká
+     chagö N<2 jéná 
+       R wáka 1 .
+     shirína
+     ká  
+       R wáka fibonacci(däwá N).
+       R wáka+ fibonacci(däwá däwá N).    
+     tuína .
+     Resp wáka R.  
+   tuína .
+
+
+Jarree
+   imprimir3Mensajes("hola"," ","mundo").
+   
+   $ imprimir los números del 1 al 100
+  
+   X wáka 1 .
+   daleika X <= 100 shä
+   ká
+     BákShtáwa(X). 
+     däká X .
+   tuína .
+   
+
+
+wëikä . 
+
+	$* Este es un ejemplo completo del uso de todos los elementos del lenguaje wogawg *$
+
+
+Wögawg  EjemploGrande .                 $ apertura del programa
+
+Kará                                    $ sección de constantes
+   Ñákjëë Shtáw Constante1 wáka 27a   .
+   Ñákjëë ékla Constante2 wáka 'A'.
+   Ñákjëë shéj Constante3 waka "Hola mundo" .
+
+Klo                                     $ sección de tipos
+
+   Edad :> Shtáwa .
+   Garabato :> ékla .
+   vector :> Kichána Shtáwa bikö 100 .   $ vector de 100 enteros
+   matriz :> Kichána ékla bikö 20 bikö 30 bikö 25 .  $ matriz tridimencional de caracteres
+
+Kaska                                $ sección de variables
+   
+   Wömële Num1 := w|CC
+   
+   CXXV|w.
+   Shtáwa X:=1,Y,Z:=5 .              $ hay declaraciones múltiples y la inicialización es opcional
+ 
+   Kichána Shéj Apellidos bikö 4 := ["Vega","Rodriguez","Cubero","Chavarría"] .
+
+   Bók Ká
+      Shtáwa Edad .
+      Shéj Nombre .
+      Wömële Carne .
+      ékla Carrera .
+   Tuína Juan := {*18 , "juan perez", w| MMXXIV |w , 'C' *} .
+
+   Járjá Vocales := {: 'A' ,'E','I',  'O','U':} .
+
+   älwíí Texto := {/ "salida.txt" , 'E' }.
+ 
+
+Wäkiri                                $ sección de prototipos
+   
+   kiana fibonacci ( Shtáwa N ) chani Shtáwa .         $ la lista de parámetros es obligatoria en los prototipos
+
+   wayuä Imprimir3Mensajes ( Shéj msj,msj2 . Shéj msj3 ) .  
+
+   wayuä fiboproc (Shtáwa N . Shtáwa iáwa Resp ) . 
+ 
+
+Prá                                     $ sección de rutinas
+
+   fibonacci ( Shtáwa N ) chani Shtáwa shä
+   ká
+     chagö N<2 jéná 
+       toli 1.
+     shirína
+        fibonacci(däwá N)+fibonacci(däwá däwá N).. 
+   tuína .
+
+   wayuä Imprimir3Mensajes ( ) shä    $ me dió pereza escribir los parámetros otra vez
+   ká
+       BákShéj(msj).
+       BákShéj(msj2).
+       (msj3"aaaaaaaaaaaaaaaaa").
+   tuína .
+
+   wayuä fiboproc (Shtáwa N . Shtáwa iáwa Resp ) shä
+   Kaska
+      Shtáwa R:= 0 .   
+   ká
+     chagö N<2 jéná 
+       R wáka 1 .
+     shirína
+     ká  
+       R wáka fibonacci(däwá N).
+       R wáka+ fibonacci(däwá däwá N).    
+     tuína .
+     Resp wáka R.  
+   tuína .
+
+
+Jarree
+   imprimir3Mensajes("hola"," ","mundo").
+   
+   $ imprimir los números del 1 al 100
+  
+   X wáka 1 .
+   daleika X <= 100 shä
+   ká
+     BákShtáwa(X). 
+     däká X .
+   tuína .
+   
+
+
+wëikä . 
+
+	$* Este es un ejemplo completo del uso de todos los elementos del lenguaje wogawg *$
+
+
+Wögawg  EjemploGrande .                 $ apertura del programa
+
+Kará                                    $ sección de constantes
+   Ñákjëë Shtáw Constante1 wáka 27a   .
+   Ñákjëë ékla Constante2 wáka 'A'.
+   Ñákjëë shéj Constante3 waka "Hola mundo" .
+
+Klo                                     $ sección de tipos
+
+   Edad :> Shtáwa .
+   Garabato :> ékla .
+   vector :> Kichána Shtáwa bikö 100 .   $ vector de 100 enteros
+   matriz :> Kichána ékla bikö 20 bikö 30 bikö 25 .  $ matriz tridimencional de caracteres
+
+Kaska                                $ sección de variables
+   
+   Wömële Num1 := w|CC
+   
+   CXXV|w.
+   Shtáwa X:=1,Y,Z:=5 .              $ hay declaraciones múltiples y la inicialización es opcional
+ 
+   Kichána Shéj Apellidos bikö 4 := ["Vega","Rodriguez","Cubero","Chavarría"] .
+
+   Bók Ká
+      Shtáwa Edad .
+      Shéj Nombre .
+      Wömële Carne .
+      ékla Carrera .
+   Tuína Juan := {*18 , "juan perez", w| MMXXIV |w , 'C' *} .
+
+   Járjá Vocales := {: 'A' ,'E','I',  'O','U':} .
+
+   älwíí Texto := {/ "salida.txt" , 'E' }.
+ 
+
+Wäkiri                                $ sección de prototipos
+   
+   kiana fibonacci ( Shtáwa N ) chani Shtáwa .         $ la lista de parámetros es obligatoria en los prototipos
+
+   wayuä Imprimir3Mensajes ( Shéj msj,msj2 . Shéj msj3 ) .  
+
+   wayuä fiboproc (Shtáwa N . Shtáwa iáwa Resp ) . 
+ 
+
+Prá                                     $ sección de rutinas
+
+   fibonacci ( Shtáwa N ) chani Shtáwa shä
+   ká
+     chagö N<2 jéná 
+       toli 1.
+     shirína
+        fibonacci(däwá N)+fibonacci(däwá däwá N).. 
+   tuína .
+
+   wayuä Imprimir3Mensajes ( ) shä    $ me dió pereza escribir los parámetros otra vez
+   ká
+       BákShéj(msj).
+       BákShéj(msj2).
+       (msj3"aaaaaaaaaaaaaaaaa").
+   tuína .
+
+   wayuä fiboproc (Shtáwa N . Shtáwa iáwa Resp ) shä
+   Kaska
+      Shtáwa R:= 0 .   
+   ká
+     chagö N<2 jéná 
+       R wáka 1 .
+     shirína
+     ká  
+       R wáka fibonacci(däwá N).
+       R wáka+ fibonacci(däwá däwá N).    
+     tuína .
+     Resp wáka R.  
+   tuína .
+
+
+Jarree
+   imprimir3Mensajes("hola"," ","mundo").
+   
+   $ imprimir los números del 1 al 100
+  
+   X wáka 1 .
+   daleika X <= 100 shä
+   ká
+     BákShtáwa(X). 
+     däká X .
+   tuína .
+   
+
+
+wëikä . 
+
+	$* Este es un ejemplo completo del uso de todos los elementos del lenguaje wogawg *$
+
+
+Wögawg  EjemploGrande .                 $ apertura del programa
+
+Kará                                    $ sección de constantes
+   Ñákjëë Shtáwa Constante1 wáka 27   .
+   Ñákjëë ékla Constante2 wáka 'A'.
+   Ñákjëë shéj Constante3 wáka "Hola mundo" .
+
+Klo                                     $ sección de tipos
+
+   Edad :> Shtáwa .
+   Garabato :> ékla .
+   vector :> Kichána Shtáwa bikö 100 .   $ vector de 100 enteros
+   matriz :> Kichána ékla bikö 20 bikö 30 bikö 25 .  $ matriz tridimencional de caracteres
+
+Kaska                                $ sección de variables
+   
+   Wömële Num1 := w|CCCXXV|w.
+   Shtáwa X:=1,Y,Z:=5 .              $ hay declaraciones múltiples y la inicialización es opcional
+ 
+   Kichána Shéj Apellidos bikö 4 := ["Vega","Rodriguez","Cubero","Chavarría"] .
+
+   Bók Ká
+      Shtáwa Edad .
+      Shéj Nombre .
+      Wömële Carne .
+      ékla Carrera .
+   Tuína Juan := {*18 , "juan perez", w| MMXXIV |w , 'C' *} .
+
+   Járjá Vocales := {: 'A' ,'E','I',  'O','U':} .
+
+   älwíí Texto := {/ "salida.txt" , 'E' }.
+ 
+
+Wäkiri                                $ sección de prototipos
+   
+   kiana fibonacci ( Shtáwa N ) chani Shtáwa .         $ la lista de parámetros es obligatoria en los prototipos
+
+   wayuä Imprimir3Mensajes ( Shéj msj,msj2 . Shéj msj3 ) .  
+
+   wayuä fiboproc (Shtáwa N . Shtáwa iáwa Resp ) . 
+ 
+
+Prá                                     $ sección de rutinas
+
+   fibonacci ( Shtáwa N ) chani Shtáwa shä
+   ká
+     chagö N<2 jéná 
+       toli 1.
+     shirína
+       toli fibonacci(däwá N)+fibonacci(däwá däwá N).. 
+   tuína .
+
+   wayuä Imprimir3Mensajes ( ) shä    $ me dió pereza escribir los parámetros otra vez
+   ká
+       BákShéj(msj).
+       BákShéj(msj2).
+       BákShéj(msj3).
+   tuína .
+
+   wayuä fiboproc (Shtáwa N . Shtáwa iáwa Resp ) shä
+   Kaska
+      Shtáwa R:= 0 .   
+   ká
+     chagö N<2 jéná 
+       R wáka 1 .
+     shirína
+     ká  
+       R wáka fibonacci(däwá N).
+       R wáka+ fibonacci(däwá däwá N).    
+     tuína .
+     Resp wáka R.  
+   tuína .
+
+
+Jarree
+   imprimir3Mensajes("hola"," ","mundo").
+   
+   $ imprimir los números del 1 al 100
+  
+   X wáka 1 .
+   daleika X <= 100 shä
+   ká
+     BákShtáwa(X). 
+     däká X .
+   tuína .
+   
+
+
+wëikä . 
+
+$* Este es un ejemplo completo del uso de todos los elementos del lenguaje wogawg *$
+
+
+Wögawg  EjemploGrande .                 $ apertura del programa
+
+Kará                                    $ sección de constantes
+   Ñákjëë Shtáwa Constante1 wáka 27   .
+   Ñákjëë ékla Constante2 wáka 'A'.
+   Ñákjëë shéj Constante3 wáka "Hola mundo" .
+
+Klo                                     $ sección de tipos
+
+   Edad :> Shtáwa .
+   Garabato :> ékla .
+   vector :> Kichána Shtáwa bikö 100 .   $ vector de 100 enteros
+   matriz :> Kichána ékla bikö 20 bikö 30 bikö 25 .  $ matriz tridimencional de caracteres
+
+Kaska                                $ sección de variables
+   
+   Wömële Num1 := w|CCCXXV|w.
+   Shtáwa X:=1,Y,Z:=5 .              $ hay declaraciones múltiples y la inicialización es opcional
+ 
+   Kichána Shéj Apellidos bikö 4 := ["Vega","Rodriguez","Cubero","Chavarría"] .
+
+   Bók Ká
+      Shtáwa Edad .
+      Shéj Nombre .
+      Wömële Carne .
+      ékla Carrera .
+   Tuína Juan := {*18 , "juan perez", w| MMXXIV |w , 'C' *} .
+
+   Járjá Vocales := {: 'A' ,'E','I',  'O','U':} .
+
+   älwíí Texto := {/ "salida.txt" , 'E' }.
+ 
+
+Wäkiri                                $ sección de prototipos
+   
+   kiana fibonacci ( Shtáwa N ) chani Shtáwa .         $ la lista de parámetros es obligatoria en los prototipos
+
+   wayuä Imprimir3Mensajes ( Shéj msj,msj2 . Shéj msj3 ) .  
+
+   wayuä fiboproc (Shtáwa N . Shtáwa iáwa Resp ) . 
+ 
+
+Prá                                     $ sección de rutinas
+
+   fibonacci ( Shtáwa N ) chani Shtáwa shä
+   ká
+     chagö N<2 jéná 
+       toli 1.
+     shirína
+       toli fibonacci(däwá N)+fibonacci(däwá däwá N).. 
+   tuína .
+
+   wayuä Imprimir3Mensajes ( ) shä    $ me dió pereza escribir los parámetros otra vez
+   ká
+       BákShéj(msj).
+       BákShéj(msj2).
+       BákShéj(msj3).
+   tuína .
+
+   wayuä fiboproc (Shtáwa N . Shtáwa iáwa Resp ) shä
+   Kaska
+      Shtáwa R:= 0 .   
+   ká
+     chagö N<2 jéná 
+       R wáka 1 .
+     shirína
+     ká  
+       R wáka fibonacci(däwá N).
+       R wáka+ fibonacci(däwá däwá N).    
+     tuína .
+     Resp wáka R.  
+   tuína .
+
+
+Jarree
+   imprimir3Mensajes("hola"," ","mundo").
+   
+   $ imprimir los números del 1 al 100
+  
+   X wáka 1 .
+   daleika X <= 100 shä
+   ká
+     BákShtáwa(X). 
+     däká X .
+   tuína .
+   
+
+
+wëikä . 
+
+$* Este es un ejemplo completo del uso de todos los elementos del lenguaje wogawg *$
+
+
+Wögawg  EjemploGrande .                 $ apertura del programa
+
+Kará                                    $ sección de constantes
+   Ñákjëë Shtáwa Constante1 wáka 27   .
+   Ñákjëë ékla Constante2 wáka 'A'.
+   Ñákjëë shéj Constante3 wáka "Hola mundo" .
+
+Klo                                     $ sección de tipos
+
+   Edad :> Shtáwa .
+   Garabato :> ékla .
+   vector :> Kichána Shtáwa bikö 100 .   $ vector de 100 enteros
+   matriz :> Kichána ékla bikö 20 bikö 30 bikö 25 .  $ matriz tridimencional de caracteres
+
+Kaska                                $ sección de variables
+   
+   Wömële Num1 := w|CCCXXV|w.
+   Shtáwa X:=1,Y,Z:=5 .              $ hay declaraciones múltiples y la inicialización es opcional
+ 
+   Kichána Shéj Apellidos bikö 4 := ["Vega","Rodriguez","Cubero","Chavarría"] .
+
+   Bók Ká
+      Shtáwa Edad .
+      Shéj Nombre .
+      Wömële Carne .
+      ékla Carrera .
+   Tuína Juan := {*18 , "juan perez", w| MMXXIV |w , 'C' *} .
+
+   Járjá Vocales := {: 'A' ,'E','I',  'O','U':} .
+
+   älwíí Texto := {/ "salida.txt" , 'E' }.
+ 
+
+Wäkiri                                $ sección de prototipos
+   
+   kiana fibonacci ( Shtáwa N ) chani Shtáwa .         $ la lista de parámetros es obligatoria en los prototipos
+
+   wayuä Imprimir3Mensajes ( Shéj msj,msj2 . Shéj msj3 ) .  
+
+   wayuä fiboproc (Shtáwa N . Shtáwa iáwa Resp ) . 
+ 
+
+Prá                                     $ sección de rutinas
+
+   fibonacci ( Shtáwa N ) chani Shtáwa shä
+   ká
+     chagö N<2 jéná 
+       toli 1.
+     shirína
+       toli fibonacci(däwá N)+fibonacci(däwá däwá N).. 
+   tuína .
+
+   wayuä Imprimir3Mensajes ( ) shä    $ me dió pereza escribir los parámetros otra vez
+   ká
+       BákShéj(msj).
+       BákShéj(msj2).
+       BákShéj(msj3).
+   tuína .
+
+   wayuä fiboproc (Shtáwa N . Shtáwa iáwa Resp ) shä
+   Kaska
+      Shtáwa R:= 0 .   
+   ká
+     chagö N<2 jéná 
+       R wáka 1 .
+     shirína
+     ká  
+       R wáka fibonacci(däwá N).
+       R wáka+ fibonacci(däwá däwá N).    
+     tuína .
+     Resp wáka R.  
+   tuína .
+
+
+Jarree
+   imprimir3Mensajes("hola"," ","mundo").
+   
+   $ imprimir los números del 1 al 100
+  
+   X wáka 1 .
+   daleika X <= 100 shä
+   ká
+     BákShtáwa(X). 
+     däká X .
+   tuína .
+   
+
+
+wëikä . 
+
+$* Este es un ejemplo completo del uso de todos los elementos del lenguaje wogawg *$
+
+
+Wögawg  EjemploGrande .                 $ apertura del programa
+
+Kará                                    $ sección de constantes
+   Ñákjëë Shtáwa Constante1 wáka 27   .
+   Ñákjëë ékla Constante2 wáka 'A'.
+   Ñákjëë shéj Constante3 wáka "Hola mundo" .
+
+Klo                                     $ sección de tipos
+
+   Edad :> Shtáwa .
+   Garabato :> ékla .
+   vector :> Kichána Shtáwa bikö 100 .   $ vector de 100 enteros
+   matriz :> Kichána ékla bikö 20 bikö 30 bikö 25 .  $ matriz tridimencional de caracteres
+
+Kaska                                $ sección de variables
+   
+   Wömële Num1 := w|CCCXXV|w.
+   Shtáwa X:=1,Y,Z:=5 .              $ hay declaraciones múltiples y la inicialización es opcional
+ 
+   Kichána Shéj Apellidos bikö 4 := ["Vega","Rodriguez","Cubero","Chavarría"] .
+
+   Bók Ká
+      Shtáwa Edad .
+      Shéj Nombre .
+      Wömële Carne .
+      ékla Carrera .
+   Tuína Juan := {*18 , "juan perez", w| MMXXIV |w , 'C' *} .
+
+   Járjá Vocales := {: 'A' ,'E','I',  'O','U':} .
+
+   älwíí Texto := {/ "salida.txt" , 'E' }.
+ 
+
+Wäkiri                                $ sección de prototipos
+   
+   kiana fibonacci ( Shtáwa N ) chani Shtáwa .         $ la lista de parámetros es obligatoria en los prototipos
+
+   wayuä Imprimir3Mensajes ( Shéj msj,msj2 . Shéj msj3 ) .  
+
+   wayuä fiboproc (Shtáwa N . Shtáwa iáwa Resp ) . 
+ 
+
+Prá                                     $ sección de rutinas
+
+   fibonacci ( Shtáwa N ) chani Shtáwa shä
+   ká
+     chagö N<2 jéná 
+       toli 1.
+     shirína
+       toli fibonacci(däwá N)+fibonacci(däwá däwá N).. 
+   tuína .
+
+   wayuä Imprimir3Mensajes ( ) shä    $ me dió pereza escribir los parámetros otra vez
+   ká
+       BákShéj(msj).
+       BákShéj(msj2).
+       BákShéj(msj3).
+   tuína .
+
+   wayuä fiboproc (Shtáwa N . Shtáwa iáwa Resp ) shä
+   Kaska
+      Shtáwa R:= 0 .   
+   ká
+     chagö N<2 jéná 
+       R wáka 1 .
+     shirína
+     ká  
+       R wáka fibonacci(däwá N).
+       R wáka+ fibonacci(däwá däwá N).    
+     tuína .
+     Resp wáka R.  
+   tuína .
+
+
+Jarree
+   imprimir3Mensajes("hola"," ","mundo").
+   
+   $ imprimir los números del 1 al 100
+  
+   X wáka 1 .
+   daleika X <= 100 shä
+   ká
+     BákShtáwa(X). 
+     däká X .
+   tuína .
+   
+
+
+wëikä . 
+
+$* Este es un ejemplo completo del uso de todos los elementos del lenguaje wogawg *$
+
+
+Wögawg  EjemploGrande .                 $ apertura del programa
+
+Kará                                    $ sección de constantes
+   Ñákjëë Shtáwa Constante1 wáka 27   .
+   Ñákjëë ékla Constante2 wáka 'A'.
+   Ñákjëë shéj Constante3 wáka "Hola mundo" .
+
+Klo                                     $ sección de tipos
+
+   Edad :> Shtáwa .
+   Garabato :> ékla .
+   vector :> Kichána Shtáwa bikö 100 .   $ vector de 100 enteros
+   matriz :> Kichána ékla bikö 20 bikö 30 bikö 25 .  $ matriz tridimencional de caracteres
+
+Kaska                                $ sección de variables
+   
+   Wömële Num1 := w|CCCXXV|w.
+   Shtáwa X:=1,Y,Z:=5 .              $ hay declaraciones múltiples y la inicialización es opcional
+ 
+   Kichána Shéj Apellidos bikö 4 := ["Vega","Rodriguez","Cubero","Chavarría"] .
+
+   Bók Ká
+      Shtáwa Edad .
+      Shéj Nombre .
+      Wömële Carne .
+      ékla Carrera .
+   Tuína Juan := {*18 , "juan perez", w| MMXXIV |w , 'C' *} .
+
+   Járjá Vocales := {: 'A' ,'E','I',  'O','U':} .
+
+   älwíí Texto := {/ "salida.txt" , 'E' }.
+ 
+
+Wäkiri                                $ sección de prototipos
+   
+   kiana fibonacci ( Shtáwa N ) chani Shtáwa .         $ la lista de parámetros es obligatoria en los prototipos
+
+   wayuä Imprimir3Mensajes ( Shéj msj,msj2 . Shéj msj3 ) .  
+
+   wayuä fiboproc (Shtáwa N . Shtáwa iáwa Resp ) . 
+ 
+
+Prá                                     $ sección de rutinas
+
+   fibonacci ( Shtáwa N ) chani Shtáwa shä
+   ká
+     chagö N<2 jéná 
+       toli 1.
+     shirína
+       toli fibonacci(däwá N)+fibonacci(däwá däwá N).. 
+   tuína .
+
+   wayuä Imprimir3Mensajes ( ) shä    $ me dió pereza escribir los parámetros otra vez
+   ká
+       BákShéj(msj).
+       BákShéj(msj2).
+       BákShéj(msj3).
+   tuína .
+
+   wayuä fiboproc (Shtáwa N . Shtáwa iáwa Resp ) shä
+   Kaska
+      Shtáwa R:= 0 .   
+   ká
+     chagö N<2 jéná 
+       R wáka 1 .
+     shirína
+     ká  
+       R wáka fibonacci(däwá N).
+       R wáka+ fibonacci(däwá däwá N).    
+     tuína .
+     Resp wáka R.  
+   tuína .
+
+
+Jarree
+   imprimir3Mensajes("hola"," ","mundo").
+   
+   $ imprimir los números del 1 al 100
+  
+   X wáka 1 .
+   daleika X <= 100 shä
+   ká
+     BákShtáwa(X). 
+     däká X .
+   tuína .
+   
+
+
+wëikä . 
+
+$* Este es un ejemplo completo del uso de todos los elementos del lenguaje wogawg *$
+
+
+Wögawg  EjemploGrande .                 $ apertura del programa
+
+Kará                                    $ sección de constantes
+   Ñákjëë Shtáwa Constante1 wáka 27   .
+   Ñákjëë ékla Constante2 wáka 'A'.
+   Ñákjëë shéj Constante3 wáka "Hola mundo" .
+
+Klo                                     $ sección de tipos
+
+   Edad :> Shtáwa .
+   Garabato :> ékla .
+   vector :> Kichána Shtáwa bikö 100 .   $ vector de 100 enteros
+   matriz :> Kichána ékla bikö 20 bikö 30 bikö 25 .  $ matriz tridimencional de caracteres
+
+Kaska                                $ sección de variables
+   
+   Wömële Num1 := w|CCCXXV|w.
+   Shtáwa X:=1,Y,Z:=5 .              $ hay declaraciones múltiples y la inicialización es opcional
+ 
+   Kichána Shéj Apellidos bikö 4 := ["Vega","Rodriguez","Cubero","Chavarría"] .
+
+   Bók Ká
+      Shtáwa Edad .
+      Shéj Nombre .
+      Wömële Carne .
+      ékla Carrera .
+   Tuína Juan := {*18 , "juan perez", w| MMXXIV |w , 'C' *} .
+
+   Járjá Vocales := {: 'A' ,'E','I',  'O','U':} .
+
+   älwíí Texto := {/ "salida.txt" , 'E' }.
+ 
+
+Wäkiri                                $ sección de prototipos
+   
+   kiana fibonacci ( Shtáwa N ) chani Shtáwa .         $ la lista de parámetros es obligatoria en los prototipos
+
+   wayuä Imprimir3Mensajes ( Shéj msj,msj2 . Shéj msj3 ) .  
+
+   wayuä fiboproc (Shtáwa N . Shtáwa iáwa Resp ) . 
+ 
+
+Prá                                     $ sección de rutinas
+
+   fibonacci ( Shtáwa N ) chani Shtáwa shä
+   ká
+     chagö N<2 jéná 
+       toli 1.
+     shirína
+       toli fibonacci(däwá N)+fibonacci(däwá däwá N).. 
+   tuína .
+
+   wayuä Imprimir3Mensajes ( ) shä    $ me dió pereza escribir los parámetros otra vez
+   ká
+       BákShéj(msj).
+       BákShéj(msj2).
+       BákShéj(msj3).
+   tuína .
+
+   wayuä fiboproc (Shtáwa N . Shtáwa iáwa Resp ) shä
+   Kaska
+      Shtáwa R:= 0 .   
+   ká
+     chagö N<2 jéná 
+       R wáka 1 .
+     shirína
+     ká  
+       R wáka fibonacci(däwá N).
+       R wáka+ fibonacci(däwá däwá N).    
+     tuína .
+     Resp wáka R.  
+   tuína .
+
+
+Jarree
+   imprimir3Mensajes("hola"," ","mundo").
+   
+   $ imprimir los números del 1 al 100
+  
+   X wáka 1 .
+   daleika X <= 100 shä
+   ká
+     BákShtáwa(X). 
+     däká X .
+   tuína .
+   
+
+
+wëikä . 
+
+$* Este es un ejemplo completo del uso de todos los elementos del lenguaje wogawg *$
+
+
+Wögawg  EjemploGrande .                 $ apertura del programa
+
+Kará                                    $ sección de constantes
+   Ñákjëë Shtáwa Constante1 wáka 27   .
+   Ñákjëë ékla Constante2 wáka 'A'.
+   Ñákjëë shéj Constante3 wáka "Hola mundo" .
+
+Klo                                     $ sección de tipos
+
+   Edad :> Shtáwa .
+   Garabato :> ékla .
+   vector :> Kichána Shtáwa bikö 100 .   $ vector de 100 enteros
+   matriz :> Kichána ékla bikö 20 bikö 30 bikö 25 .  $ matriz tridimencional de caracteres
+
+Kaska                                $ sección de variables
+   
+   Wömële Num1 := w|CCCXXV|w.
+   Shtáwa X:=1,Y,Z:=5 .              $ hay declaraciones múltiples y la inicialización es opcional
+ 
+   Kichána Shéj Apellidos bikö 4 := ["Vega","Rodriguez","Cubero","Chavarría"] .
+
+   Bók Ká
+      Shtáwa Edad .
+      Shéj Nombre .
+      Wömële Carne .
+      ékla Carrera .
+   Tuína Juan := {*18 , "juan perez", w| MMXXIV |w , 'C' *} .
+
+   Járjá Vocales := {: 'A' ,'E','I',  'O','U':} .
+
+   älwíí Texto := {/ "salida.txt" , 'E' }.
+ 
+
+Wäkiri                                $ sección de prototipos
+   
+   kiana fibonacci ( Shtáwa N ) chani Shtáwa .         $ la lista de parámetros es obligatoria en los prototipos
+
+   wayuä Imprimir3Mensajes ( Shéj msj,msj2 . Shéj msj3 ) .  
+
+   wayuä fiboproc (Shtáwa N . Shtáwa iáwa Resp ) . 
+ 
+
+Prá                                     $ sección de rutinas
+
+   fibonacci ( Shtáwa N ) chani Shtáwa shä
+   ká
+     chagö N<2 jéná 
+       toli 1.
+     shirína
+       toli fibonacci(däwá N)+fibonacci(däwá däwá N).. 
+   tuína .
+
+   wayuä Imprimir3Mensajes ( ) shä    $ me dió pereza escribir los parámetros otra vez
+   ká
+       BákShéj(msj).
+       BákShéj(msj2).
+       BákShéj(msj3).
+   tuína .
+
+   wayuä fiboproc (Shtáwa N . Shtáwa iáwa Resp ) shä
+   Kaska
+      Shtáwa R:= 0 .   
+   ká
+     chagö N<2 jéná 
+       R wáka 1 .
+     shirína
+     ká  
+       R wáka fibonacci(däwá N).
+       R wáka+ fibonacci(däwá däwá N).    
+     tuína .
+     Resp wáka R.  
+   tuína .
+
+
+Jarree
+   imprimir3Mensajes("hola"," ","mundo").
+   
+   $ imprimir los números del 1 al 100
+  
+   X wáka 1 .
+   daleika X <= 100 shä
+   ká
+     BákShtáwa(X). 
+     däká X .
+   tuína .
+   
+
+
+wëikä . 
+
+$* Este es un ejemplo completo del uso de todos los elementos del lenguaje wogawg *$
+
+
+Wögawg  EjemploGrande .                 $ apertura del programa
+
+Kará                                    $ sección de constantes
+   Ñákjëë Shtáw Constante1 wáka 27a   .
+   Ñákjëë ékla Constante2 wáka 'A'.
+   Ñákjëë shéj Constante3 waka "Hola mundo" .
+
+Klo                                     $ sección de tipos
+
+   Edad :> Shtáwa .
+   Garabato :> ékla .
+   vector :> Kichána Shtáwa bikö 100 .   $ vector de 100 enteros
+   matriz :> Kichána ékla bikö 20 bikö 30 bikö 25 .  $ matriz tridimencional de caracteres
+
+Kaska                                $ sección de variables
+   
+   Wömële Num1 := w|CC
+   
+   CXXV|w.
+   Shtáwa X:=1,Y,Z:=5 .              $ hay declaraciones múltiples y la inicialización es opcional
+ 
+   Kichána Shéj Apellidos bikö 4 := ["Vega","Rodriguez","Cubero","Chavarría"] .
+
+   Bók Ká
+      Shtáwa Edad .
+      Shéj Nombre .
+      Wömële Carne .
+      ékla Carrera .
+   Tuína Juan := {*18 , "juan perez", w| MMXXIV |w , 'C' *} .
+
+   Járjá Vocales := {: 'A' ,'E','I',  'O','U':} .
+
+   älwíí Texto := {/ "salida.txt" , 'E' }.
+ 
+
+Wäkiri                                $ sección de prototipos
+   
+   kiana fibonacci ( Shtáwa N ) chani Shtáwa .         $ la lista de parámetros es obligatoria en los prototipos
+
+   wayuä Imprimir3Mensajes ( Shéj msj,msj2 . Shéj msj3 ) .  
+
+   wayuä fiboproc (Shtáwa N . Shtáwa iáwa Resp ) . 
+ 
+
+Prá                                     $ sección de rutinas
+
+   fibonacci ( Shtáwa N ) chani Shtáwa shä
+   ká
+     chagö N<2 jéná 
+       toli 1.
+     shirína
+        fibonacci(däwá N)+fibonacci(däwá däwá N).. 
+   tuína .
+
+   wayuä Imprimir3Mensajes ( ) shä    $ me dió pereza escribir los parámetros otra vez
+   ká
+       BákShéj(msj).
+       BákShéj(msj2).
+       (msj3"aaaaaaaaaaaaaaaaa").
+   tuína .
+
+   wayuä fiboproc (Shtáwa N . Shtáwa iáwa Resp ) shä
+   Kaska
+      Shtáwa R:= 0 .   
+   ká
+     chagö N<2 jéná 
+       R wáka 1 .
+     shirína
+     ká  
+    
+    $* Este es un ejemplo completo del uso de todos los elementos del lenguaje wogawg *$
+
+
+Wögawg  EjemploGrande .                 $ apertura del programa
+
+Kará                                    $ sección de constantes
+   Ñákjëë Shtáw Constante1 wáka 27a   .
+   Ñákjëë ékla Constante2 wáka 'A'.
+   Ñákjëë shéj Constante3 waka "Hola mundo" .
+
+Klo                                     $ sección de tipos
+
+   Edad :> Shtáwa .
+   Garabato :> ékla .
+   vector :> Kichána Shtáwa bikö 100 .   $ vector de 100 enteros
+   matriz :> Kichána ékla bikö 20 bikö 30 bikö 25 .  $ matriz tridimencional de caracteres
+
+Kaska                                $ sección de variables
+   
+   Wömële Num1 := w|CC
+   
+   CXXV|w.
+   Shtáwa X:=1,Y,Z:=5 .              $ hay declaraciones múltiples y la inicialización es opcional
+ 
+   Kichána Shéj Apellidos bikö 4 := ["Vega","Rodriguez","Cubero","Chavarría"] .
+
+   Bók Ká
+      Shtáwa Edad .
+      Shéj Nombre .
+      Wömële Carne .
+      ékla Carrera .
+   Tuína Juan := {*18 , "juan perez", w| MMXXIV |w , 'C' *} .
+
+   Járjá Vocales := {: 'A' ,'E','I',  'O','U':} .
+
+   älwíí Texto := {/ "salida.txt" , 'E' }.
+ 
+
+Wäkiri                                $ sección de prototipos
+   
+   kiana fibonacci ( Shtáwa N ) chani Shtáwa .         $ la lista de parámetros es obligatoria en los prototipos
+
+   wayuä Imprimir3Mensajes ( Shéj msj,msj2 . Shéj msj3 ) .  
+
+   wayuä fiboproc (Shtáwa N . Shtáwa iáwa Resp ) . 
+ 
+
+Prá                                     $ sección de rutinas
+
+   fibonacci ( Shtáwa N ) chani Shtáwa shä
+   ká
+     chagö N<2 jéná 
+       toli 1.
+     shirína
+
+       R wáka 1 .
+     shirína
+     ká  
+       R wáka fibonacci(däwá N).
+       R wáka+ fibonacci(däwá däwá N).    
+     tuína .
+     Resp wáka R.  
+   tuína .
+
+
+Jarree
+   imprimir3Mensajes("hola"," ","mundo").
+   
+   $ imprimir los números del 1 al 100
+  
+   X wáka 1 .
+   daleika X <= 100 shä
+   ká
+     BákShtáwa(X). 
+     däká X .
+   tuína .
+   
+
+
+wëikä . 
+
+	
+
+	$* Este es un ejemplo completo del uso de todos los elementos del lenguaje wogawg *$
+
+
+Wögawg  EjemploGrande .                 $ apertura del programa
+
+Kará                                    $ sección de constantes
+   Ñákjëë Shtáwa Constante1 wáka 27   .
+   Ñákjëë ékla Constante2 wáka 'A'.
+   Ñákjëë shéj Constante3 wáka "Hola mundo" .
+
+Klo                                     $ sección de tipos
+
+   Edad :> Shtáwa .
+   Garabato :> ékla .
+   vector :> Kichána Shtáwa bikö 100 .   $ vector de 100 enteros
+   matriz :> Kichána ékla bikö 20 bikö 30 bikö 25 .  $ matriz tridimencional de caracteres
+
+Kaska                                $ sección de variables
+   
+   Wömële Num1 := w|CCCXXV|w.
+   Shtáwa X:=1,Y,Z:=5 .              $ hay declaraciones múltiples y la inicialización es opcional
+ 
+   Kichána Shéj Apellidos bikö 4 := ["Vega","Rodriguez","Cubero","Chavarría"] .
+
+   Bók Ká
+      Shtáwa Edad .
+      Shéj Nombre .
+      Wömële Carne .
+      ékla Carrera .
+   Tuína Juan := {*18 , "juan perez", w| MMXXIV |w , 'C' *} .
+
+   Járjá Vocales := {: 'A' ,'E','I',  'O','U':} .
+
+   älwíí Texto := {/ "salida.txt" , 'E' }.
+ 
+
+Wäkiri                                $ sección de prototipos
+   
+   kiana fibonacci ( Shtáwa N ) chani Shtáwa .         $ la lista de parámetros es obligatoria en los prototipos
+
+   wayuä Imprimir3Mensajes ( Shéj msj,msj2 . Shéj msj3 ) .  
+
+   wayuä fiboproc (Shtáwa N . Shtáwa iáwa Resp ) . 
+ 
+
+Prá                                     $ sección de rutinas
+
+   fibonacci ( Shtáwa N ) chani Shtáwa shä
+   ká
+     chagö N<2 jéná 
+       toli 1.
+     shirína
+       toli fibonacci(däwá N)+fibonacci(däwá däwá N).. 
+   tuína .
+
+   wayuä Imprimir3Mensajes ( ) shä    $ me dió pereza escribir los parámetros otra vez
+   ká
+       BákShéj(msj).
+       BákShéj(msj2).
+       BákShéj(msj3).
+   tuína .
+
+   wayuä fiboproc (Shtáwa N . Shtáwa iáwa Resp ) shä
+   Kaska
+      Shtáwa R:= 0 .   
+   ká
+     chagö N<2 jéná 
+       R wáka 1 .
+     shirína
+     ká  
+       R wáka fibonacci(däwá N).
+       R wáka+ fibonacci(däwá däwá N).    
+     tuína .
+     Resp wáka R.  
+   tuína .
+
+
+Jarree
+   imprimir3Mensajes("hola"," ","mundo").
+   
+   $ imprimir los números del 1 al 100
+  
+   X wáka 1 .
+   daleika X <= 100 shä
+   ká
+     BákShtáwa(X). 
+     däká X .
+   tuína .
+   
+
+
+wëikä . 
+
+$* Este es un ejemplo completo del uso de todos los elementos del lenguaje wogawg *$
+
+
+Wögawg  EjemploGrande .                 $ apertura del programa
+
+Kará                                    $ sección de constantes
+   Ñákjëë Shtáwa Constante1 wáka 27   .
+   Ñákjëë ékla Constante2 wáka 'A'.
+   Ñákjëë shéj Constante3 wáka "Hola mundo" .
+
+Klo                                     $ sección de tipos
+
+   Edad :> Shtáwa .
+   Garabato :> ékla .
+   vector :> Kichána Shtáwa bikö 100 .   $ vector de 100 enteros
+   matriz :> Kichána ékla bikö 20 bikö 30 bikö 25 .  $ matriz tridimencional de caracteres
+
+Kaska                                $ sección de variables
+   
+   Wömële Num1 := w|CCCXXV|w.
+   Shtáwa X:=1,Y,Z:=5 .              $ hay declaraciones múltiples y la inicialización es opcional
+ 
+   Kichána Shéj Apellidos bikö 4 := ["Vega","Rodriguez","Cubero","Chavarría"] .
+
+   Bók Ká
+      Shtáwa Edad .
+      Shéj Nombre .
+      Wömële Carne .
+      ékla Carrera .
+   Tuína Juan := {*18 , "juan perez", w| MMXXIV |w , 'C' *} .
+
+   Járjá Vocales := {: 'A' ,'E','I',  'O','U':} .
+
+   älwíí Texto := {/ "salida.txt" , 'E' }.
+ 
+
+Wäkiri                                $ sección de prototipos
+   
+   kiana fibonacci ( Shtáwa N ) chani Shtáwa .         $ la lista de parámetros es obligatoria en los prototipos
+
+   wayuä Imprimir3Mensajes ( Shéj msj,msj2 . Shéj msj3 ) .  
+
+   wayuä fiboproc (Shtáwa N . Shtáwa iáwa Resp ) . 
+ 
+
+Prá                                     $ sección de rutinas
+
+   fibonacci ( Shtáwa N ) chani Shtáwa shä
+   ká
+     chagö N<2 jéná 
+       toli 1.
+     shirína
+       toli fibonacci(däwá N)+fibonacci(däwá däwá N).. 
+   tuína .
+
+   wayuä Imprimir3Mensajes ( ) shä    $ me dió pereza escribir los parámetros otra vez
+   ká
+       BákShéj(msj).
+       BákShéj(msj2).
+       BákShéj(msj3).
+   tuína .
+
+   wayuä fiboproc (Shtáwa N . Shtáwa iáwa Resp ) shä
+   Kaska
+      Shtáwa R:= 0 .   
+   ká
+     chagö N<2 jéná 
+       R wáka 1 .
+     shirína
+     ká  
+       R wáka fibonacci(däwá N).
+       R wáka+ fibonacci(däwá däwá N).    
+     tuína .
+     Resp wáka R.  
+   tuína .
+
+
+Jarree
+   imprimir3Mensajes("hola"," ","mundo").
+   
+   $ imprimir los números del 1 al 100
+  
+   X wáka 1 .
+   daleika X <= 100 shä
+   ká
+     BákShtáwa(X). 
+     däká X .
+   tuína .
+   
+
+
+wëikä . 
+
+$* Este es un ejemplo completo del uso de todos los elementos del lenguaje wogawg *$
+
+
+Wögawg  EjemploGrande .                 $ apertura del programa
+
+Kará                                    $ sección de constantes
+   Ñákjëë Shtáwa Constante1 wáka 27   .
+   Ñákjëë ékla Constante2 wáka 'A'.
+   Ñákjëë shéj Constante3 wáka "Hola mundo" .
+
+Klo                                     $ sección de tipos
+
+   Edad :> Shtáwa .
+   Garabato :> ékla .
+   vector :> Kichána Shtáwa bikö 100 .   $ vector de 100 enteros
+   matriz :> Kichána ékla bikö 20 bikö 30 bikö 25 .  $ matriz tridimencional de caracteres
+
+Kaska                                $ sección de variables
+   
+   Wömële Num1 := w|CCCXXV|w.
+   Shtáwa X:=1,Y,Z:=5 .              $ hay declaraciones múltiples y la inicialización es opcional
+ 
+   Kichána Shéj Apellidos bikö 4 := ["Vega","Rodriguez","Cubero","Chavarría"] .
+
+   Bók Ká
+      Shtáwa Edad .
+      Shéj Nombre .
+      Wömële Carne .
+      ékla Carrera .
+   Tuína Juan := {*18 , "juan perez", w| MMXXIV |w , 'C' *} .
+
+   Járjá Vocales := {: 'A' ,'E','I',  'O','U':} .
+
+   älwíí Texto := {/ "salida.txt" , 'E' }.
+ 
+
+Wäkiri                                $ sección de prototipos
+   
+   kiana fibonacci ( Shtáwa N ) chani Shtáwa .         $ la lista de parámetros es obligatoria en los prototipos
+
+   wayuä Imprimir3Mensajes ( Shéj msj,msj2 . Shéj msj3 ) .  
+
+   wayuä fiboproc (Shtáwa N . Shtáwa iáwa Resp ) . 
+ 
+
+Prá                                     $ sección de rutinas
+
+   fibonacci ( Shtáwa N ) chani Shtáwa shä
+   ká
+     chagö N<2 jéná 
+       toli 1.
+     shirína
+       toli fibonacci(däwá N)+fibonacci(däwá däwá N).. 
+   tuína .
+
+   wayuä Imprimir3Mensajes ( ) shä    $ me dió pereza escribir los parámetros otra vez
+   ká
+       BákShéj(msj).
+       BákShéj(msj2).
+       BákShéj(msj3).
+   tuína .
+
+   wayuä fiboproc (Shtáwa N . Shtáwa iáwa Resp ) shä
+   Kaska
+      Shtáwa R:= 0 .   
+   ká
+     chagö N<2 jéná 
+       R wáka 1 .
+     shirína
+     ká  
+       R wáka fibonacci(däwá N).
+       R wáka+ fibonacci(däwá däwá N).    
+     tuína .
+     Resp wáka R.  
+   tuína .
+
+
+Jarree
+   imprimir3Mensajes("hola"," ","mundo").
+   
+   $ imprimir los números del 1 al 100
+  
+   X wáka 1 .
+   daleika X <= 100 shä
+   ká
+     BákShtáwa(X). 
+     däká X .
+   tuína .
+   
+
+
+wëikä . 
+
+$* Este es un ejemplo completo del uso de todos los elementos del lenguaje wogawg *$
+
+
+Wögawg  EjemploGrande .                 $ apertura del programa
+
+Kará                                    $ sección de constantes
+   Ñákjëë Shtáwa Constante1 wáka 27   .
+   Ñákjëë ékla Constante2 wáka 'A'.
+   Ñákjëë shéj Constante3 wáka "Hola mundo" .
+
+Klo                                     $ sección de tipos
+
+   Edad :> Shtáwa .
+   Garabato :> ékla .
+   vector :> Kichána Shtáwa bikö 100 .   $ vector de 100 enteros
+   matriz :> Kichána ékla bikö 20 bikö 30 bikö 25 .  $ matriz tridimencional de caracteres
+
+Kaska                                $ sección de variables
+   
+   Wömële Num1 := w|CCCXXV|w.
+   Shtáwa X:=1,Y,Z:=5 .              $ hay declaraciones múltiples y la inicialización es opcional
+ 
+   Kichána Shéj Apellidos bikö 4 := ["Vega","Rodriguez","Cubero","Chavarría"] .
+
+   Bók Ká
+      Shtáwa Edad .
+      Shéj Nombre .
+      Wömële Carne .
+      ékla Carrera .
+   Tuína Juan := {*18 , "juan perez", w| MMXXIV |w , 'C' *} .
+
+   Járjá Vocales := {: 'A' ,'E','I',  'O','U':} .
+
+   älwíí Texto := {/ "salida.txt" , 'E' }.
+ 
+
+Wäkiri                                $ sección de prototipos
+   
+   kiana fibonacci ( Shtáwa N ) chani Shtáwa .         $ la lista de parámetros es obligatoria en los prototipos
+
+   wayuä Imprimir3Mensajes ( Shéj msj,msj2 . Shéj msj3 ) .  
+
+   wayuä fiboproc (Shtáwa N . Shtáwa iáwa Resp ) . 
+ 
+
+Prá                                     $ sección de rutinas
+
+   fibonacci ( Shtáwa N ) chani Shtáwa shä
+   ká
+     chagö N<2 jéná 
+       toli 1.
+     shirína
+       toli fibonacci(däwá N)+fibonacci(däwá däwá N).. 
+   tuína .
+
+   wayuä Imprimir3Mensajes ( ) shä    $ me dió pereza escribir los parámetros otra vez
+   ká
+       BákShéj(msj).
+       BákShéj(msj2).
+       BákShéj(msj3).
+   tuína .
+
+   wayuä fiboproc (Shtáwa N . Shtáwa iáwa Resp ) shä
+   Kaska
+      Shtáwa R:= 0 .   
+   ká
+     chagö N<2 jéná 
+       R wáka 1 .
+     shirína
+     ká  
+       R wáka fibonacci(däwá N).
+       R wáka+ fibonacci(däwá däwá N).    
+     tuína .
+     Resp wáka R.  
+   tuína .
+
+
+Jarree
+   imprimir3Mensajes("hola"," ","mundo").
+   
+   $ imprimir los números del 1 al 100
+  
+   X wáka 1 .
+   daleika X <= 100 shä
+   ká
+     BákShtáwa(X). 
+     däká X .
+   tuína .
+   
+
+
+wëikä . 
+
+$* Este es un ejemplo completo del uso de todos los elementos del lenguaje wogawg *$
+
+
+Wögawg  EjemploGrande .                 $ apertura del programa
+
+Kará                                    $ sección de constantes
+   Ñákjëë Shtáwa Constante1 wáka 27   .
+   Ñákjëë ékla Constante2 wáka 'A'.
+   Ñákjëë shéj Constante3 wáka "Hola mundo" .
+
+Klo                                     $ sección de tipos
+
+   Edad :> Shtáwa .
+   Garabato :> ékla .
+   vector :> Kichána Shtáwa bikö 100 .   $ vector de 100 enteros
+   matriz :> Kichána ékla bikö 20 bikö 30 bikö 25 .  $ matriz tridimencional de caracteres
+
+Kaska                                $ sección de variables
+   
+   Wömële Num1 := w|CCCXXV|w.
+   Shtáwa X:=1,Y,Z:=5 .              $ hay declaraciones múltiples y la inicialización es opcional
+ 
+   Kichána Shéj Apellidos bikö 4 := ["Vega","Rodriguez","Cubero","Chavarría"] .
+
+   Bók Ká
+      Shtáwa Edad .
+      Shéj Nombre .
+      Wömële Carne .
+      ékla Carrera .
+   Tuína Juan := {*18 , "juan perez", w| MMXXIV |w , 'C' *} .
+
+   Járjá Vocales := {: 'A' ,'E','I',  'O','U':} .
+
+   älwíí Texto := {/ "salida.txt" , 'E' }.
+ 
+
+Wäkiri                                $ sección de prototipos
+   
+   kiana fibonacci ( Shtáwa N ) chani Shtáwa .         $ la lista de parámetros es obligatoria en los prototipos
+
+   wayuä Imprimir3Mensajes ( Shéj msj,msj2 . Shéj msj3 ) .  
+
+   wayuä fiboproc (Shtáwa N . Shtáwa iáwa Resp ) . 
+ 
+
+Prá                                     $ sección de rutinas
+
+   fibonacci ( Shtáwa N ) chani Shtáwa shä
+   ká
+     chagö N<2 jéná 
+       toli 1.
+     shirína
+       toli fibonacci(däwá N)+fibonacci(däwá däwá N).. 
+   tuína .
+
+   wayuä Imprimir3Mensajes ( ) shä    $ me dió pereza escribir los parámetros otra vez
+   ká
+       BákShéj(msj).
+       BákShéj(msj2).
+       BákShéj(msj3).
+   tuína .
+
+   wayuä fiboproc (Shtáwa N . Shtáwa iáwa Resp ) shä
+   Kaska
+      Shtáwa R:= 0 .   
+   ká
+     chagö N<2 jéná 
+       R wáka 1 .
+     shirína
+     ká  
+       R wáka fibonacci(däwá N).
+       R wáka+ fibonacci(däwá däwá N).    
+     tuína .
+     Resp wáka R.  
+   tuína .
+
+
+Jarree
+   imprimir3Mensajes("hola"," ","mundo").
+   
+   $ imprimir los números del 1 al 100
+  
+   X wáka 1 .
+   daleika X <= 100 shä
+   ká
+     BákShtáwa(X). 
+     däká X .
+   tuína .
+   
+
+
+wëikä . 
+
+$* Este es un ejemplo completo del uso de todos los elementos del lenguaje wogawg *$
+
+
+Wögawg  EjemploGrande .                 $ apertura del programa
+
+Kará                                    $ sección de constantes
+   Ñákjëë Shtáwa Constante1 wáka 27   .
+   Ñákjëë ékla Constante2 wáka 'A'.
+   Ñákjëë shéj Constante3 wáka "Hola mundo" .
+
+Klo                                     $ sección de tipos
+
+   Edad :> Shtáwa .
+   Garabato :> ékla .
+   vector :> Kichána Shtáwa bikö 100 .   $ vector de 100 enteros
+   matriz :> Kichána ékla bikö 20 bikö 30 bikö 25 .  $ matriz tridimencional de caracteres
+
+Kaska                                $ sección de variables
+   
+   Wömële Num1 := w|CCCXXV|w.
+   Shtáwa X:=1,Y,Z:=5 .              $ hay declaraciones múltiples y la inicialización es opcional
+ 
+   Kichána Shéj Apellidos bikö 4 := ["Vega","Rodriguez","Cubero","Chavarría"] .
+
+   Bók Ká
+      Shtáwa Edad .
+      Shéj Nombre .
+      Wömële Carne .
+      ékla Carrera .
+   Tuína Juan := {*18 , "juan perez", w| MMXXIV |w , 'C' *} .
+
+   Járjá Vocales := {: 'A' ,'E','I',  'O','U':} .
+
+   älwíí Texto := {/ "salida.txt" , 'E' }.
+ 
+
+Wäkiri                                $ sección de prototipos
+   
+   kiana fibonacci ( Shtáwa N ) chani Shtáwa .         $ la lista de parámetros es obligatoria en los prototipos
+
+   wayuä Imprimir3Mensajes ( Shéj msj,msj2 . Shéj msj3 ) .  
+
+   wayuä fiboproc (Shtáwa N . Shtáwa iáwa Resp ) . 
+ 
+
+Prá                                     $ sección de rutinas
+
+   fibonacci ( Shtáwa N ) chani Shtáwa shä
+   ká
+     chagö N<2 jéná 
+       toli 1.
+     shirína
+       toli fibonacci(däwá N)+fibonacci(däwá däwá N).. 
+   tuína .
+
+   wayuä Imprimir3Mensajes ( ) shä    $ me dió pereza escribir los parámetros otra vez
+   ká
+       BákShéj(msj).
+       BákShéj(msj2).
+       BákShéj(msj3).
+   tuína .
+
+   wayuä fiboproc (Shtáwa N . Shtáwa iáwa Resp ) shä
+   Kaska
+      Shtáwa R:= 0 .   
+   ká
+     chagö N<2 jéná 
+       R wáka 1 .
+     shirína
+     ká  
+       R wáka fibonacci(däwá N).
+       R wáka+ fibonacci(däwá däwá N).    
+     tuína .
+     Resp wáka R.  
+   tuína .
+
+
+Jarree
+   imprimir3Mensajes("hola"," ","mundo").
+   
+   $ imprimir los números del 1 al 100
+  
+   X wáka 1 .
+   daleika X <= 100 shä
+   ká
+     BákShtáwa(X). 
+     däká X .
+   tuína .
+   
+
+
+wëikä . 
+
+$* Este es un ejemplo completo del uso de todos los elementos del lenguaje wogawg *$
+
+
+Wögawg  EjemploGrande .                 $ apertura del programa
+
+Kará                                    $ sección de constantes
+   Ñákjëë Shtáwa Constante1 wáka 27   .
+   Ñákjëë ékla Constante2 wáka 'A'.
+   Ñákjëë shéj Constante3 wáka "Hola mundo" .
+
+Klo                                     $ sección de tipos
+
+   Edad :> Shtáwa .
+   Garabato :> ékla .
+   vector :> Kichána Shtáwa bikö 100 .   $ vector de 100 enteros
+   matriz :> Kichána ékla bikö 20 bikö 30 bikö 25 .  $ matriz tridimencional de caracteres
+
+Kaska                                $ sección de variables
+   
+   Wömële Num1 := w|CCCXXV|w.
+   Shtáwa X:=1,Y,Z:=5 .              $ hay declaraciones múltiples y la inicialización es opcional
+ 
+   Kichána Shéj Apellidos bikö 4 := ["Vega","Rodriguez","Cubero","Chavarría"] .
+
+   Bók Ká
+      Shtáwa Edad .
+      Shéj Nombre .
+      Wömële Carne .
+      ékla Carrera .
+   Tuína Juan := {*18 , "juan perez", w| MMXXIV |w , 'C' *} .
+
+   Járjá Vocales := {: 'A' ,'E','I',  'O','U':} .
+
+   älwíí Texto := {/ "salida.txt" , 'E' }.
+ 
+
+Wäkiri                                $ sección de prototipos
+   
+   kiana fibonacci ( Shtáwa N ) chani Shtáwa .         $ la lista de parámetros es obligatoria en los prototipos
+
+   wayuä Imprimir3Mensajes ( Shéj msj,msj2 . Shéj msj3 ) .  
+
+   wayuä fiboproc (Shtáwa N . Shtáwa iáwa Resp ) . 
+ 
+
+Prá                                     $ sección de rutinas
+
+   fibonacci ( Shtáwa N ) chani Shtáwa shä
+   ká
+     chagö N<2 jéná 
+       toli 1.
+     shirína
+       toli fibonacci(däwá N)+fibonacci(däwá däwá N).. 
+   tuína .
+
+   wayuä Imprimir3Mensajes ( ) shä    $ me dió pereza escribir los parámetros otra vez
+   ká
+       BákShéj(msj).
+       BákShéj(msj2).
+       BákShéj(msj3).
+   tuína .
+
+   wayuä fiboproc (Shtáwa N . Shtáwa iáwa Resp ) shä
+   Kaska
+      Shtáwa R:= 0 .   
+   ká
+     chagö N<2 jéná 
+       R wáka 1 .
+     shirína
+     ká  
+       R wáka fibonacci(däwá N).
+       R wáka+ fibonacci(däwá däwá N).    
+     tuína .
+     Resp wáka R.  
+   tuína .
+
+
+Jarree
+   imprimir3Mensajes("hola"," ","mundo").
+   
+   $ imprimir los números del 1 al 100
+  
+   X wáka 1 .
+   daleika X <= 100 shä
+   ká
+     BákShtáwa(X). 
+     däká X .
+   tuína .
+   
+
+
+wëikä . 
+
+$* Este es un ejemplo completo del uso de todos los elementos del lenguaje wogawg *$
+
+
+Wögawg  EjemploGrande .                 $ apertura del programa
+
+Kará                                    $ sección de constantes
+   Ñákjëë Shtáwa Constante1 wáka 27   .
+   Ñákjëë ékla Constante2 wáka 'A'.
+   Ñákjëë shéj Constante3 wáka "Hola mundo" .
+
+Klo                                     $ sección de tipos
+
+   Edad :> Shtáwa .
+   Garabato :> ékla .
+   vector :> Kichána Shtáwa bikö 100 .   $ vector de 100 enteros
+   matriz :> Kichána ékla bikö 20 bikö 30 bikö 25 .  $ matriz tridimencional de caracteres
+
+Kaska                                $ sección de variables
+   
+   Wömële Num1 := w|CCCXXV|w.
+   Shtáwa X:=1,Y,Z:=5 .              $ hay declaraciones múltiples y la inicialización es opcional
+ 
+   Kichána Shéj Apellidos bikö 4 := ["Vega","Rodriguez","Cubero","Chavarría"] .
+
+   Bók Ká
+      Shtáwa Edad .
+      Shéj Nombre .
+      Wömële Carne .
+      ékla Carrera .
+   Tuína Juan := {*18 , "juan perez", w| MMXXIV |w , 'C' *} .
+
+   Járjá Vocales := {: 'A' ,'E','I',  'O','U':} .
+
+   älwíí Texto := {/ "salida.txt" , 'E' }.
+ 
+
+Wäkiri                                $ sección de prototipos
+   
+   kiana fibonacci ( Shtáwa N ) chani Shtáwa .         $ la lista de parámetros es obligatoria en los prototipos
+
+   wayuä Imprimir3Mensajes ( Shéj msj,msj2 . Shéj msj3 ) .  
+
+   wayuä fiboproc (Shtáwa N . Shtáwa iáwa Resp ) . 
+ 
+
+Prá                                     $ sección de rutinas
+
+   fibonacci ( Shtáwa N ) chani Shtáwa shä
+   ká
+     chagö N<2 jéná 
+       toli 1.
+     shirína
+       toli fibonacci(däwá N)+fibonacci(däwá däwá N).. 
+   tuína .
+
+   wayuä Imprimir3Mensajes ( ) shä    $ me dió pereza escribir los parámetros otra vez
+   ká
+       BákShéj(msj).
+       BákShéj(msj2).
+       BákShéj(msj3).
+   tuína .
+
+   wayuä fiboproc (Shtáwa N . Shtáwa iáwa Resp ) shä
+   Kaska
+      Shtáwa R:= 0 .   
+   ká
+     chagö N<2 jéná 
+       R wáka 1 .
+     shirína
+     ká  
+       R wáka fibonacci(däwá N).
+       R wáka+ fibonacci(däwá däwá N).    
+     tuína .
+     Resp wáka R.  
+   tuína .
+
+
+Jarree
+   imprimir3Mensajes("hola"," ","mundo").
+   
+   $ imprimir los números del 1 al 100
+  
+   X wáka 1 .
+   daleika X <= 100 shä
+   ká
+     BákShtáwa(X). 
+     däká X .
+   tuína .
+   
+
+
+wëikä . 
+
+$* Este es un ejemplo completo del uso de todos los elementos del lenguaje wogawg *$
+
+
+Wögawg  EjemploGrande .                 $ apertura del programa
+
+Kará                                    $ sección de constantes
+   Ñákjëë Shtáwa Constante1 wáka 27   .
+   Ñákjëë ékla Constante2 wáka 'A'.
+   Ñákjëë shéj Constante3 wáka "Hola mundo" .
+
+Klo                                     $ sección de tipos
+
+   Edad :> Shtáwa .
+   Garabato :> ékla .
+   vector :> Kichána Shtáwa bikö 100 .   $ vector de 100 enteros
+   matriz :> Kichána ékla bikö 20 bikö 30 bikö 25 .  $ matriz tridimencional de caracteres
+
+Kaska                                $ sección de variables
+   
+   Wömële Num1 := w|CCCXXV|w.
+   Shtáwa X:=1,Y,Z:=5 .              $ hay declaraciones múltiples y la inicialización es opcional
+ 
+   Kichána Shéj Apellidos bikö 4 := ["Vega","Rodriguez","Cubero","Chavarría"] .
+
+   Bók Ká
+      Shtáwa Edad .
+      Shéj Nombre .
+      Wömële Carne .
+      ékla Carrera .
+   Tuína Juan := {*18 , "juan perez", w| MMXXIV |w , 'C' *} .
+
+   Járjá Vocales := {: 'A' ,'E','I',  'O','U':} .
+
+   älwíí Texto := {/ "salida.txt" , 'E' }.
+ 
+
+Wäkiri                                $ sección de prototipos
+   
+   kiana fibonacci ( Shtáwa N ) chani Shtáwa .         $ la lista de parámetros es obligatoria en los prototipos
+
+   wayuä Imprimir3Mensajes ( Shéj msj,msj2 . Shéj msj3 ) .  
+
+   wayuä fiboproc (Shtáwa N . Shtáwa iáwa Resp ) . 
+ 
+
+Prá                                     $ sección de rutinas
+
+   fibonacci ( Shtáwa N ) chani Shtáwa shä
+   ká
+     chagö N<2 jéná 
+       toli 1.
+     shirína
+       toli fibonacci(däwá N)+fibonacci(däwá däwá N).. 
+   tuína .
+
+   wayuä Imprimir3Mensajes ( ) shä    $ me dió pereza escribir los parámetros otra vez
+   ká
+       BákShéj(msj).
+       BákShéj(msj2).
+       BákShéj(msj3).
+   tuína .
+
+   wayuä fiboproc (Shtáwa N . Shtáwa iáwa Resp ) shä
+   Kaska
+      Shtáwa R:= 0 .   
+   ká
+      N<2 jéná 
+       R wáka 1 .
+     shirína
+     ká  
+       R wáka fibonacci(däwá N).
+       R wáka+ fibonacci(däwá däwá N).    
+     tuína .
+     Resp wáka R.  
+   tuína .
+
+
+Jarree
+   imprimir3Mensajes("hola"," ","mundo").
+   
+   $ imprimir los números del 1 al 100
+  
+   X wáka 1 .
+   daleika X <= 100 shä
+   ká
+     BákShtáwa(X). 
+     däká X .
+   tuína .
+   
+
+
+
+$* Este es un ejemplo completo del uso de todos los elementos del lenguaje wogawg *$
+
+
+Wögawg  EjemploGrande .                 $ apertura del programa
+
+Kará                                    $ sección de constantes
+   Ñákjëë Shtáwa Constante1 wáka 27   .
+   Ñákjëë ékla Constante2 wáka 'A'.
+   Ñákjëë shéj Constante3 wáka "Hola mundo" .
+
+Klo                                     $ sección de tipos
+
+   Edad :> Shtáwa .
+   Garabato :> ékla .
+   vector :> Kichána Shtáwa bikö 100 .   $ vector de 100 enteros
+   matriz :> Kichána ékla bikö 20 bikö 30 bikö 25 .  $ matriz tridimencional de caracteres
+
+Kaska                                $ sección de variables
+   
+   Wömële Num1 := w|CC
+   CXXV|w.
+   Shtáwa X:=
+   1,Y,Z:=5 .              $ hay declaraciones múltiples y la inicialización es opcional
+ 
+   12516egdhtr
+
+   Bók Ká
+      Shtáwa Edad .
+      Shéj Nombre .
+      Wömële Carne .
+      ékla Carrera .
+   Tuína Juan := {*18 , "juan perez", w| MMXXIV |w , 'C' *} .
+
+   Járjá Vocales := {: 'A' ,'E','I',  'O','U':} .
+
+   älwíí Texto := {/ "salida.txt" , 'E' }.
+ 
+
+
+
+   wayuä fiboproc (Shtáwa N . Shtáwa iáwa Resp ) shä
+   Kaska
+      Shtáwa R:= 0 .   
+   ká
+     chagö N<2 jéná 
+       R wáka 1 .
+     shirína
+     ká  
+       R wáka fibonacci(däwá N).
+       R wáka+ fibonacci(däwá däwá N).    
+     tuína .
+     Resp wáka R.  
+   tuína .
+
+
+Jarree
+   imprimir3Mensajes("hola"," ","mundo").
+   
+   $ imprimir los números del 1 al 100
+  
+   X wáka 1 .
+   daleika X <= 100 shä
+   ká
+     BákShtáwa(X). 
+     däká X .
+   tuína .
+   
+
+
+wëikä . 
+
+$* Este es un ejemplo completo del uso de todos los elementos del lenguaje wogawg *$
+
+
+Wögawg  EjemploGrande .                 $ apertura del programa
+
+Kará                                    $ sección de constantes
+   Ñákjëë Shtáwa Constante1 wáka 27   .
+   Ñákjëë ékla Constante2 wáka 'A'.
+   Ñákjëë shéj Constante3 wáka "Hola mundo" .
+
+Klo                                     $ sección de tipos
+
+   Edad :> Shtáwa .
+   Garabato :> ékla .
+   vector :> Kichána Shtáwa bikö 100 .   $ vector de 100 enteros
+   matriz :> Kichána ékla bikö 20 bikö 30 bikö 25 .  $ matriz tridimencional de caracteres
+
+Kaska                                $ sección de variables
+   
+   Wömële Num1 := w|CCCXXV|w.
+   Shtáwa X:=1,Y,Z:=5 .              $ hay declaraciones múltiples y la inicialización es opcional
+ 
+   Kichána Shéj Apellidos bikö 4 := ["Vega","Rodriguez","Cubero","Chavarría"] .
+
+   Bók Ká
+      Shtáwa Edad .
+      Shéj Nombre .
+      Wömële Carne .
+      ékla Carrera .
+   Tuína Juan := {*18 , "juan perez", w| MMXXIV |w , 'C' *} .
+
+   Járjá Vocales := {: 'A' ,'E','I',  'O','U':} .
+
+   älwíí Texto := {/ "salida.txt" , 'E' }.
+ 
+
+Wäkiri                                $ sección de prototipos
+   
+   kiana fibonacci ( Shtáwa N ) chani Shtáwa .         $ la lista de parámetros es obligatoria en los prototipos
+
+   wayuä Imprimir3Mensajes ( Shéj msj,msj2 . Shéj msj3 ) .  
+
+   wayuä fiboproc (Shtáwa N . Shtáwa iáwa Resp ) . 
+ 
+
+Prá                                     $ sección de rutinas
+
+   fibonacci ( Shtáwa N ) chani Shtáwa shä
+   ká
+     chagö N<2 jéná 
+       toli 1.
+     shirína
+       toli fibonacci(däwá N)+fibonacci(däwá däwá N).. 
+   tuína .
+
+   wayuä Imprimir3Mensajes ( ) shä    $ me dió pereza escribir los parámetros otra vez
+   ká
+       BákShéj(msj).
+       BákShéj(msj2).
+       BákShéj(msj3).
+   tuína .
+
+   wayuä fiboproc (Shtáwa N . Shtáwa iáwa Resp ) shä
+   Kaska
+      Shtáwa R:= 0 .   
+   ká
+     chagö N<2 jéná 
+       R wáka 1 .
+     shirína
+     ká  
+       R wáka fibonacci(däwá N).
+       R wáka+ fibonacci(däwá däwá N).    
+     tuína .
+     Resp wáka R.  
+   tuína .
+
+
+Jarree
+   imprimir3Mensajes("hola"," ","mundo").
+   
+   $ imprimir los números del 1 al 100
+  
+   X wáka 1 .
+   daleika X <= 100 shä
+   ká
+     BákShtáwa(X). 
+     däká X .
+   tuína .
+   
+
+
+wëikä . 
+
+$* Este es un ejemplo completo del uso de todos los elementos del lenguaje wogawg *$
+
+
+Wögawg  EjemploGrande .                 $ apertura del programa
+
+Kará                                    $ sección de constantes
+   Ñákjëë Shtáwa Constante1 wáka 27   .
+   Ñákjëë ékla Constante2 wáka 'A'.
+   Ñákjëë shéj Constante3 wáka "Hola mundo" .
+
+Klo                                     $ sección de tipos
+
+   Edad :> Shtáwa .
+   Garabato :> ékla .
+   vector :> Kichána Shtáwa bikö 100 .   $ vector de 100 enteros
+   matriz :> Kichána ékla bikö 20 bikö 30 bikö 25 .  $ matriz tridimencional de caracteres
+
+Kaska                                $ sección de variables
+   
+   Wömële Num1 := w|CCCXXV|w.
+   Shtáwa X:=1,Y,Z:=5 .              $ hay declaraciones múltiples y la inicialización es opcional
+ 
+   Kichána Shéj Apellidos bikö 4 := ["Vega","Rodriguez","Cubero","Chavarría"] .
+
+   Bók Ká
+      Shtáwa Edad .
+      Shéj Nombre .
+      Wömële Carne .
+      ékla Carrera .
+   Tuína Juan := {*18 , "juan perez", w| MMXXIV |w , 'C' *} .
+
+   Járjá Vocales := {: 'A' ,'E','I',  'O','U':} .
+
+   älwíí Texto := {/ "salida.txt" , 'E' }.
+ 
+
+Wäkiri                                $ sección de prototipos
+   
+   kiana fibonacci ( Shtáwa N ) chani Shtáwa .         $ la lista de parámetros es obligatoria en los prototipos
+
+   wayuä Imprimir3Mensajes ( Shéj msj,msj2 . Shéj msj3 ) .  
+
+   wayuä fiboproc (Shtáwa N . Shtáwa iáwa Resp ) . 
+ 
+
+Prá                                     $ sección de rutinas
+
+   fibonacci ( Shtáwa N ) chani Shtáwa shä
+   ká
+     chagö N<2 jéná 
+       toli 1.
+     shirína
+       toli fibonacci(däwá N)+fibonacci(däwá däwá N).. 
+   tuína .
+
+   wayuä Imprimir3Mensajes ( ) shä    $ me dió pereza escribir los parámetros otra vez
+   ká
+       BákShéj(msj).
+       BákShéj(msj2).
+       BákShéj(msj3).
+   tuína .
+
+   wayuä fiboproc (Shtáwa N . Shtáwa iáwa Resp ) shä
+   Kaska
+      Shtáwa R:= 0 .   
+   ká
+     chagö N<2 jéná 
+       R wáka 1 .
+     shirína
+     ká  
+       R wáka fibonacci(däwá N).
+       R wáka+ fibonacci(däwá däwá N).    
+     tuína .
+     Resp wáka R.  
+   tuína .
+
+
+Jarree
+   imprimir3Mensajes("hola"," ","mundo").
+   
+   $ imprimir los números del 1 al 100
+  
+   X wáka 1 .
+   daleika X <= 100 shä
+   ká
+     BákShtáwa(X). 
+     däká X .
+   tuína .
+   
+
+
+wëikä . 
+
+
+Jarree
+   imprimir3Mensajes("hola"," ","mundo").
+   
+   $ imprimir los números del 1 al 100
+  
+   X wáka 1 .
+   daleika X <= 100 shä
+   ká
+     BákShtáwa(X). 
+     däká X .
+Jarree
+   imprimir3Mensajes("hola"," ","mundo").
+   
+   $ imprimir los números del 1 al 100
+  
+   X wáka 1 .
+   daleika X <= 100 shä
+   ká
+     BákShtáwa(X). 
+     däká X .
+Jarree
+   imprimir3Mensajes("hola"," ","mundo").
+   
+   $ imprimir los números del 1 al 100
+  
+   X wáka 1 .
+   daleika X <= 100 shä
+   ká
+     BákShtáwa(X). 
+     däká X .
+Jarree
+   imprimir3Mensajes("hola"," ","mundo").
+   
+   $ imprimir los números del 1 al 100
+  
+   X wáka 1 .
+   daleika X <= 100 shä
+   ká
+     BákShtáwa(X). 
+     däká X .
+Jarree
+   imprimir3Mensajes("hola"," ","mundo").
+   
+   $ imprimir los números del 1 al 100
+  
+   X wáka 1 .
+   daleika X <= 100 shä
+   ká
+     BákShtáwa(X). 
+     däká X .
+Jarree
+   imprimir3Mensajes("hola"," ","mundo").
+   
+   $ imprimir los números del 1 al 100
+  
+   X wáka 1 .
+   daleika X <= 100 shä
+   ká
+     BákShtáwa(X). 
+     däká X .
+Jarree
+   imprimir3Mensajes("hola"," ","mundo").
+   
+   $ imprimir los números del 1 al 100
+  
+   X wáka 1 .
+   daleika X <= 100 shä
+   ká
+     BákShtáwa(X). 
+     däká X .
+Jarree
+   imprimir3Mensajes("hola"," ","mundo").
+   
+   $ imprimir los números del 1 al 100
+  
+   X wáka 1 .
+   daleika X <= 100 shä
+   ká
+     BákShtáwa(X). 
+     däká X .
+Jarree
+   imprimir3Mensajes("hola"," ","mundo").
+   
+   $ imprimir los números del 1 al 100
+  
+   X wáka 1 .
+   daleika X <= 100 shä
+   ká
+     BákShtáwa(X). 
+     däká X .
+
+        imprimir3Mensajes("hola"," ","mundo").
+   
+   $ imprimir los números del 1 al 100
+  
+   X wáka 1 .
+   daleika X <= 100 shä
+   ká
+     BákShtáwa(X). 
+     däká X .   imprimir3Mensajes("hola"," ","mundo").
+   
+   $ imprimir los números del 1 al 100
+  
+   X wáka 1 .
+   daleika X <= 100 shä
+   ká
+     BákShtáwa(X). 
+     däká X .   imprimir3Mensajes("hola"," ","mundo").
+   
+   $ imprimir los números del 1 al 100
+  
+   X wáka 1 .
+   daleika X <= 100 shä
+   ká
+     BákShtáwa(X). 
+     däká X .   imprimir3Mensajes("hola"," ","mundo").
+   
+   $ imprimir los números del 1 al 100
+  
+   X wáka 1 .
+   daleika X <= 100 shä
+   ká
+     BákShtáwa(X). 
+     däká X 
+        imprimir3Mensajes("hola"," ","mundo").
+   
+   $ imprimir los números del 1 al 100
+  
+   X wáka 1 .
+ X <= 100 shä
+   ká
+     BákShtáwa(X). 
+     däká X .
+
+
+        älwíí Texto := {/ "salida.txt" , 'E' }.   älwíí Texto := {/ "salida.txt" , 'E' }.   älwíí Texto := {/ "salida.txt" , 'E' }.   älwíí Texto := {/ "salida.txt" , 'E' }.   älwíí Texto := {/ "salida.txt" , 'E' }.
+
+           X wáka 1 .
+   daleika X <= 100 shä
+   ká
+     BákShtáwa(X). 
+     däká X 
+        imprimir3Mensajes("hola"," ","mundo").
+   
+   $ imprimir los números del 1 al 100
+     X wáka 1 .
+       X wáka 1 .
+         X wáka 1 .
+           X wáka 1 .
+             X wáka 1 .
+               X wáka 1 .
+                 X wáka 1 .
+                   X wáka 1 .....
+
+    X wáka "holaaaaaaaaaaaaaa
+    
+    mundoooooo" "holamundoxd" .
+	
+	
+	Prá                                     $ sección de rutinas
+
+   fibonacci ( Shtáwa N ) chani Shtáwa shä
+   ká
+     chagö N<2 jéná 
+       toli 1.
+     shirína
+        fibonacci(däwá N)+fibonacci(däwá däwá N).. 
+   tuína .
+
+   wayuä Imprimir3Mensajes ( ) shä    $ me dió pereza escribir los parámetros otra vez
+   ká
+       BákShéj(msj).
+       BákShéj(msj2).
+       (msj3"aaaaaaaaaaaaaaaaa").
+   tuína .
+
+   wayuä fiboproc (Shtáwa N . Shtáwa iáwa Resp ) shä
+   Kaska
+      Shtáwa R:= 0 .   
+   ká
+     chagö N<2 jéná 
+       R wáka 1 .
+     shirína
+     ká  
+       R wáka fibonacci(däwá N).
+       R wáka+ fibonacci(däwá däwá N).    
+     tuína .
+     Resp wáka R.  
+   tuína .
+   Prá                                     $ sección de rutinas
+
+   fibonacci ( Shtáwa N ) chani Shtáwa shä
+   ká
+     chagö N<2 jéná 
+       toli 1.
+     shirína
+        fibonacci(däwá N)+fibonacci(däwá däwá N).. 
+   tuína .
+
+   wayuä Imprimir3Mensajes ( ) shä    $ me dió pereza escribir los parámetros otra vez
+   ká
+       BákShéj(msj).
+       BákShéj(msj2).
+       (msj3"aaaaaaaaaaaaaaaaa").
+   tuína .
+
+   wayuä fiboproc (Shtáwa N . Shtáwa iáwa Resp ) shä
+   Kaska
+      Shtáwa R:= 0 .   
+   ká
+     chagö N<2 jéná 
+       R wáka 1 .
+     shirína
+     ká  
+       R wáka fibonacci(däwá N).
+       R wáka+ fibonacci(däwá däwá N).    
+     tuína .
+     Resp wáka R.  
+   tuína .
+   Prá                                     $ sección de rutinas
+
+   fibonacci ( Shtáwa N ) chani Shtáwa shä
+   ká
+     chagö N<2 jéná 
+       toli 1.
+     shirína
+        fibonacci(däwá N)+fibonacci(däwá däwá N).. 
+   tuína .
+
+   wayuä Imprimir3Mensajes ( ) shä    $ me dió pereza escribir los parámetros otra vez
+   ká
+       BákShéj(msj).
+       BákShéj(msj2).
+       (msj3"aaaaaaaaaaaaaaaaa").
+   tuína .
+
+   wayuä fiboproc (Shtáwa N . Shtáwa iáwa Resp ) shä
+   Kaska
+      Shtáwa R:= 0 .   
+   ká
+     chagö N<2 jéná 
+       R wáka 1 .
+     shirína
+     ká  
+       R wáka fibonacci(däwá N).
+       R wáka+ fibonacci(däwá däwá N).    
+     tuína .
+     Resp wáka R.  
+   tuína .
+   Prá                                     $ sección de rutinas
+
+   fibonacci ( Shtáwa N ) chani Shtáwa shä
+   ká
+     chagö N<2 jéná 
+       toli 1.
+     shirína
+        fibonacci(däwá N)+fibonacci(däwá däwá N).. 
+   tuína .
+
+   wayuä Imprimir3Mensajes ( ) shä    $ me dió pereza escribir los parámetros otra vez
+   ká
+       BákShéj(msj).
+       BákShéj(msj2).
+       (msj3"aaaaaaaaaaaaaaaaa").
+   tuína .
+
+   wayuä fiboproc (Shtáwa N . Shtáwa iáwa Resp ) shä
+   Kaska
+      Shtáwa R:= 0 .   
+   ká
+     chagö N<2 jéná 
+       R wáka 1 .
+     shirína
+     ká  
+       R wáka fibonacci(däwá N).
+       R wáka+ fibonacci(däwá däwá N).    
+     tuína .
+     Resp wáka R.  
+   tuína .
+   Prá                                     $ sección de rutinas
+
+   fibonacci ( Shtáwa N ) chani Shtáwa shä
+   ká
+     chagö N<2 jéná 
+       toli 1.
+     shirína
+        fibonacci(däwá N)+fibonacci(däwá däwá N).. 
+   tuína .
+
+   wayuä Imprimir3Mensajes ( ) shä    $ me dió pereza escribir los parámetros otra vez
+   ká
+       BákShéj(msj).
+       BákShéj(msj2).
+       (msj3"aaaaaaaaaaaaaaaaa").
+   tuína .
+
+   wayuä fiboproc (Shtáwa N . Shtáwa iáwa Resp ) shä
+   Kaska
+      Shtáwa R:= 0 .   
+   ká
+     chagö N<2 jéná 
+       R wáka 1 .
+     shirína
+     ká  
+       R wáka fibonacci(däwá N).
+       R wáka+ fibonacci(däwá däwá N).    
+     tuína .
+     Resp wáka R.  
+   tuína .

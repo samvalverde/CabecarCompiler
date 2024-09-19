@@ -1,0 +1,448 @@
+Token: TOKEN_WOGAWG, posic:87, Token Value: Wögawg Line:4 Posic-in-line:1
+Token: TOKEN_ID, posic:95, Token Value: EjemploGrande Line:4 Posic-in-line:9
+Token: TOKEN_PUNTO, posic:109, Token Value: . Line:4 Posic-in-line:23
+Token: TOKEN_KARA, posic:152, Token Value: Kará Line:6 Posic-in-line:1
+Token: TOKEN_NAKJEE, posic:219, Token Value: Ñákjëë Line:7 Posic-in-line:4
+Token: TOKEN_ID, posic:226, Token Value: Shtáw Line:7 Posic-in-line:11
+Token: TOKEN_ID, posic:232, Token Value: Constante1 Line:7 Posic-in-line:17
+Token: TOKEN_WAKA, posic:243, Token Value: wáka Line:7 Posic-in-line:28
+Token: ERROR_POSIBLE_INT, posic:248, Token Value: 27 Line:7 Posic-in-line:33
+Token: TOKEN_ID, posic:250, Token Value: a Line:7 Posic-in-line:35
+Token: TOKEN_PUNTO, posic:254, Token Value: . Line:7 Posic-in-line:39
+Token: TOKEN_NAKJEE, posic:259, Token Value: Ñákjëë Line:8 Posic-in-line:4
+Token: TOKEN_EKLA, posic:266, Token Value: ékla Line:8 Posic-in-line:11
+Token: TOKEN_ID, posic:271, Token Value: Constante2 Line:8 Posic-in-line:16
+Token: TOKEN_WAKA, posic:282, Token Value: wáka Line:8 Posic-in-line:27
+Token: TOKEN_CHAR, posic:287, Token Value: 'A' Line:8 Posic-in-line:32
+Token: TOKEN_PUNTO, posic:290, Token Value: . Line:8 Posic-in-line:35
+Token: TOKEN_NAKJEE, posic:295, Token Value: Ñákjëë Line:9 Posic-in-line:4
+Token: TOKEN_SHEJ, posic:302, Token Value: shéj Line:9 Posic-in-line:11
+Token: TOKEN_ID, posic:307, Token Value: Constante3 Line:9 Posic-in-line:16
+Token: TOKEN_ID, posic:318, Token Value: waka Line:9 Posic-in-line:27
+Token: TOKEN_STRING, posic:323, Token Value: "Hola mundo" Line:9 Posic-in-line:32
+Token: TOKEN_PUNTO, posic:336, Token Value: . Line:9 Posic-in-line:45
+Token: TOKEN_KLO, posic:339, Token Value: Klo Line:11 Posic-in-line:1
+Token: TOKEN_ID, posic:402, Token Value: Edad Line:13 Posic-in-line:4
+Token: TOKEN_TIPO, posic:407, Token Value: :> Line:13 Posic-in-line:9
+Token: TOKEN_SHTAWA, posic:410, Token Value: Shtáwa Line:13 Posic-in-line:12
+Token: TOKEN_PUNTO, posic:417, Token Value: . Line:13 Posic-in-line:19
+Token: TOKEN_ID, posic:422, Token Value: Garabato Line:14 Posic-in-line:4
+Token: TOKEN_TIPO, posic:431, Token Value: :> Line:14 Posic-in-line:13
+Token: TOKEN_EKLA, posic:434, Token Value: ékla Line:14 Posic-in-line:16
+Token: TOKEN_PUNTO, posic:439, Token Value: . Line:14 Posic-in-line:21
+Token: TOKEN_ID, posic:444, Token Value: vector Line:15 Posic-in-line:4
+Token: TOKEN_TIPO, posic:451, Token Value: :> Line:15 Posic-in-line:11
+Token: TOKEN_KICHANA, posic:454, Token Value: Kichána Line:15 Posic-in-line:14
+Token: TOKEN_SHTAWA, posic:462, Token Value: Shtáwa Line:15 Posic-in-line:22
+Token: TOKEN_BIKO, posic:469, Token Value: bikö Line:15 Posic-in-line:29
+Token: TOKEN_INT, posic:474, Token Value: 100 Line:15 Posic-in-line:34
+Token: TOKEN_PUNTO, posic:478, Token Value: . Line:15 Posic-in-line:38
+Token: TOKEN_ID, posic:509, Token Value: matriz Line:16 Posic-in-line:4
+Token: TOKEN_TIPO, posic:516, Token Value: :> Line:16 Posic-in-line:11
+Token: TOKEN_KICHANA, posic:519, Token Value: Kichána Line:16 Posic-in-line:14
+Token: TOKEN_EKLA, posic:527, Token Value: ékla Line:16 Posic-in-line:22
+Token: TOKEN_BIKO, posic:532, Token Value: bikö Line:16 Posic-in-line:27
+Token: TOKEN_INT, posic:537, Token Value: 20 Line:16 Posic-in-line:32
+Token: TOKEN_BIKO, posic:540, Token Value: bikö Line:16 Posic-in-line:35
+Token: TOKEN_INT, posic:545, Token Value: 30 Line:16 Posic-in-line:40
+Token: TOKEN_BIKO, posic:548, Token Value: bikö Line:16 Posic-in-line:43
+Token: TOKEN_INT, posic:553, Token Value: 25 Line:16 Posic-in-line:48
+Token: TOKEN_PUNTO, posic:556, Token Value: . Line:16 Posic-in-line:51
+Token: TOKEN_KASKA, posic:598, Token Value: Kaska Line:18 Posic-in-line:1
+Token: TOKEN_WOMELE, posic:665, Token Value: Wömële Line:20 Posic-in-line:4
+Token: TOKEN_ID, posic:672, Token Value: Num1 Line:20 Posic-in-line:11
+Token: TOKEN_INICIALIZAR, posic:677, Token Value: := Line:20 Posic-in-line:16
+Token: TOKEN_ABRIR_ROMANO, posic:680, Token Value: w| Line:20 Posic-in-line:19
+Token: TOKEN_ID, posic:682, Token Value: CC Line:20 Posic-in-line:21
+Token: TOKEN_ID, posic:692, Token Value: CXXV Line:22 Posic-in-line:4
+Token: TOKEN_CERRAR_ROMANO, posic:696, Token Value: |w Line:22 Posic-in-line:8
+Token: TOKEN_PUNTO, posic:698, Token Value: . Line:22 Posic-in-line:10
+Token: TOKEN_SHTAWA, posic:703, Token Value: Shtáwa Line:23 Posic-in-line:4
+Token: TOKEN_ID, posic:710, Token Value: X Line:23 Posic-in-line:11
+Token: TOKEN_INICIALIZAR, posic:711, Token Value: := Line:23 Posic-in-line:12
+Token: TOKEN_INT, posic:713, Token Value: 1 Line:23 Posic-in-line:14
+Token: TOKEN_COMA, posic:714, Token Value: , Line:23 Posic-in-line:15
+Token: TOKEN_ID, posic:715, Token Value: Y Line:23 Posic-in-line:16
+Token: TOKEN_COMA, posic:716, Token Value: , Line:23 Posic-in-line:17
+Token: TOKEN_ID, posic:717, Token Value: Z Line:23 Posic-in-line:18
+Token: TOKEN_INICIALIZAR, posic:718, Token Value: := Line:23 Posic-in-line:19
+Token: TOKEN_INT, posic:720, Token Value: 5 Line:23 Posic-in-line:21
+Token: TOKEN_PUNTO, posic:722, Token Value: . Line:23 Posic-in-line:23
+Token: TOKEN_KICHANA, posic:804, Token Value: Kichána Line:25 Posic-in-line:4
+Token: TOKEN_SHEJ, posic:812, Token Value: Shéj Line:25 Posic-in-line:12
+Token: TOKEN_ID, posic:817, Token Value: Apellidos Line:25 Posic-in-line:17
+Token: TOKEN_BIKO, posic:827, Token Value: bikö Line:25 Posic-in-line:27
+Token: TOKEN_INT, posic:832, Token Value: 4 Line:25 Posic-in-line:32
+Token: TOKEN_INICIALIZAR, posic:834, Token Value: := Line:25 Posic-in-line:34
+Token: TOKEN_PAR_CUADRADO_ABRIR, posic:837, Token Value: [ Line:25 Posic-in-line:37
+Token: TOKEN_STRING, posic:838, Token Value: "Vega" Line:25 Posic-in-line:38
+Token: TOKEN_COMA, posic:844, Token Value: , Line:25 Posic-in-line:44
+Token: TOKEN_STRING, posic:845, Token Value: "Rodriguez" Line:25 Posic-in-line:45
+Token: TOKEN_COMA, posic:856, Token Value: , Line:25 Posic-in-line:56
+Token: TOKEN_STRING, posic:857, Token Value: "Cubero" Line:25 Posic-in-line:57
+Token: TOKEN_COMA, posic:865, Token Value: , Line:25 Posic-in-line:65
+Token: TOKEN_STRING, posic:866, Token Value: "Chavarría" Line:25 Posic-in-line:66
+Token: TOKEN_PAR_CUADRADO_CERRAR, posic:877, Token Value: ] Line:25 Posic-in-line:77
+Token: TOKEN_PUNTO, posic:879, Token Value: . Line:25 Posic-in-line:79
+Token: TOKEN_BOK, posic:885, Token Value: Bók Line:27 Posic-in-line:4
+Token: TOKEN_KA, posic:889, Token Value: Ká Line:27 Posic-in-line:8
+Token: TOKEN_SHTAWA, posic:898, Token Value: Shtáwa Line:28 Posic-in-line:7
+Token: TOKEN_ID, posic:905, Token Value: Edad Line:28 Posic-in-line:14
+Token: TOKEN_PUNTO, posic:910, Token Value: . Line:28 Posic-in-line:19
+Token: TOKEN_SHEJ, posic:918, Token Value: Shéj Line:29 Posic-in-line:7
+Token: TOKEN_ID, posic:923, Token Value: Nombre Line:29 Posic-in-line:12
+Token: TOKEN_PUNTO, posic:930, Token Value: . Line:29 Posic-in-line:19
+Token: TOKEN_WOMELE, posic:938, Token Value: Wömële Line:30 Posic-in-line:7
+Token: TOKEN_ID, posic:945, Token Value: Carne Line:30 Posic-in-line:14
+Token: TOKEN_PUNTO, posic:951, Token Value: . Line:30 Posic-in-line:20
+Token: TOKEN_EKLA, posic:959, Token Value: ékla Line:31 Posic-in-line:7
+Token: TOKEN_ID, posic:964, Token Value: Carrera Line:31 Posic-in-line:12
+Token: TOKEN_PUNTO, posic:972, Token Value: . Line:31 Posic-in-line:20
+Token: TOKEN_TUINA, posic:977, Token Value: Tuína Line:32 Posic-in-line:4
+Token: TOKEN_ID, posic:983, Token Value: Juan Line:32 Posic-in-line:10
+Token: TOKEN_INICIALIZAR, posic:988, Token Value: := Line:32 Posic-in-line:15
+Token: TOKEN_ABRIR_REGISTRO, posic:991, Token Value: {* Line:32 Posic-in-line:18
+Token: TOKEN_INT, posic:993, Token Value: 18 Line:32 Posic-in-line:20
+Token: TOKEN_COMA, posic:996, Token Value: , Line:32 Posic-in-line:23
+Token: TOKEN_STRING, posic:998, Token Value: "juan perez" Line:32 Posic-in-line:25
+Token: TOKEN_COMA, posic:1010, Token Value: , Line:32 Posic-in-line:37
+Token: TOKEN_ABRIR_ROMANO, posic:1012, Token Value: w| Line:32 Posic-in-line:39
+Token: TOKEN_ID, posic:1015, Token Value: MMXXIV Line:32 Posic-in-line:42
+Token: TOKEN_CERRAR_ROMANO, posic:1022, Token Value: |w Line:32 Posic-in-line:49
+Token: TOKEN_COMA, posic:1025, Token Value: , Line:32 Posic-in-line:52
+Token: TOKEN_CHAR, posic:1027, Token Value: 'C' Line:32 Posic-in-line:54
+Token: TOKEN_CERRAR_REGISTRO, posic:1031, Token Value: *} Line:32 Posic-in-line:58
+Token: TOKEN_PUNTO, posic:1034, Token Value: . Line:32 Posic-in-line:61
+Token: TOKEN_JARJA, posic:1040, Token Value: Járjá Line:34 Posic-in-line:4
+Token: TOKEN_ID, posic:1046, Token Value: Vocales Line:34 Posic-in-line:10
+Token: TOKEN_INICIALIZAR, posic:1054, Token Value: := Line:34 Posic-in-line:18
+Token: TOKEN_ABRIR_CONJUNTO, posic:1057, Token Value: {: Line:34 Posic-in-line:21
+Token: TOKEN_CHAR, posic:1060, Token Value: 'A' Line:34 Posic-in-line:24
+Token: TOKEN_COMA, posic:1064, Token Value: , Line:34 Posic-in-line:28
+Token: TOKEN_CHAR, posic:1065, Token Value: 'E' Line:34 Posic-in-line:29
+Token: TOKEN_COMA, posic:1068, Token Value: , Line:34 Posic-in-line:32
+Token: TOKEN_CHAR, posic:1069, Token Value: 'I' Line:34 Posic-in-line:33
+Token: TOKEN_COMA, posic:1072, Token Value: , Line:34 Posic-in-line:36
+Token: TOKEN_CHAR, posic:1075, Token Value: 'O' Line:34 Posic-in-line:39
+Token: TOKEN_COMA, posic:1078, Token Value: , Line:34 Posic-in-line:42
+Token: TOKEN_CHAR, posic:1079, Token Value: 'U' Line:34 Posic-in-line:43
+Token: TOKEN_CERRAR_CONJUNTO, posic:1082, Token Value: :} Line:34 Posic-in-line:46
+Token: TOKEN_PUNTO, posic:1085, Token Value: . Line:34 Posic-in-line:49
+Token: TOKEN_ID, posic:1091, Token Value: älwíí Line:36 Posic-in-line:4
+Token: TOKEN_ID, posic:1097, Token Value: Texto Line:36 Posic-in-line:10
+Token: TOKEN_INICIALIZAR, posic:1103, Token Value: := Line:36 Posic-in-line:16
+Token: ERROR_LLAVE, posic:1106, Token Value: { Line:36 Posic-in-line:19
+Token: TOKEN_DIVISION, posic:1107, Token Value: / Line:36 Posic-in-line:20
+Token: TOKEN_STRING, posic:1109, Token Value: "salida.txt" Line:36 Posic-in-line:22
+Token: TOKEN_COMA, posic:1122, Token Value: , Line:36 Posic-in-line:35
+Token: TOKEN_CHAR, posic:1124, Token Value: 'E' Line:36 Posic-in-line:37
+Token: TOKEN_UNKNOWN, posic:1128, Token Value: } Line:36 Posic-in-line:41
+Token: TOKEN_PUNTO, posic:1129, Token Value: . Line:36 Posic-in-line:42
+Token: TOKEN_WAKIRI, posic:1134, Token Value: Wäkiri Line:39 Posic-in-line:1
+Token: TOKEN_KIANA, posic:1203, Token Value: kiana Line:41 Posic-in-line:4
+Token: TOKEN_ID, posic:1209, Token Value: fibonacci Line:41 Posic-in-line:10
+Token: TOKEN_PAR_REDONDO_ABRIR, posic:1219, Token Value: ( Line:41 Posic-in-line:20
+Token: TOKEN_SHTAWA, posic:1221, Token Value: Shtáwa Line:41 Posic-in-line:22
+Token: TOKEN_ID, posic:1228, Token Value: N Line:41 Posic-in-line:29
+Token: TOKEN_PAR_REDONDO_CERRAR, posic:1230, Token Value: ) Line:41 Posic-in-line:31
+Token: TOKEN_CHANI, posic:1232, Token Value: chani Line:41 Posic-in-line:33
+Token: TOKEN_SHTAWA, posic:1238, Token Value: Shtáwa Line:41 Posic-in-line:39
+Token: TOKEN_PUNTO, posic:1245, Token Value: . Line:41 Posic-in-line:46
+Token: TOKEN_WAYUA, posic:1317, Token Value: wayuä Line:43 Posic-in-line:4
+Token: TOKEN_ID, posic:1323, Token Value: Imprimir3Mensajes Line:43 Posic-in-line:10
+Token: TOKEN_PAR_REDONDO_ABRIR, posic:1341, Token Value: ( Line:43 Posic-in-line:28
+Token: TOKEN_SHEJ, posic:1343, Token Value: Shéj Line:43 Posic-in-line:30
+Token: TOKEN_ID, posic:1348, Token Value: msj Line:43 Posic-in-line:35
+Token: TOKEN_COMA, posic:1351, Token Value: , Line:43 Posic-in-line:38
+Token: TOKEN_ID, posic:1352, Token Value: msj2 Line:43 Posic-in-line:39
+Token: TOKEN_PUNTO, posic:1357, Token Value: . Line:43 Posic-in-line:44
+Token: TOKEN_SHEJ, posic:1359, Token Value: Shéj Line:43 Posic-in-line:46
+Token: TOKEN_ID, posic:1364, Token Value: msj3 Line:43 Posic-in-line:51
+Token: TOKEN_PAR_REDONDO_CERRAR, posic:1369, Token Value: ) Line:43 Posic-in-line:56
+Token: TOKEN_PUNTO, posic:1371, Token Value: . Line:43 Posic-in-line:58
+Token: TOKEN_WAYUA, posic:1379, Token Value: wayuä Line:45 Posic-in-line:4
+Token: TOKEN_ID, posic:1385, Token Value: fiboproc Line:45 Posic-in-line:10
+Token: TOKEN_PAR_REDONDO_ABRIR, posic:1394, Token Value: ( Line:45 Posic-in-line:19
+Token: TOKEN_SHTAWA, posic:1395, Token Value: Shtáwa Line:45 Posic-in-line:20
+Token: TOKEN_ID, posic:1402, Token Value: N Line:45 Posic-in-line:27
+Token: TOKEN_PUNTO, posic:1404, Token Value: . Line:45 Posic-in-line:29
+Token: TOKEN_SHTAWA, posic:1406, Token Value: Shtáwa Line:45 Posic-in-line:31
+Token: TOKEN_IAWA, posic:1413, Token Value: iáwa Line:45 Posic-in-line:38
+Token: TOKEN_ID, posic:1418, Token Value: Resp Line:45 Posic-in-line:43
+Token: TOKEN_PAR_REDONDO_CERRAR, posic:1423, Token Value: ) Line:45 Posic-in-line:48
+Token: TOKEN_PUNTO, posic:1425, Token Value: . Line:45 Posic-in-line:50
+Token: TOKEN_PRA, posic:1431, Token Value: Prá Line:48 Posic-in-line:1
+Token: TOKEN_ID, posic:1496, Token Value: fibonacci Line:50 Posic-in-line:4
+Token: TOKEN_PAR_REDONDO_ABRIR, posic:1506, Token Value: ( Line:50 Posic-in-line:14
+Token: TOKEN_SHTAWA, posic:1508, Token Value: Shtáwa Line:50 Posic-in-line:16
+Token: TOKEN_ID, posic:1515, Token Value: N Line:50 Posic-in-line:23
+Token: TOKEN_PAR_REDONDO_CERRAR, posic:1517, Token Value: ) Line:50 Posic-in-line:25
+Token: TOKEN_CHANI, posic:1519, Token Value: chani Line:50 Posic-in-line:27
+Token: TOKEN_SHTAWA, posic:1525, Token Value: Shtáwa Line:50 Posic-in-line:33
+Token: TOKEN_SHA, posic:1532, Token Value: shä Line:50 Posic-in-line:40
+Token: TOKEN_KA, posic:1539, Token Value: ká Line:51 Posic-in-line:4
+Token: TOKEN_CHAGO, posic:1547, Token Value: chagö Line:52 Posic-in-line:6
+Token: TOKEN_ID, posic:1553, Token Value: N Line:52 Posic-in-line:12
+Token: TOKEN_COMPARADOR, posic:1554, Token Value: < Line:52 Posic-in-line:13
+Token: TOKEN_INT, posic:1555, Token Value: 2 Line:52 Posic-in-line:14
+Token: TOKEN_JENA, posic:1557, Token Value: jéná Line:52 Posic-in-line:16
+Token: TOKEN_TOLI, posic:1570, Token Value: toli Line:53 Posic-in-line:8
+Token: TOKEN_INT, posic:1575, Token Value: 1 Line:53 Posic-in-line:13
+Token: TOKEN_PUNTO, posic:1576, Token Value: . Line:53 Posic-in-line:14
+Token: TOKEN_SHIRINA, posic:1583, Token Value: shirína Line:54 Posic-in-line:6
+Token: TOKEN_ID, posic:1599, Token Value: fibonacci Line:55 Posic-in-line:9
+Token: TOKEN_PAR_REDONDO_ABRIR, posic:1608, Token Value: ( Line:55 Posic-in-line:18
+Token: TOKEN_DAWA, posic:1609, Token Value: däwá Line:55 Posic-in-line:19
+Token: TOKEN_ID, posic:1614, Token Value: N Line:55 Posic-in-line:24
+Token: TOKEN_PAR_REDONDO_CERRAR, posic:1615, Token Value: ) Line:55 Posic-in-line:25
+Token: TOKEN_MAS, posic:1616, Token Value: + Line:55 Posic-in-line:26
+Token: TOKEN_ID, posic:1617, Token Value: fibonacci Line:55 Posic-in-line:27
+Token: TOKEN_PAR_REDONDO_ABRIR, posic:1626, Token Value: ( Line:55 Posic-in-line:36
+Token: TOKEN_DAWA, posic:1627, Token Value: däwá Line:55 Posic-in-line:37
+Token: TOKEN_DAWA, posic:1632, Token Value: däwá Line:55 Posic-in-line:42
+Token: TOKEN_ID, posic:1637, Token Value: N Line:55 Posic-in-line:47
+Token: TOKEN_PAR_REDONDO_CERRAR, posic:1638, Token Value: ) Line:55 Posic-in-line:48
+Token: TOKEN_PUNTO, posic:1639, Token Value: . Line:55 Posic-in-line:49
+Token: TOKEN_PUNTO, posic:1640, Token Value: . Line:55 Posic-in-line:50
+Token: TOKEN_TUINA, posic:1646, Token Value: tuína Line:56 Posic-in-line:4
+Token: TOKEN_PUNTO, posic:1652, Token Value: . Line:56 Posic-in-line:10
+Token: TOKEN_WAYUA, posic:1658, Token Value: wayuä Line:58 Posic-in-line:4
+Token: TOKEN_ID, posic:1664, Token Value: Imprimir3Mensajes Line:58 Posic-in-line:10
+Token: TOKEN_PAR_REDONDO_ABRIR, posic:1682, Token Value: ( Line:58 Posic-in-line:28
+Token: TOKEN_PAR_REDONDO_CERRAR, posic:1684, Token Value: ) Line:58 Posic-in-line:30
+Token: TOKEN_SHA, posic:1686, Token Value: shä Line:58 Posic-in-line:32
+Token: TOKEN_KA, posic:1745, Token Value: ká Line:59 Posic-in-line:4
+Token: TOKEN_BAKSHEJ, posic:1755, Token Value: BákShéj Line:60 Posic-in-line:8
+Token: TOKEN_PAR_REDONDO_ABRIR, posic:1762, Token Value: ( Line:60 Posic-in-line:15
+Token: TOKEN_ID, posic:1763, Token Value: msj Line:60 Posic-in-line:16
+Token: TOKEN_PAR_REDONDO_CERRAR, posic:1766, Token Value: ) Line:60 Posic-in-line:19
+Token: TOKEN_PUNTO, posic:1767, Token Value: . Line:60 Posic-in-line:20
+Token: TOKEN_BAKSHEJ, posic:1776, Token Value: BákShéj Line:61 Posic-in-line:8
+Token: TOKEN_PAR_REDONDO_ABRIR, posic:1783, Token Value: ( Line:61 Posic-in-line:15
+Token: TOKEN_ID, posic:1784, Token Value: msj2 Line:61 Posic-in-line:16
+Token: TOKEN_PAR_REDONDO_CERRAR, posic:1788, Token Value: ) Line:61 Posic-in-line:20
+Token: TOKEN_PUNTO, posic:1789, Token Value: . Line:61 Posic-in-line:21
+Token: TOKEN_PAR_REDONDO_ABRIR, posic:1798, Token Value: ( Line:62 Posic-in-line:8
+Token: TOKEN_ID, posic:1799, Token Value: msj3 Line:62 Posic-in-line:9
+Token: TOKEN_STRING, posic:1803, Token Value: "aaaaaaaaaaaaaaaaa" Line:62 Posic-in-line:13
+Token: TOKEN_PAR_REDONDO_CERRAR, posic:1822, Token Value: ) Line:62 Posic-in-line:32
+Token: TOKEN_PUNTO, posic:1823, Token Value: . Line:62 Posic-in-line:33
+Token: TOKEN_TUINA, posic:1828, Token Value: tuína Line:63 Posic-in-line:4
+Token: TOKEN_PUNTO, posic:1834, Token Value: . Line:63 Posic-in-line:10
+Token: TOKEN_WAYUA, posic:1840, Token Value: wayuä Line:65 Posic-in-line:4
+Token: TOKEN_ID, posic:1846, Token Value: fiboproc Line:65 Posic-in-line:10
+Token: TOKEN_PAR_REDONDO_ABRIR, posic:1855, Token Value: ( Line:65 Posic-in-line:19
+Token: TOKEN_SHTAWA, posic:1856, Token Value: Shtáwa Line:65 Posic-in-line:20
+Token: TOKEN_ID, posic:1863, Token Value: N Line:65 Posic-in-line:27
+Token: TOKEN_PUNTO, posic:1865, Token Value: . Line:65 Posic-in-line:29
+Token: TOKEN_SHTAWA, posic:1867, Token Value: Shtáwa Line:65 Posic-in-line:31
+Token: TOKEN_IAWA, posic:1874, Token Value: iáwa Line:65 Posic-in-line:38
+Token: TOKEN_ID, posic:1879, Token Value: Resp Line:65 Posic-in-line:43
+Token: TOKEN_PAR_REDONDO_CERRAR, posic:1884, Token Value: ) Line:65 Posic-in-line:48
+Token: TOKEN_SHA, posic:1886, Token Value: shä Line:65 Posic-in-line:50
+Token: TOKEN_KASKA, posic:1893, Token Value: Kaska Line:66 Posic-in-line:4
+Token: TOKEN_SHTAWA, posic:1905, Token Value: Shtáwa Line:67 Posic-in-line:7
+Token: TOKEN_ID, posic:1912, Token Value: R Line:67 Posic-in-line:14
+Token: TOKEN_INICIALIZAR, posic:1913, Token Value: := Line:67 Posic-in-line:15
+Token: TOKEN_INT, posic:1916, Token Value: 0 Line:67 Posic-in-line:18
+Token: TOKEN_PUNTO, posic:1918, Token Value: . Line:67 Posic-in-line:20
+Token: TOKEN_KA, posic:1926, Token Value: ká Line:68 Posic-in-line:4
+Token: TOKEN_CHAGO, posic:1934, Token Value: chagö Line:69 Posic-in-line:6
+Token: TOKEN_ID, posic:1940, Token Value: N Line:69 Posic-in-line:12
+Token: TOKEN_COMPARADOR, posic:1941, Token Value: < Line:69 Posic-in-line:13
+Token: TOKEN_INT, posic:1942, Token Value: 2 Line:69 Posic-in-line:14
+Token: TOKEN_JENA, posic:1944, Token Value: jéná Line:69 Posic-in-line:16
+Token: TOKEN_ID, posic:1957, Token Value: R Line:70 Posic-in-line:8
+Token: TOKEN_WAKA, posic:1959, Token Value: wáka Line:70 Posic-in-line:10
+Token: TOKEN_INT, posic:1964, Token Value: 1 Line:70 Posic-in-line:15
+Token: TOKEN_PUNTO, posic:1966, Token Value: . Line:70 Posic-in-line:17
+Token: TOKEN_SHIRINA, posic:1973, Token Value: shirína Line:71 Posic-in-line:6
+Token: TOKEN_KA, posic:1986, Token Value: ká Line:72 Posic-in-line:6
+Token: TOKEN_ID, posic:1998, Token Value: R Line:73 Posic-in-line:8
+Token: TOKEN_WAKA, posic:2000, Token Value: wáka Line:73 Posic-in-line:10
+Token: TOKEN_ID, posic:2005, Token Value: fibonacci Line:73 Posic-in-line:15
+Token: TOKEN_PAR_REDONDO_ABRIR, posic:2014, Token Value: ( Line:73 Posic-in-line:24
+Token: TOKEN_DAWA, posic:2015, Token Value: däwá Line:73 Posic-in-line:25
+Token: TOKEN_ID, posic:2020, Token Value: N Line:73 Posic-in-line:30
+Token: TOKEN_PAR_REDONDO_CERRAR, posic:2021, Token Value: ) Line:73 Posic-in-line:31
+Token: TOKEN_PUNTO, posic:2022, Token Value: . Line:73 Posic-in-line:32
+Token: TOKEN_ID, posic:2031, Token Value: R Line:74 Posic-in-line:8
+Token: TOKEN_WAKA, posic:2033, Token Value: wáka Line:74 Posic-in-line:10
+Token: TOKEN_MAS, posic:2037, Token Value: + Line:74 Posic-in-line:14
+Token: TOKEN_ID, posic:2039, Token Value: fibonacci Line:74 Posic-in-line:16
+Token: TOKEN_PAR_REDONDO_ABRIR, posic:2048, Token Value: ( Line:74 Posic-in-line:25
+Token: TOKEN_DAWA, posic:2049, Token Value: däwá Line:74 Posic-in-line:26
+Token: TOKEN_DAWA, posic:2054, Token Value: däwá Line:74 Posic-in-line:31
+Token: TOKEN_ID, posic:2059, Token Value: N Line:74 Posic-in-line:36
+Token: TOKEN_PAR_REDONDO_CERRAR, posic:2060, Token Value: ) Line:74 Posic-in-line:37
+Token: TOKEN_PUNTO, posic:2061, Token Value: . Line:74 Posic-in-line:38
+Token: TOKEN_TUINA, posic:2072, Token Value: tuína Line:75 Posic-in-line:6
+Token: TOKEN_PUNTO, posic:2078, Token Value: . Line:75 Posic-in-line:12
+Token: TOKEN_ID, posic:2085, Token Value: Resp Line:76 Posic-in-line:6
+Token: TOKEN_WAKA, posic:2090, Token Value: wáka Line:76 Posic-in-line:11
+Token: TOKEN_ID, posic:2095, Token Value: R Line:76 Posic-in-line:16
+Token: TOKEN_PUNTO, posic:2096, Token Value: . Line:76 Posic-in-line:17
+Token: TOKEN_TUINA, posic:2103, Token Value: tuína Line:77 Posic-in-line:4
+Token: TOKEN_PUNTO, posic:2109, Token Value: . Line:77 Posic-in-line:10
+Token: TOKEN_JARREE, posic:2113, Token Value: Jarree Line:80 Posic-in-line:1
+Token: TOKEN_ID, posic:2123, Token Value: imprimir3Mensajes Line:81 Posic-in-line:4
+Token: TOKEN_PAR_REDONDO_ABRIR, posic:2140, Token Value: ( Line:81 Posic-in-line:21
+Token: TOKEN_STRING, posic:2141, Token Value: "hola" Line:81 Posic-in-line:22
+Token: TOKEN_COMA, posic:2147, Token Value: , Line:81 Posic-in-line:28
+Token: TOKEN_STRING, posic:2148, Token Value: " " Line:81 Posic-in-line:29
+Token: TOKEN_COMA, posic:2151, Token Value: , Line:81 Posic-in-line:32
+Token: TOKEN_STRING, posic:2152, Token Value: "mundo" Line:81 Posic-in-line:33
+Token: TOKEN_PAR_REDONDO_CERRAR, posic:2159, Token Value: ) Line:81 Posic-in-line:40
+Token: TOKEN_PUNTO, posic:2160, Token Value: . Line:81 Posic-in-line:41
+Token: TOKEN_ID, posic:2211, Token Value: X Line:85 Posic-in-line:4
+Token: TOKEN_WAKA, posic:2213, Token Value: wáka Line:85 Posic-in-line:6
+Token: TOKEN_INT, posic:2218, Token Value: 1 Line:85 Posic-in-line:11
+Token: TOKEN_PUNTO, posic:2220, Token Value: . Line:85 Posic-in-line:13
+Token: TOKEN_DALEIKA, posic:2225, Token Value: daleika Line:86 Posic-in-line:4
+Token: TOKEN_ID, posic:2233, Token Value: X Line:86 Posic-in-line:12
+Token: TOKEN_COMPARADOR, posic:2235, Token Value: <= Line:86 Posic-in-line:14
+Token: TOKEN_INT, posic:2238, Token Value: 100 Line:86 Posic-in-line:17
+Token: TOKEN_SHA, posic:2242, Token Value: shä Line:86 Posic-in-line:21
+Token: TOKEN_KA, posic:2249, Token Value: ká Line:87 Posic-in-line:4
+Token: TOKEN_BAKSHTAWA, posic:2257, Token Value: BákShtáwa Line:88 Posic-in-line:6
+Token: TOKEN_PAR_REDONDO_ABRIR, posic:2266, Token Value: ( Line:88 Posic-in-line:15
+Token: TOKEN_ID, posic:2267, Token Value: X Line:88 Posic-in-line:16
+Token: TOKEN_PAR_REDONDO_CERRAR, posic:2268, Token Value: ) Line:88 Posic-in-line:17
+Token: TOKEN_PUNTO, posic:2269, Token Value: . Line:88 Posic-in-line:18
+Token: TOKEN_DAKA, posic:2277, Token Value: däká Line:89 Posic-in-line:6
+Token: TOKEN_ID, posic:2282, Token Value: X Line:89 Posic-in-line:11
+Token: TOKEN_PUNTO, posic:2284, Token Value: . Line:89 Posic-in-line:13
+Token: TOKEN_TUINA, posic:2289, Token Value: tuína Line:90 Posic-in-line:4
+Token: TOKEN_PUNTO, posic:2295, Token Value: . Line:90 Posic-in-line:10
+Token: TOKEN_WEIKA, posic:2303, Token Value: wëikä Line:94 Posic-in-line:1
+Token: TOKEN_PUNTO, posic:2309, Token Value: . Line:94 Posic-in-line:7
+Token: TOKEN_INT, cantidad:15
+Token: TOKEN_ID, cantidad:66
+Token: TOKEN_CHAR, cantidad:8
+Token: TOKEN_STRING, cantidad:11
+Token: TOKEN_TIPO, cantidad:4
+Token: TOKEN_INICIALIZAR, cantidad:8
+Token: TOKEN_ABRIR_CONJUNTO, cantidad:1
+Token: TOKEN_CERRAR_CONJUNTO, cantidad:1
+Token: TOKEN_ABRIR_REGISTRO, cantidad:1
+Token: TOKEN_CERRAR_REGISTRO, cantidad:1
+Token: TOKEN_PAR_REDONDO_ABRIR, cantidad:15
+Token: TOKEN_PAR_REDONDO_CERRAR, cantidad:15
+Token: TOKEN_PAR_CUADRADO_ABRIR, cantidad:1
+Token: TOKEN_PAR_CUADRADO_CERRAR, cantidad:1
+Token: TOKEN_ARROBA, cantidad:0
+Token: TOKEN_MAS, cantidad:2
+Token: TOKEN_MENOS, cantidad:0
+Token: TOKEN_MULTIPLICACION, cantidad:0
+Token: TOKEN_DIVISION, cantidad:1
+Token: TOKEN_MODULO, cantidad:0
+Token: TOKEN_MAS_ROMANO, cantidad:0
+Token: TOKEN_MENOS_ROMANO, cantidad:0
+Token: TOKEN_MULTIPLICACION_ROMANO, cantidad:0
+Token: TOKEN_DIVISION_ROMANO, cantidad:0
+Token: TOKEN_MODULO_ROMANO, cantidad:0
+Token: TOKEN_PUNTO, cantidad:45
+Token: TOKEN_COMA, cantidad:16
+Token: TOKEN_COMPARADOR, cantidad:3
+Token: TOKEN_CHAR_POS, cantidad:0
+Token: TOKEN_ABRIR_ROMANO, cantidad:2
+Token: TOKEN_CERRAR_ROMANO, cantidad:2
+Token: TOKEN_WOGAWG, cantidad:1
+Token: TOKEN_KARA, cantidad:1
+Token: TOKEN_KLO, cantidad:1
+Token: TOKEN_KASKA, cantidad:2
+Token: TOKEN_WAKIRI, cantidad:1
+Token: TOKEN_PRA, cantidad:1
+Token: TOKEN_JARREE, cantidad:1
+Token: TOKEN_NAKJEE, cantidad:3
+Token: TOKEN_SHTAWA, cantidad:13
+Token: TOKEN_EKLA, cantidad:4
+Token: TOKEN_SHEJ, cantidad:5
+Token: TOKEN_YINAKULIWA, cantidad:0
+Token: TOKEN_JARJA, cantidad:1
+Token: TOKEN_KICHANA, cantidad:3
+Token: TOKEN_BIKO, cantidad:5
+Token: TOKEN_BOK, cantidad:1
+Token: TOKEN_SIWA, cantidad:0
+Token: TOKEN_KOYUWE, cantidad:0
+Token: TOKEN_WAKA, cantidad:7
+Token: TOKEN_DAKA, cantidad:1
+Token: TOKEN_DAWA, cantidad:6
+Token: TOKEN_TOLO, cantidad:0
+Token: TOKEN_JELA, cantidad:0
+Token: TOKEN_JURU, cantidad:0
+Token: TOKEN_KARI, cantidad:0
+Token: TOKEN_IRA, cantidad:0
+Token: TOKEN_IRALE, cantidad:0
+Token: TOKEN_KAI, cantidad:0
+Token: TOKEN_JEBA, cantidad:0
+Token: TOKEN_BAWA, cantidad:0
+Token: TOKEN_MATSII, cantidad:0
+Token: TOKEN_TIA, cantidad:0
+Token: TOKEN_KJATIA, cantidad:0
+Token: TOKEN_KUA, cantidad:0
+Token: TOKEN_WOBOGO, cantidad:0
+Token: TOKEN_SHENAWA, cantidad:0
+Token: TOKEN_NAWOTKO, cantidad:0
+Token: TOKEN_PAKAKIREI, cantidad:0
+Token: TOKEN_DODWA, cantidad:0
+Token: TOKEN_JAREBO, cantidad:0
+Token: TOKEN_KA, cantidad:6
+Token: TOKEN_TUINA, cantidad:6
+Token: TOKEN_DALEIKA, cantidad:1
+Token: TOKEN_SHA, cantidad:4
+Token: TOKEN_CHAGO, cantidad:2
+Token: TOKEN_JENA, cantidad:2
+Token: TOKEN_SHIRINA, cantidad:2
+Token: TOKEN_MANEWA, cantidad:0
+Token: TOKEN_NUI, cantidad:0
+Token: TOKEN_TSU, cantidad:0
+Token: TOKEN_SHANI, cantidad:0
+Token: TOKEN_KANA, cantidad:0
+Token: TOKEN_TUNA, cantidad:0
+Token: TOKEN_KATSO, cantidad:0
+Token: TOKEN_NAI, cantidad:0
+Token: TOKEN_TA, cantidad:0
+Token: TOKEN_TULUWO, cantidad:0
+Token: TOKEN_TSERE, cantidad:0
+Token: TOKEN_SHANA, cantidad:0
+Token: TOKEN_KIANA, cantidad:1
+Token: TOKEN_CHANI, cantidad:2
+Token: TOKEN_WAYUA, cantidad:4
+Token: TOKEN_IAWA, cantidad:2
+Token: TOKEN_TOLI, cantidad:1
+Token: TOKEN_KUKLE, cantidad:0
+Token: TOKEN_AWESHTAWA, cantidad:0
+Token: TOKEN_AWEEKLA, cantidad:0
+Token: TOKEN_AWESHEJ, cantidad:0
+Token: TOKEN_AWEYINAKULIWA, cantidad:0
+Token: TOKEN_AWEJARJA, cantidad:0
+Token: TOKEN_AWEWOMELE, cantidad:0
+Token: TOKEN_BAKSHTAWA, cantidad:1
+Token: TOKEN_BAKEKLA, cantidad:0
+Token: TOKEN_BAKSHEJ, cantidad:2
+Token: TOKEN_BAKYINAKULIWA, cantidad:0
+Token: TOKEN_BAKJARJA, cantidad:0
+Token: TOKEN_BAKWOMELE, cantidad:0
+Token: TOKEN_WEIKA, cantidad:1
+Token: TOKEN_WOMELE, cantidad:2
+Token: TOKEN_KALWA, cantidad:0
+Token: TOKEN_SAKA, cantidad:0
+Token: TOKEN_TOKA, cantidad:0
+Token: TOKEN_NITSOSI, cantidad:0
+Token: TOKEN_EOF, cantidad:0
+Token: TOKEN_UNKNOWN, cantidad:1
+Token: ERROR_POSIBLE_INT, cantidad:1
+Token: ERROR_POSIBLE_MENOS, cantidad:0
+Token: ERROR_POSIBLE_STRING, cantidad:0
+Token: ERROR PIPE, cantidad:0
+Token: ERROR_POSIBLE_ID, cantidad:0
+Token: ERROR_2PUNTO, cantidad:0
+Token: ERROR_POSIBLE_TIPO, cantidad:0
+Token: ERROR_POSIBLE_INICIALIZACION, cantidad:0
+Token: ERROR_CERRAR_CONJUNTO, cantidad:0
+Token: ERROR_LLAVE, cantidad:1
+Token: ERROR_ABRIR_CONJUNTO, cantidad:0
+Token: ERROR_ABRIR_REGISTRO, cantidad:0
+Token: ERROR_POSIBLE_CHAR, cantidad:0
+Token: ERROR AMPERSON, cantidad:0

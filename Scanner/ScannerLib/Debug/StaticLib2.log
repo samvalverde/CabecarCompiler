@@ -1,0 +1,7 @@
+﻿  CBuffer.cpp
+d:\personal\ekp\scanner\scanner\cbuffer.cpp(113): fatal error C1010: unexpected end of file while looking for precompiled header. Did you forget to add '#include "pch.h"' to your source?
+  Token.cpp
+d:\personal\ekp\scanner\scanner\token.cpp(166): fatal error C1010: unexpected end of file while looking for precompiled header. Did you forget to add '#include "pch.h"' to your source?
+  Tokenizer.cpp
+d:\personal\ekp\scanner\scanner\tokenizer.cpp(864): fatal error C1010: unexpected end of file while looking for precompiled header. Did you forget to add '#include "pch.h"' to your source?
+  Generating Code...
