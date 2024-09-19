@@ -9,23 +9,25 @@
 ; ###### Manual de Usuario ######
 
 ; Este programa es sumamente básico ya que recibe una entrada por terminal  
-; y la imprime en pantalla. Esto funciona para los 6 tipos de datos que se
+; y la imprime en pantalla. Este es uno de los seis programas para los 6 tipos de datos que se
 ; manejarán en el proyecto de Compiladores e Intérpretes.
 
 ; ---------------------------------------------------------------
+
 datos segment
-    booleano db ?
-    mensajeVacio1 db 'La entrada esta vacia.$'
-    mensajeVacio2 db 'Por favor, ingrese un valor.$'
+    booleano db ?             ; Variable para almacenar el booleano (0 o 1)
+    mensajeEntrada db 'Por favor, ingrese un valor booleano (0 o 1):$'
+    mensajeSalida db 'El valor booleano ingresado es: $'
+    mensajeVacio db 'La entrada está vacía o es inválida.$'
     acercaDe1 db 'Rutina de manejo para booleanos.$'
     acercaDe2 db 'Manejo de entrada y salida.$'
     blank db 13, 10, '$'
-datos endS
+datos ends
 
 ; ---------------------------------------------------------------
 pila segment stack 'stack'
     dw 256 dup (?)
-pila endS
+pila ends
 
 Print Macro mensaje
     mov ah, 09h
@@ -36,58 +38,64 @@ EndM
 ; ---------------------------------------------------------------
 codigo segment
 
-    assume cs:codigo, ds:datos, ss:pila ;se asignan los segmentos
+    assume cs:codigo, ds:datos, ss:pila
 
 obtenerEntrada proc near
-    ; Procesamiento de la entrada de un booleano
+    ; Solicitar entrada de un booleano
+    Print mensajeEntrada
     mov ah, 01h
     int 21h
     cmp al, '0'
     je setFalse
     cmp al, '1'
     je setTrue
-    jmp entradaVacia
-    
+    call entradaVacia
+    jmp finLectura
+
 setFalse:
     mov booleano, 0
-    ret
+    jmp finLectura
 
 setTrue:
     mov booleano, 1
+    jmp finLectura
+
+finLectura:
     ret
-obtenerEntrada endP
+obtenerEntrada endp
 
 imprimirBooleano proc near
-    ; Muestra el valor booleano almacenado
+    ; Imprimir el valor booleano almacenado
+    Print mensajeSalida
     mov al, booleano
-    add al, '0'
+    add al, '0'          ; Convertir el valor a carácter ('0' o '1')
+    mov dl, al
     mov ah, 02h
     int 21h
     ret
-imprimirBooleano endP
+imprimirBooleano endp
 
 entradaVacia proc near
-    Print mensajeVacio1
-    Print mensajeVacio2
+    Print mensajeVacio
     ret
-entradaVacia endP
+entradaVacia endp
 
 finRutina proc near
     mov ax, 4C00h
     int 21h
     ret
-finRutina endP
+finRutina endp
 
 blankspace proc near
     Print blank
     ret
-blankspace endP
+blankspace endp
 
 prntAcercaDe proc near
     Print acercaDe1
     Print acercaDe2
     ret
-prntAcercaDe endP
+prntAcercaDe endp
 
 main:
     mov ax, ds
@@ -98,6 +106,7 @@ main:
 
     mov ax, datos
     mov ds, ax
+
     ;   ------------------------------------------------------------------
     call prntAcercaDe
     ;   ------------------------------------------------------------------
@@ -108,6 +117,7 @@ main:
     call imprimirBooleano
     ;   ------------------------------------------------------------------
     call finRutina
+
 
 codigo endS
 end main

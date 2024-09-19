@@ -9,23 +9,25 @@
 ; ###### Manual de Usuario ######
 
 ; Este programa es sumamente básico ya que recibe una entrada por terminal  
-; y la imprime en pantalla. Esto funciona para los 6 tipos de datos que se
+; y la imprime en pantalla. Este es uno de los seis programas para los 6 tipos de datos que se
 ; manejarán en el proyecto de Compiladores e Intérpretes.
 
 ; ---------------------------------------------------------------
 datos segment
-    stringVar db 128 dup(?)
+    string dw 20 dup('$')
     mensajeVacio1 db 'La entrada esta vacia.$'
     mensajeVacio2 db 'Por favor, ingrese un valor.$'
     acercaDe1 db 'Rutina de manejo para strings.$'
     acercaDe2 db 'Manejo de entrada y salida.$'
     blank db 13, 10, '$'
-datos endS
+    mensajeEntrada db 'Ingrese un string: $'
+    mensajeSalida db 'String recibido: $'
+datos ends
 
 ; ---------------------------------------------------------------
 pila segment stack 'stack'
     dw 256 dup (?)
-pila endS
+pila ends
 
 Print Macro mensaje
     mov ah, 09h
@@ -38,69 +40,88 @@ codigo segment
 
     assume cs:codigo, ds:datos, ss:pila ;se asignan los segmentos
 
-; ---------------------------------------------------------------
-; Rutina para Tipo de Dato String
-; ---------------------------------------------------------------
-obtenerEntradaString proc near
-    ; Mensaje para solicitar la entrada
-    Print mensajeEntradaString
-
-    ; Inicializar puntero y contador
-    lea si, stringVar
-    mov cx, 0
-
-    leerCaracter:
-        ; Leer un carácter de la entrada estándar
-        mov ah, 01h
-        int 21h
-        mov al, ah            ; Guardar carácter en AL
-        cmp al, 0Dh           ; Comparar si es "Enter"
-        je finLecturaString    ; Si es Enter, termina
-
-        ; Almacenar el carácter en el buffer de string
-        mov [si], al
-        inc si                ; Incrementar el puntero
-        inc cx                ; Incrementar el contador de caracteres leídos
-        jmp leerCaracter      ; Repetir para el siguiente carácter
-
-    finLecturaString:
-        ; Añadir el carácter nulo al final del string
-        mov byte ptr [si], '$'
-        ret
-obtenerEntradaString endp
-
-
-imprimirString proc near
-    ; Imprimir el string de vuelta a la salida estándar
-    lea dx, stringVar
-    mov ah, 09h
-    int 21h
-imprimirString endP
-
-entradaVacia proc near
-    Print mensajeVacio1
-    Print mensajeVacio2
-    ret
-entradaVacia endP
-
-finRutina proc near
-    mov ax, 4C00h
-    int 21h
-    ret
-finRutina endP
-
-blankspace proc near
-    Print blank
-    ret
-blankspace endP
-
+; Procedimiento para imprimir el mensaje "Acerca de"
 prntAcercaDe proc near
     Print acercaDe1
     Print acercaDe2
     ret
 prntAcercaDe endP
 
+; Procedimiento para manejar entradas vacías
+entradaVacia proc near
+    Print mensajeVacio1
+    Print mensajeVacio2
+    ret
+entradaVacia endP
+
+; Procedimiento para obtener la entrada del usuario
+obtenerEntrada proc near
+    ; Mostrar mensaje de solicitud de entrada
+    Print mensajeEntrada
+
+    ; Inicializar puntero al buffer y contador
+    lea si, string
+    mov cx, 0
+
+    leerCaracter:
+        ; Leer un carácter de la entrada estándar
+        mov ah, 01h
+        int 21h
+        cmp al, 0Dh           ; Comprobar si es "Enter" (código ASCII 13)
+        je finLectura         ; Si es "Enter", terminar la lectura
+
+        ; Almacenar el carácter en el buffer
+        mov [si], al
+        inc si                ; Incrementar el puntero
+        inc cx                ; Incrementar el contador de caracteres leídos
+        cmp cx, 19            ; Verificar que no se exceda el buffer
+        jae finLectura        ; Si se excede, terminar la lectura
+        jmp leerCaracter      ; Repetir para el siguiente carácter
+
+    empty:
+        ; Mostrar mensaje de entrada vacía
+        call entradaVacia
+        ret
+    
+    finLectura:
+        ; Añadir el carácter de fin de cadena '$'
+        mov byte ptr [si], '$'
+        ; Verificar si la entrada está vacía
+        lea si, string
+        mov al, [si]
+        cmp al, '$'           ; Comprobar si el primer carácter es '$' (sin entrada)
+        je empty       ; Si es '$', mostrar mensaje de entrada vacía
+        ret
+obtenerEntrada endP
+
+; Procedimiento para imprimir el número romano almacenado
+imprimirString proc near
+    ; Mostrar mensaje de salida
+    Print mensajeSalida
+
+    ; Imprimir el string almacenado en el buffer
+    lea dx, string
+    mov ah, 09h
+    int 21h
+    ret
+imprimirString endP
+
+; Procedimiento para imprimir una línea en blanco
+blankspace proc near
+    Print blank
+    ret
+blankspace endP
+
+; Procedimiento para finalizar el programa
+finRutina proc near
+    mov ax, 4C00h
+    int 21h
+    ret
+finRutina endP
+
+; Procedimiento principal del programa
 main:
+    ; Inicialización de segmentos
     mov ax, ds
     mov es, ax
 
@@ -109,16 +130,19 @@ main:
 
     mov ax, datos
     mov ds, ax
-    ;   ------------------------------------------------------------------
+
+    ; ------------------------------------------------------------------
     call prntAcercaDe
-    ;   ------------------------------------------------------------------
+    ; ------------------------------------------------------------------
     call blankspace
-    ;   ------------------------------------------------------------------
+    ; ------------------------------------------------------------------
     call obtenerEntrada
-    ;   ------------------------------------------------------------------
+    ; ------------------------------------------------------------------
     call imprimirString
-    ;   ------------------------------------------------------------------
+    ; ------------------------------------------------------------------
     call finRutina
 
 codigo endS
 end main
+
+; ---------------------------------------------------------------

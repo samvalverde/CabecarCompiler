@@ -9,23 +9,24 @@
 ; ###### Manual de Usuario ######
 
 ; Este programa es sumamente básico ya que recibe una entrada por terminal  
-; y la imprime en pantalla. Esto funciona para los 6 tipos de datos que se
+; y la imprime en pantalla. Este es uno de los seis programas para los 6 tipos de datos que se
 ; manejarán en el proyecto de Compiladores e Intérpretes.
 
 ; ---------------------------------------------------------------
 datos segment
-    caracter db ?
-    mensajeVacio1 db 'La entrada esta vacia.$'
-    mensajeVacio2 db 'Por favor, ingrese un valor.$'
+    caracter db ?             ; Variable para almacenar el carácter
+    mensajeEntrada db 'Por favor, ingrese un carácter:$'
+    mensajeSalida db 'El carácter ingresado es: $'
+    mensajeVacio db 'La entrada está vacía.$'
     acercaDe1 db 'Rutina de manejo para caracteres.$'
     acercaDe2 db 'Manejo de entrada y salida.$'
     blank db 13, 10, '$'
-datos endS
+datos ends
 
 ; ---------------------------------------------------------------
 pila segment stack 'stack'
     dw 256 dup (?)
-pila endS
+pila ends
 
 Print Macro mensaje
     mov ah, 09h
@@ -36,46 +37,47 @@ EndM
 ; ---------------------------------------------------------------
 codigo segment
 
-    assume cs:codigo, ds:datos, ss:pila ;se asignan los segmentos
+    assume cs:codigo, ds:datos, ss:pila
 
 obtenerEntrada proc near
-    ; Procesamiento de la entrada de un carácter
+    ; Solicitar entrada de un carácter
+    Print mensajeEntrada
     mov ah, 01h
     int 21h
-    mov caracter, al
+    mov caracter, al       ; Guardar el carácter en la variable "caracter"
     ret
-obtenerEntrada endP
+obtenerEntrada endp
 
 imprimirCaracter proc near
-    ; Muestra el carácter almacenado
-    mov al, caracter
+    ; Imprimir el carácter almacenado
+    Print mensajeSalida
+    mov dl, caracter
     mov ah, 02h
     int 21h
     ret
-imprimirCaracter endP
+imprimirCaracter endp
 
 entradaVacia proc near
-    Print mensajeVacio1
-    Print mensajeVacio2
+    Print mensajeVacio
     ret
-entradaVacia endP
+entradaVacia endp
 
 finRutina proc near
     mov ax, 4C00h
     int 21h
     ret
-finRutina endP
+finRutina endp
 
 blankspace proc near
     Print blank
     ret
-blankspace endP
+blankspace endp
 
 prntAcercaDe proc near
     Print acercaDe1
     Print acercaDe2
     ret
-prntAcercaDe endP
+prntAcercaDe endp
 
 main:
     mov ax, ds
@@ -86,6 +88,7 @@ main:
 
     mov ax, datos
     mov ds, ax
+
     ;   ------------------------------------------------------------------
     call prntAcercaDe
     ;   ------------------------------------------------------------------
