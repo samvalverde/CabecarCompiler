@@ -9,7 +9,7 @@
 ; ###### Manual de Usuario ######
 
 ; Este programa es sumamente básico ya que recibe una entrada por terminal  
-; y la imprime en pantalla. Esto funciona para los 6 tipos de datos que se
+; y la imprime en pantalla. Este es uno de los seis programas para los 6 tipos de datos que se
 ; manejarán en el proyecto de Compiladores e Intérpretes.
 
 ; ---------------------------------------------------------------

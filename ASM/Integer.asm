@@ -7,21 +7,23 @@
 ; Fecha de Entrega: 11/09/2024
 
 ; ###### Manual de Usuario ######
+
 ; Este programa es sumamente básico ya que recibe una entrada por terminal  
-; y la imprime en pantalla. Esto funciona para los 6 tipos de datos que se
+; y la imprime en pantalla. Este es uno de los seis programas para los 6 tipos de datos que se
 ; manejarán en el proyecto de Compiladores e Intérpretes.
 
 ; ---------------------------------------------------------------
+
 datos segment
-    entero dw ?             ; Se amplía a 16 bits para manejar números grandes
-    mensajeVacio1 db 'La entrada esta vacia.$'
-    mensajeVacio2 db 'Por favor, ingrese un valor.$'
-    acercaDe1 db 'Rutina de manejo para enteros.$'
-    acercaDe2 db 'Manejo de entrada y salida.$'
+    entero dw ?             ; Variable para almacenar el número de 16 bits
+    msgEntrada db 'Por favor, ingrese un número entero:$'
+    msgSalida db 'El número ingresado es: $'
+    mensajeVacio db 'La entrada está vacía.$'
     blank db 13, 10, '$'
+    acercaDe1 db 'Rutina de manejo para enteros.$'
+    acercaDe2 db 'Manejo de entrada y salida de enteros de 16 bits.$'
 datos ends
 
-; ---------------------------------------------------------------
 pila segment stack 'stack'
     dw 256 dup (?)
 pila ends
@@ -34,36 +36,38 @@ EndM
 
 ; ---------------------------------------------------------------
 codigo segment
+    assume cs:codigo, ds:datos, ss:pila
 
-    assume cs:codigo, ds:datos, ss:pila ;se asignan los segmentos
+leerEntero proc near
+    ; Solicitar la entrada de un número entero
+    Print msgEntrada
+    lea dx, entero         ; Dirección del buffer donde almacenar el número
+    xor cx, cx             ; Inicializar CX para almacenar el número leído
 
-obtenerEntrada proc near
-    ; Inicializar el acumulador a 0
-    mov cx, 0               ; CX almacenará el número
     leerDigito:
-        mov ah, 01h         ; Leer un carácter
+        mov ah, 01h        ; Leer un carácter desde la entrada estándar
         int 21h
-        cmp al, 0Dh         ; Comprobar si se presionó "Enter"
+        cmp al, 0Dh        ; Verificar si se presionó "Enter"
         je finLectura
-        sub al, '0'         ; Convertir el carácter a valor numérico
-        mov bx, 10          ; BX = 10
-        mul bx              ; AX = AX * 10
-        add cx, ax          ; Sumar el dígito al acumulador
-        jmp leerDigito      ; Leer el siguiente dígito
+        sub al, '0'        ; Convertir el carácter leído a valor numérico
+        mov bx, 10         ; BX = 10
+        mul bx             ; Multiplicar el acumulador por 10
+        add cx, ax         ; Sumar el valor leído a CX
+        jmp leerDigito     ; Leer el siguiente dígito
 
     finLectura:
-        mov entero, cx      ; Guardar el resultado en la variable "entero"
+        mov entero, cx     ; Almacenar el número leído en la variable "entero"
         ret
-obtenerEntrada endp
+leerEntero endp
 
 imprimirEntero proc near
-    ; Imprimir el valor entero almacenado
-    mov ax, entero          ; Cargar el valor de "entero" en AX
-    xor cx, cx              ; Inicializar CX a 0
+    ; Mostrar el valor entero almacenado
+    mov ax, entero          ; Cargar el valor del entero en AX
+    xor cx, cx              ; Inicializar CX como contador de dígitos
 
-    cmp ax, 0               ; Comprobar si el número es 0
-    jne imprimirLoop        ; Si no es 0, continuar con la conversión
-    mov dl, '0'             ; Si es 0, mostrarlo directamente
+    cmp ax, 0               ; Verificar si el número es 0
+    jne imprimirLoop        ; Si no es 0, continuar
+    mov dl, '0'             ; Si es 0, mostrar directamente
     mov ah, 02h
     int 21h
     jmp finImpresion
@@ -71,45 +75,28 @@ imprimirEntero proc near
     imprimirLoop:
         mov bx, 10
         xor dx, dx          ; DX:AX = AX / 10
-        div bx              ; Dividir AX por 10, resultado en AX, residuo en DX
+        div bx              ; Dividir AX por 10
         add dl, '0'         ; Convertir el residuo en carácter
         push dx             ; Guardar el dígito en la pila
         inc cx              ; Incrementar el contador de dígitos
         test ax, ax         ; Comprobar si AX es 0
-        jne imprimirLoop    ; Si no es 0, repetir
+        jne imprimirLoop    ; Si no es 0, seguir dividiendo
 
     imprimirStack:
-        pop dx              ; Recuperar el dígito desde la pila
+        pop dx              ; Recuperar el dígito de la pila
         mov ah, 02h         ; Imprimir el dígito
         int 21h
-        loop imprimirStack  ; Repetir para todos los dígitos
+        loop imprimirStack  ; Imprimir todos los dígitos
 
     finImpresion:
         ret
 imprimirEntero endp
 
-entradaVacia proc near
-    Print mensajeVacio1
-    Print mensajeVacio2
-    ret
-entradaVacia endp
-
 finRutina proc near
-    mov ax, 4C00h
+    mov ax, 4C00h           ; Terminar el programa
     int 21h
     ret
 finRutina endp
-
-blankspace proc near
-    Print blank
-    ret
-blankspace endp
-
-prntAcercaDe proc near
-    Print acercaDe1
-    Print acercaDe2
-    ret
-prntAcercaDe endp
 
 main:
     mov ax, ds
@@ -120,16 +107,11 @@ main:
 
     mov ax, datos
     mov ds, ax
-    ;   ------------------------------------------------------------------
-    call prntAcercaDe
-    ;   ------------------------------------------------------------------
-    call blankspace
-    ;   ------------------------------------------------------------------
-    call obtenerEntrada
-    ;   ------------------------------------------------------------------
-    call imprimirEntero
-    ;   ------------------------------------------------------------------
-    call finRutina
+
+    ; Llamar a las rutinas en orden
+    call leerEntero         ; Leer número entero
+    call imprimirEntero     ; Mostrar el número ingresado
+    call finRutina          ; Terminar el programa
 
 codigo ends
 end main
