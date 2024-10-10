@@ -1,0 +1,258 @@
+TERMINALES
+
+TOKEN_INT TOKEN_ID TOKEN_CHAR TOKEN_STRING TOKEN_TIPO TOKEN_INICIALIZAR TOKEN_ABRIR_CONJUNTO TOKEN_CERRAR_CONJUNTO TOKEN_ABRIR_REGISTRO TOKEN_CERRAR_REGISTRO TOKEN_PAR_REDONDO_ABRIR TOKEN_PAR_REDONDO_CERRAR TOKEN_PAR_CUADRADO_ABRIR TOKEN_PAR_CUADRADO_CERRAR TOKEN_ARROBA TOKEN_MAS TOKEN_MENOS TOKEN_MULTIPLICACION TOKEN_DIVISION TOKEN_MODULO TOKEN_MAS_ROMANO TOKEN_MENOS_ROMANO TOKEN_MULTIPLICACION_ROMANO TOKEN_DIVISION_ROMANO TOKEN_MODULO_ROMANO TOKEN_PUNTO TOKEN_COMA TOKEN_COMPARADOR TOKEN_CHAR_POS TOKEN_ROMANO TOKEN_WOGAWG TOKEN_KARA TOKEN_KLO TOKEN_KASKA TOKEN_WAKIRI TOKEN_PRA TOKEN_JARREE TOKEN_NAKJEE TOKEN_SHTAWA TOKEN_EKLA TOKEN_SHEJ TOKEN_YINAKULIWA TOKEN_JARJA TOKEN_KICHANA TOKEN_BIKO TOKEN_BOK TOKEN_SIWA TOKEN_KOYUWE TOKEN_WAKA TOKEN_DAKA TOKEN_DAWA TOKEN_TOLO TOKEN_JELA TOKEN_JURU TOKEN_KARI TOKEN_IRA TOKEN_IRALE TOKEN_KAI TOKEN_JEBA TOKEN_BAWA TOKEN_MATSII TOKEN_TIA TOKEN_KJA TOKEN_KUA TOKEN_WOBOGO TOKEN_SHENAWA TOKEN_NAWOTKO TOKEN_PAKAKIREI TOKEN_DODWA TOKEN_JAREBO TOKEN_KA TOKEN_TUINA TOKEN_DALEIKA TOKEN_SHA TOKEN_CHAGO TOKEN_JENA TOKEN_SHIRINA TOKEN_MANEWA TOKEN_NUI TOKEN_TSU TOKEN_SHANI TOKEN_KANA TOKEN_TUNA TOKEN_KATSO TOKEN_NAI TOKEN_TA TOKEN_TULUWO TOKEN_TSERE TOKEN_SHANA TOKEN_KIANA TOKEN_CHANI TOKEN_WAYUA TOKEN_IAWA TOKEN_TOLI TOKEN_KUKLE TOKEN_AWESHTAWA TOKEN_AWEEKLA TOKEN_AWESHEJ TOKEN_AWEYINAKULIWA TOKEN_AWEJARJA TOKEN_AWEWOMELE TOKEN_BAKSHTAWA TOKEN_BAKEKLA TOKEN_BAKSHEJ TOKEN_BAKYINAKULIWA TOKEN_BAKJARJA TOKEN_BAKWOMELE TOKEN_WEIKA TOKEN_WOMELE TOKEN_KALWA TOKEN_SAKA TOKEN_TOKA TOKEN_NITSOSI
+
+PRODUCCIONES
+
+
+Programa EncabezadoPrograma Definiciones CuerpoPrograma
+
+EncabezadoPrograma TOKEN_WOGAWG TOKEN_ID TOKEN_PUNTO
+
+Definiciones TOKEN_KARA SeccionConstantes Definiciones
+Definiciones TOKEN_KLO SeccionTipos Definiciones
+Definiciones TOKEN_KASKA SeccionVariables Definiciones
+Definiciones TOKEN_WAKIRI SeccionPrototipos Definiciones
+Definiciones TOKEN_PRA SeccionRutinas Definiciones
+Definiciones
+
+SeccionConstantes TOKEN_NAKJEE TipoSimple TOKEN_ID TOKEN_WAKA LiteralConst TOKEN_PUNTO OtrasConstantes
+
+OtrasConstantes SeccionConstantes
+OtrasConstantes
+
+TipoSimple TipoSistema
+TipoSimple TOKEN_ID
+
+TipoSistema TOKEN_SHTAWA
+TipoSistema TOKEN_EKLA
+TipoSistema TOKEN_SHEJ
+TipoSistema TOKEN_YINAKULIWA
+TipoSistema TOKEN_JARJA
+TipoSistema TOKEN_WOMELE
+
+SeccionTipos TOKEN_ID TOKEN_TIPO TipoDefinido TOKEN_PUNTO OtrosTipos
+
+OtrosTipos SeccionTipos
+OtrosTipos
+
+TipoDefinido TipoSimple
+TipoDefinido DefTipoCompuesto
+
+DefTipoCompuesto TOKEN_KICHANA TipoSimple DefDimensionesTipo
+DefTipoCompuesto TOKEN_BOK TOKEN_KA ListaElemReg TOKEN_TUINA
+
+DefDimensionesTipo TOKEN_BIKO TOKEN_INT OtrasDefDimensTipo
+
+OtrasDefDimensTipo DefDimensionesTipo
+OtrasDefDimensTipo
+
+ListaElemReg TipoSimple TOKEN_ID TOKEN_PUNTO OtrosElemReg
+
+OtrosElemReg ListaElemReg
+OtrosElemReg
+
+SeccionVariables TipoSimple ListaVariables TOKEN_PUNTO OtrasVariables 
+SeccionVariables TOKEN_KICHANA TipoSimple TOKEN_ID DefDimensionesTipo InicializarVarArreglo TOKEN_PUNTO OtrasVariables
+SeccionVariables TOKEN_BOK TOKEN_KA ListaElemReg TOKEN_TUINA TOKEN_ID InicializarVarRegistro TOKEN_PUNTO OtrasVariables
+
+OtrasVariables SeccionVariables
+OtrasVariables
+
+ListaVariables TOKEN_ID InicializarVariable SigueListaVariables
+
+SigueListaVariables TOKEN_COMA ListaVariables
+SigueListaVariables
+
+InicializarVariable TOKEN_INICIALIZAR LiteralAsignacionVar
+InicializarVariable
+
+LiteralAsignacionVar TOKEN_INT
+LiteralAsignacionVar TOKEN_CHAR
+LiteralAsignacionVar TOKEN_STRING
+LiteralAsignacionVar TOKEN_SIWA
+LiteralAsignacionVar TOKEN_KOYUWE
+LiteralAsignacionVar TOKEN_ROMANO
+LiteralAsignacionVar ConstConjunto
+
+InicializarVarArreglo TOKEN_INICIALIZAR LiteralArreglo
+InicializarVarArreglo
+
+LiteralArreglo TOKEN_PAR_CUADRADO_ABRIR ListaElemLiteralArreglo TOKEN_PAR_CUADRADO_CERRAR
+
+ListaElemLiteralArreglo LiteralConst RestoListaElemLiteralArreglo
+ListaElemLiteralArreglo LiteralArreglo RestoListaElemLiteralArreglo
+
+RestoListaElemLiteralArreglo TOKEN_COMA ListaElemLiteralArreglo
+RestoListaElemLiteralArreglo
+
+InicializarVarRegistro TOKEN_INICIALIZAR TOKEN_ABRIR_REGISTRO ListaConstantesReg TOKEN_CERRAR_REGISTRO
+
+ListaConstantesReg LiteralConst RestoListaConstantesReg
+
+RestoListaConstantesReg TOKEN_COMA ListaConstantesReg
+RestoListaConstantesReg
+
+SeccionPrototipos TOKEN_KIANA TOKEN_ID TOKEN_PAR_REDONDO_ABRIR DefFuncFormalParams TOKEN_PAR_REDONDO_CERRAR TOKEN_CHANI TipoSimple TOKEN_PUNTO SiguientesPrototipos
+SeccionPrototipos TOKEN_WAYUA TOKEN_ID TOKEN_PAR_REDONDO_ABRIR DefProcFormalParams TOKEN_PAR_REDONDO_CERRAR TOKEN_PUNTO SiguientesPrototipos
+
+SiguientesPrototipos SeccionPrototipos
+SiguientesPrototipos
+
+DefFuncFormalParams TipoSimple ListaIDs SigDefFuncFormalParams
+
+SigDefFuncFormalParams TOKEN_PUNTO DefFuncFormalParams
+SigDefFuncFormalParams
+
+ListaIDs TOKEN_ID SiguientesListaIDs
+
+SiguientesListaIDs TOKEN_COMA ListaIDs
+SiguientesListaIDs
+
+DefProcFormalParams TipoSimple ListaProcIDs SigDefProcFormalParams
+DefProcFormalParams
+
+SigDefProcFormalParams TOKEN_PUNTO DefProcFormalParams
+SigDefProcFormalParams
+
+ListaProcIDs TOKEN_ID SiguientesListaProcIDs
+ListaProcIDs TOKEN_IAWA TOKEN_ID SiguientesListaProcIDs
+
+SiguientesListaProcIDs TOKEN_COMA ListaProcIDs
+SiguientesListaProcIDs
+
+SeccionRutinas TOKEN_KIANA TOKEN_ID TOKEN_PAR_REDONDO_ABRIR DefFuncFormalParams TOKEN_PAR_REDONDO_CERRAR TOKEN_CHANI TipoSimple TOKEN_SHA BloqueProcFunc TOKEN_PUNTO SiguientesRutinas
+SeccionRutinas TOKEN_WAYUA TOKEN_ID TOKEN_PAR_REDONDO_ABRIR DefProcFormalParams TOKEN_PAR_REDONDO_CERRAR TOKEN_SHA BloqueProcFunc TOKEN_PUNTO SiguientesRutinas
+
+SiguientesRutinas SeccionRutinas
+SiguientesRutinas
+
+BloqueProcFunc Definiciones SentenciasCompuestas
+
+SentenciasCompuestas TOKEN_KA ListaSentencias TOKEN_TUINA
+
+ListaSentencias Sentencia ListaSentencias
+ListaSentencias
+
+Sentencia TOKEN_ID SentenciaInicId
+Sentencia SentenciaCondicional TOKEN_PUNTO
+Sentencia SentenciaCiclo TOKEN_PUNTO
+Sentencia Retorno TOKEN_PUNTO
+Sentencia TOKEN_TULUWO TOKEN_PUNTO
+Sentencia TOKEN_TSERE TOKEN_PUNTO
+Sentencia TOKEN_SHANA TOKEN_PUNTO
+Sentencia TOKEN_MANEWA Expresion RestoSentenciaSwitch
+Sentencia TOKEN_TA TOKEN_ID RestoFactorId TOKEN_SHA Sentencia
+Sentencia SentenciasCompuestas
+Sentencia TOKEN_PUNTO
+
+RestoSentenciaSwitch TOKEN_SHA ListaSentencias TOKEN_NUI CicloSentenciaSwitch
+RestoSentenciaSwitch TOKEN_TSU ListaSentencias TOKEN_NUI CicloSentenciaSwitch
+
+CicloSentenciaSwitch TOKEN_SHA ListaSentencias TOKEN_NUI CicloSentenciaSwitch
+CicloSentenciaSwitch TOKEN_TSU ListaSentencias TOKEN_NUI CicloSentenciaSwitch
+CicloSentenciaSwitch
+
+SentenciaInicId Asignacion TOKEN_PUNTO
+SentenciaInicId LlamadaProcFunc TOKEN_PUNTO
+
+Asignacion TOKEN_WAKA Expresion
+
+LlamadaProcFunc TOKEN_PAR_REDONDO_ABRIR ListaExpresiones TOKEN_PAR_REDONDO_CERRAR
+
+SentenciaCondicional TOKEN_CHAGO Expresion TOKEN_JENA Sentencia TOKEN_SHIRINA Sentencia
+
+SentenciaCiclo TOKEN_DALEIKA Expresion TOKEN_SHA Sentencia
+SentenciaCiclo TOKEN_SHANI Sentencia TOKEN_KANA Expresion
+SentenciaCiclo TOKEN_TUNA TOKEN_ID TOKEN_INICIALIZAR Expresion TOKEN_KATSO Expresion TOKEN_NAI Expresion TOKEN_SHA
+
+Retorno TOKEN_TOLI Expresion
+
+ListaExpresiones Expresion RestoListaExpresiones
+ListaExpresiones
+
+RestoListaExpresiones TOKEN_COMA Expresion RestoListaExpresiones
+RestoListaExpresiones
+
+Expresion ExpresionRelacional RestoExpresion
+RestoExpresion TOKEN_IRALE ExpresionRelacional RestoExpresion
+RestoExpresion TOKEN_IRA ExpresionRelacional RestoExpresion
+RestoExpresion TOKEN_JEBA ExpresionRelacional RestoExpresion
+RestoExpresion TOKEN_CHAR_POS ExpresionRelacional RestoExpresion
+RestoExpresion
+
+ExpresionRelacional ExpresionSimple ExpresionOperRel
+
+ExpresionOperRel TOKEN_COMPARADOR ExpresionSimple
+ExpresionOperRel
+
+ExpresionSimple Termino RestoExpresionSimple
+
+RestoExpresionSimple TOKEN_MAS Termino RestoExpresionSimple
+RestoExpresionSimple TOKEN_MENOS Termino RestoExpresionSimple
+RestoExpresionSimple TOKEN_MAS_ROMANO Termino RestoExpresionSimple
+RestoExpresionSimple TOKEN_MENOS_ROMANO Termino RestoExpresionSimple
+RestoExpresionSimple
+
+Termino Factor RestoTermino
+
+RestoTermino TOKEN_MULTIPLICACION Factor RestoTermino
+RestoTermino TOKEN_DIVISION Factor RestoTermino
+RestoTermino TOKEN_MODULO Factor RestoTermino
+RestoTermino TOKEN_MULTIPLICACION_ROMANO Factor RestoTermino
+RestoTermino TOKEN_DIVISION_ROMANO Factor RestoTermino
+RestoTermino TOKEN_MODULO_ROMANO Factor RestoTermino
+RestoTermino
+
+
+Factor FactorIzq OperacionesInfijas
+
+FactorIzq TOKEN_ID RestoFactorId
+FactorIzq LiteralConst
+FactorIzq TOKEN_PAR_REDONDO_ABRIR Expresion TOKEN_PAR_REDONDO_CERRAR
+FactorIzq TOKEN_KAI FactorIzq
+FactorIzq TOKEN_DAKA FactorIzq
+FactorIzq TOKEN_DAWA FactorIzq
+FactorIzq TOKEN_TOLO FactorIzq
+FactorIzq TOKEN_JELA FactorIzq
+FactorIzq TOKEN_JURU FactorIzq
+FactorIzq TOKEN_KARI FactorIzq
+FactorIzq TOKEN_MATSII FactorIzq
+FactorIzq TOKEN_JAREBO FactorIzq
+FactorIzq TOKEN_BIKO FactorIzq
+
+RestoFactorId TOKEN_PAR_REDONDO_ABRIR ListaExpresiones TOKEN_PAR_REDONDO_CERRAR
+RestoFactorId ListaAccesoArray
+RestoFactorId TOKEN_ARROBA TOKEN_ID RestoFactorId
+RestoFactorId
+
+OperacionesInfijas TOKEN_BAWA Factor
+OperacionesInfijas TOKEN_TIA ExpresionTia TOKEN_TIA ExpresionTia
+OperacionesInfijas TOKEN_KJA ExpresionTia TOKEN_TIA ExpresionTia
+OperacionesInfijas TOKEN_KUA Expresion
+OperacionesInfijas TOKEN_WOBOGO Factor
+OperacionesInfijas TOKEN_SHENAWA Factor
+OperacionesInfijas TOKEN_NAWOTKO Factor
+OperacionesInfijas TOKEN_PAKAKIREI Factor
+OperacionesInfijas TOKEN_DODWA Factor
+OperacionesInfijas
+
+ExpresionTia TOKEN_INT
+ExpresionTia TOKEN_ID
+
+ListaAccesoArray TOKEN_PAR_CUADRADO_ABRIR Expresion TOKEN_PAR_CUADRADO_CERRAR RestoListaAccesoArray
+
+RestoListaAccesoArray ListaAccesoArray
+RestoListaAccesoArray
+
+LiteralConst LiteralAsignacionVar
+
+ConstConjunto TOKEN_ABRIR_CONJUNTO ListaConstConjunto TOKEN_CERRAR_CONJUNTO
+
+ListaConstConjunto TOKEN_CHAR RestoListaConstConjunto
+ListaConstConjunto
+
+RestoListaConstConjunto TOKEN_COMA TOKEN_CHAR RestoListaConstConjunto
+RestoListaConstConjunto 
+
+CuerpoPrograma TOKEN_JARREE ListaSentencias TOKEN_WEIKA TOKEN_PUNTO

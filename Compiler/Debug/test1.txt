@@ -1,0 +1,93 @@
+Hola!! Soy el Parser Cabecar
+Parsing: d:\personal\ekp\compiladores\input.txt
+leyendo token: TOKEN_WOGAWG Wögawg  , Line:6Col:1
+REPLACE STACK : <Programa> por: 
+  <CuerpoPrograma>
+  <Definiciones>
+  <EncabezadoPrograma>
+REPLACE STACK : <EncabezadoPrograma> por: 
+  TOKEN_PUNTO
+  TOKEN_ID
+  TOKEN_WOGAWG
+MATCH TOKEN : TOKEN_WOGAWG
+leyendo token: TOKEN_ID EjemploGrande  , Line:6Col:9
+MATCH TOKEN : TOKEN_ID
+leyendo token: TOKEN_PUNTO .  , Line:6Col:23
+MATCH TOKEN : TOKEN_PUNTO
+leyendo token: TOKEN_JARREE Jarree  , Line:9Col:1
+REPLACE STACK : <Definiciones> por: 
+REPLACE STACK : <CuerpoPrograma> por: 
+  TOKEN_PUNTO
+  TOKEN_WEIKA
+  <ListaSentencias>
+  TOKEN_JARREE
+MATCH TOKEN : TOKEN_JARREE
+leyendo token: TOKEN_ID x  , Line:10Col:3
+REPLACE STACK : <ListaSentencias> por: 
+  <ListaSentencias>
+  <Sentencia>
+REPLACE STACK : <Sentencia> por: 
+  <SentenciaInicId>
+  TOKEN_ID
+MATCH TOKEN : TOKEN_ID
+leyendo token: TOKEN_WAKA wáka  , Line:10Col:5
+REPLACE STACK : <SentenciaInicId> por: 
+  TOKEN_PUNTO
+  <Asignacion>
+REPLACE STACK : <Asignacion> por: 
+  <Expresion>
+  TOKEN_WAKA
+MATCH TOKEN : TOKEN_WAKA
+leyendo token: TOKEN_INT 1  , Line:10Col:10
+REPLACE STACK : <Expresion> por: 
+  <RestoExpresion>
+  <ExpresionRelacional>
+REPLACE STACK : <ExpresionRelacional> por: 
+  <ExpresionOperRel>
+  <ExpresionSimple>
+REPLACE STACK : <ExpresionSimple> por: 
+  <RestoExpresionSimple>
+  <Termino>
+REPLACE STACK : <Termino> por: 
+  <RestoTermino>
+  <Factor>
+REPLACE STACK : <Factor> por: 
+  <LiteralConst>
+REPLACE STACK : <LiteralConst> por: 
+  <LiteralAsignacionVar>
+REPLACE STACK : <LiteralAsignacionVar> por: 
+  TOKEN_INT
+MATCH TOKEN : TOKEN_INT
+leyendo token: TOKEN_MAS +  , Line:10Col:12
+REPLACE STACK : <RestoTermino> por: 
+REPLACE STACK : <RestoExpresionSimple> por: 
+  <RestoExpresion>
+  <Termino>
+  TOKEN_MAS
+MATCH TOKEN : TOKEN_MAS
+leyendo token: TOKEN_INT 89  , Line:10Col:14
+REPLACE STACK : <Termino> por: 
+  <RestoTermino>
+  <Factor>
+REPLACE STACK : <Factor> por: 
+  <LiteralConst>
+REPLACE STACK : <LiteralConst> por: 
+  <LiteralAsignacionVar>
+REPLACE STACK : <LiteralAsignacionVar> por: 
+  TOKEN_INT
+MATCH TOKEN : TOKEN_INT
+leyendo token: TOKEN_DIVISION /  , Line:10Col:17
+REPLACE STACK : <RestoTermino> por: 
+  <RestoTermino>
+  <Factor>
+  TOKEN_DIVISION
+MATCH TOKEN : TOKEN_DIVISION
+leyendo token: TOKEN_ID a  , Line:10Col:19
+REPLACE STACK : <Factor> por: 
+  <RestoFactorId>
+  TOKEN_ID
+MATCH TOKEN : TOKEN_ID
+leyendo token: TOKEN_MENOS -   , Line:10Col:21
+REPLACE STACK : <RestoFactorId> por: 
+REPLACE STACK : <RestoTermino> por: 
+Parsing ErrorParsing failed.

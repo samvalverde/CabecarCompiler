@@ -1,0 +1,6 @@
+﻿  CBuffer.cpp
+d:\personal\ekp\compiler\scannerlib\sources\cbuffer.cpp(44): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
+  CToken.cpp
+  CScanner.cpp
+  Generating Code...
+  ScannerLib.vcxproj -> D:\Personal\EKP\Compiler\x64\Debug\ScannerLib.lib
