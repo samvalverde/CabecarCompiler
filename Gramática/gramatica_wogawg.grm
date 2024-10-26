@@ -1,0 +1,258 @@
+TERMINALES
+
+TOKEN_INT TOKEN_ID TOKEN_CHAR TOKEN_STRING TOKEN_TIPO TOKEN_INICIALIZAR TOKEN_ABRIR_CONJUNTO TOKEN_CERRAR_CONJUNTO TOKEN_ABRIR_REGISTRO TOKEN_CERRAR_REGISTRO TOKEN_PAR_REDONDO_ABRIR TOKEN_PAR_REDONDO_CERRAR TOKEN_PAR_CUADRADO_ABRIR TOKEN_PAR_CUADRADO_CERRAR TOKEN_ARROBA TOKEN_MAS TOKEN_MENOS TOKEN_MULTIPLICACION TOKEN_DIVISION TOKEN_MODULO TOKEN_MAS_ROMANO TOKEN_MENOS_ROMANO TOKEN_MULTIPLICACION_ROMANO TOKEN_DIVISION_ROMANO TOKEN_MODULO_ROMANO TOKEN_PUNTO TOKEN_COMA TOKEN_COMPARADOR TOKEN_CHAR_POS TOKEN_ROMANO TOKEN_WOGAWG TOKEN_KARA TOKEN_KLO TOKEN_KASKA TOKEN_WAKIRI TOKEN_PRA TOKEN_JARREE TOKEN_NAKJEE TOKEN_SHTAWA TOKEN_EKLA TOKEN_SHEJ TOKEN_YINAKULIWA TOKEN_JARJA TOKEN_KICHANA TOKEN_BIKO TOKEN_BOK TOKEN_SIWA TOKEN_KOYUWE TOKEN_WAKA TOKEN_DAKA TOKEN_DAWA TOKEN_TOLO TOKEN_JELA TOKEN_JURU TOKEN_KARI TOKEN_IRA TOKEN_IRALE TOKEN_KAI TOKEN_JEBA TOKEN_BAWA TOKEN_MATSII TOKEN_TIA TOKEN_KJA TOKEN_KUA TOKEN_WOBOGO TOKEN_SHENAWA TOKEN_NAWOTKO TOKEN_PAKAKIREI TOKEN_DODWA TOKEN_JAREBO TOKEN_KA TOKEN_TUINA TOKEN_DALEIKA TOKEN_SHA TOKEN_CHAGO TOKEN_JENA TOKEN_SHIRINA TOKEN_MANEWA TOKEN_NUI TOKEN_TSU TOKEN_SHANI TOKEN_KANA TOKEN_TUNA TOKEN_KATSO TOKEN_NAI TOKEN_TA TOKEN_TULUWO TOKEN_TSERE TOKEN_SHANA TOKEN_KIANA TOKEN_CHANI TOKEN_WAYUA TOKEN_IAWA TOKEN_TOLI TOKEN_KUKLE TOKEN_AWESHTAWA TOKEN_AWEEKLA TOKEN_AWESHEJ TOKEN_AWEYINAKULIWA TOKEN_AWEJARJA TOKEN_AWEWOMELE TOKEN_BAKSHTAWA TOKEN_BAKEKLA TOKEN_BAKSHEJ TOKEN_BAKYINAKULIWA TOKEN_BAKJARJA TOKEN_BAKWOMELE TOKEN_WEIKA TOKEN_WOMELE TOKEN_KALWA TOKEN_SAKA TOKEN_TOKA TOKEN_NITSOSI
+
+PRODUCCIONES
+
+
+Programa #RS1001 EncabezadoPrograma Definiciones CuerpoPrograma #RS1002
+
+EncabezadoPrograma TOKEN_WOGAWG TOKEN_ID TOKEN_PUNTO
+
+Definiciones TOKEN_KARA #RS1017 SeccionConstantes Definiciones
+Definiciones TOKEN_KLO #RS1017 SeccionTipos Definiciones
+Definiciones TOKEN_KASKA #RS1017 SeccionVariables Definiciones
+Definiciones TOKEN_WAKIRI #RS1017 SeccionPrototipos Definiciones
+Definiciones TOKEN_PRA #RS1017 SeccionRutinas Definiciones
+Definiciones
+
+SeccionConstantes TOKEN_NAKJEE TipoSimple TOKEN_ID TOKEN_WAKA LiteralConst #RS1003 TOKEN_PUNTO OtrasConstantes
+
+OtrasConstantes SeccionConstantes
+OtrasConstantes
+
+TipoSimple TipoSistema #RS1005
+TipoSimple TOKEN_ID #RS1005
+
+TipoSistema TOKEN_SHTAWA #RS1004
+TipoSistema TOKEN_EKLA #RS1004
+TipoSistema TOKEN_SHEJ #RS1004
+TipoSistema TOKEN_YINAKULIWA #RS1004
+TipoSistema TOKEN_JARJA #RS1004
+TipoSistema TOKEN_WOMELE #RS1004
+
+SeccionTipos TOKEN_ID #RS1014 TOKEN_TIPO TipoDefinido #RS1006 #RS1009 #RS1013 TOKEN_PUNTO OtrosTipos
+
+OtrosTipos SeccionTipos
+OtrosTipos
+
+TipoDefinido TipoSimple #RS1005
+TipoDefinido DefTipoCompuesto #RS1005
+
+DefTipoCompuesto TOKEN_KICHANA TipoSimple #RS1005 DefDimensionesTipo
+DefTipoCompuesto TOKEN_BOK TOKEN_KA #RS1015 ListaElemReg TOKEN_TUINA
+
+DefDimensionesTipo TOKEN_BIKO TOKEN_INT #RS1012 OtrasDefDimensTipo
+
+OtrasDefDimensTipo DefDimensionesTipo
+OtrasDefDimensTipo
+
+ListaElemReg TipoSimple TOKEN_ID #RS1016 TOKEN_PUNTO OtrosElemReg
+
+OtrosElemReg ListaElemReg
+OtrosElemReg
+
+SeccionVariables TipoSimple #RS1006 ListaVariables TOKEN_PUNTO OtrasVariables 
+SeccionVariables TOKEN_KICHANA TipoSimple #RS1006 TOKEN_ID #RS1009 DefDimensionesTipo #RS1013 InicializarVarArreglo TOKEN_PUNTO OtrasVariables
+SeccionVariables TOKEN_BOK TOKEN_KA #RS1018 ListaElemReg TOKEN_TUINA TOKEN_ID #RS1019 InicializarVarRegistro TOKEN_PUNTO OtrasVariables
+
+OtrasVariables SeccionVariables
+OtrasVariables
+
+ListaVariables TOKEN_ID #RS1007 InicializarVariable SigueListaVariables
+
+SigueListaVariables TOKEN_COMA ListaVariables
+SigueListaVariables
+
+InicializarVariable TOKEN_INICIALIZAR LiteralAsignacionVar #RS1008
+InicializarVariable
+
+LiteralAsignacionVar TOKEN_INT #RS1004
+LiteralAsignacionVar TOKEN_CHAR #RS1004
+LiteralAsignacionVar TOKEN_STRING #RS1004
+LiteralAsignacionVar TOKEN_SIWA #RS1004
+LiteralAsignacionVar TOKEN_KOYUWE #RS1004
+LiteralAsignacionVar TOKEN_ROMANO #RS1004
+LiteralAsignacionVar ConstConjunto #RS1004
+
+InicializarVarArreglo TOKEN_INICIALIZAR LiteralArreglo
+InicializarVarArreglo
+
+LiteralArreglo TOKEN_PAR_CUADRADO_ABRIR ListaElemLiteralArreglo TOKEN_PAR_CUADRADO_CERRAR
+
+ListaElemLiteralArreglo LiteralConst RestoListaElemLiteralArreglo
+ListaElemLiteralArreglo LiteralArreglo RestoListaElemLiteralArreglo
+
+RestoListaElemLiteralArreglo TOKEN_COMA ListaElemLiteralArreglo
+RestoListaElemLiteralArreglo
+
+InicializarVarRegistro TOKEN_INICIALIZAR TOKEN_ABRIR_REGISTRO ListaConstantesReg TOKEN_CERRAR_REGISTRO
+
+ListaConstantesReg LiteralConst RestoListaConstantesReg
+
+RestoListaConstantesReg TOKEN_COMA ListaConstantesReg
+RestoListaConstantesReg
+
+SeccionPrototipos TOKEN_KIANA TOKEN_ID #RS1020 TOKEN_PAR_REDONDO_ABRIR #RS1018 #RS1023 DefFuncFormalParams TOKEN_PAR_REDONDO_CERRAR TOKEN_CHANI TipoSimple #RS1024 #RS1022 TOKEN_PUNTO SiguientesPrototipos
+SeccionPrototipos TOKEN_WAYUA TOKEN_ID #RS1020 TOKEN_PAR_REDONDO_ABRIR #RS1018 #RS1023 DefProcFormalParams TOKEN_PAR_REDONDO_CERRAR #RS1024 TOKEN_PUNTO SiguientesPrototipos
+
+SiguientesPrototipos SeccionPrototipos
+SiguientesPrototipos
+
+DefFuncFormalParams TipoSimple #RS1006 ListaIDs SigDefFuncFormalParams
+
+SigDefFuncFormalParams TOKEN_PUNTO DefFuncFormalParams
+SigDefFuncFormalParams
+
+ListaIDs TOKEN_ID #RS1021 SiguientesListaIDs
+
+SiguientesListaIDs TOKEN_COMA ListaIDs
+SiguientesListaIDs
+
+DefProcFormalParams TipoSimple #RS1006 ListaProcIDs SigDefProcFormalParams
+DefProcFormalParams
+
+SigDefProcFormalParams TOKEN_PUNTO DefProcFormalParams
+SigDefProcFormalParams
+
+ListaProcIDs TOKEN_ID #RS1021 SiguientesListaProcIDs
+ListaProcIDs TOKEN_IAWA TOKEN_ID #RS1021 SiguientesListaProcIDs
+
+SiguientesListaProcIDs TOKEN_COMA ListaProcIDs
+SiguientesListaProcIDs
+
+SeccionRutinas TOKEN_KIANA TOKEN_ID TOKEN_PAR_REDONDO_ABRIR #RS1023 DefFuncFormalParams TOKEN_PAR_REDONDO_CERRAR TOKEN_CHANI TipoSimple TOKEN_SHA BloqueProcFunc #RS1024 TOKEN_PUNTO SiguientesRutinas
+SeccionRutinas TOKEN_WAYUA TOKEN_ID TOKEN_PAR_REDONDO_ABRIR #RS1023 DefProcFormalParams TOKEN_PAR_REDONDO_CERRAR TOKEN_SHA BloqueProcFunc #RS1024 TOKEN_PUNTO SiguientesRutinas
+
+SiguientesRutinas SeccionRutinas
+SiguientesRutinas
+
+BloqueProcFunc Definiciones SentenciasCompuestas
+
+SentenciasCompuestas TOKEN_KA ListaSentencias TOKEN_TUINA
+
+ListaSentencias Sentencia ListaSentencias
+ListaSentencias
+
+Sentencia TOKEN_ID #RS1031 SentenciaInicId 
+Sentencia SentenciaCondicional TOKEN_PUNTO
+Sentencia SentenciaCiclo TOKEN_PUNTO
+Sentencia Retorno TOKEN_PUNTO
+Sentencia TOKEN_TULUWO TOKEN_PUNTO
+Sentencia TOKEN_TSERE TOKEN_PUNTO
+Sentencia TOKEN_SHANA TOKEN_PUNTO
+Sentencia TOKEN_MANEWA Expresion RestoSentenciaSwitch
+Sentencia TOKEN_TA TOKEN_ID RestoFactorId TOKEN_SHA Sentencia
+Sentencia SentenciasCompuestas
+Sentencia TOKEN_PUNTO
+
+RestoSentenciaSwitch TOKEN_SHA ListaSentencias TOKEN_NUI CicloSentenciaSwitch
+RestoSentenciaSwitch TOKEN_TSU ListaSentencias TOKEN_NUI CicloSentenciaSwitch
+
+CicloSentenciaSwitch TOKEN_SHA ListaSentencias TOKEN_NUI CicloSentenciaSwitch
+CicloSentenciaSwitch TOKEN_TSU ListaSentencias TOKEN_NUI CicloSentenciaSwitch
+CicloSentenciaSwitch
+
+SentenciaInicId Asignacion TOKEN_PUNTO
+SentenciaInicId LlamadaProcFunc TOKEN_PUNTO
+
+Asignacion TOKEN_WAKA #RS1025 Expresion #RS1027 #RS1028
+
+LlamadaProcFunc TOKEN_PAR_REDONDO_ABRIR #RS1026 ListaExpresiones #RS1029 #RS1028 TOKEN_PAR_REDONDO_CERRAR
+
+SentenciaCondicional TOKEN_CHAGO Expresion TOKEN_JENA Sentencia TOKEN_SHIRINA Sentencia
+
+SentenciaCiclo TOKEN_DALEIKA Expresion TOKEN_SHA Sentencia
+SentenciaCiclo TOKEN_SHANI Sentencia TOKEN_KANA Expresion
+SentenciaCiclo TOKEN_TUNA TOKEN_ID TOKEN_INICIALIZAR Expresion TOKEN_KATSO Expresion TOKEN_NAI Expresion TOKEN_SHA
+
+Retorno TOKEN_TOLI Expresion
+
+ListaExpresiones Expresion #RS1030 RestoListaExpresiones
+ListaExpresiones
+
+RestoListaExpresiones TOKEN_COMA Expresion #RS1030 RestoListaExpresiones
+RestoListaExpresiones
+
+Expresion ExpresionRelacional RestoExpresion #RS1040
+RestoExpresion TOKEN_IRALE ExpresionRelacional RestoExpresion #RS1040
+RestoExpresion TOKEN_IRA ExpresionRelacional RestoExpresion #RS1040
+RestoExpresion TOKEN_JEBA ExpresionRelacional RestoExpresion #RS1040
+RestoExpresion TOKEN_CHAR_POS ExpresionRelacional RestoExpresion #RS1040
+RestoExpresion
+
+ExpresionRelacional ExpresionSimple ExpresionOperRel #RS1039
+
+ExpresionOperRel TOKEN_COMPARADOR ExpresionSimple #RS1038
+ExpresionOperRel
+
+ExpresionSimple Termino RestoExpresionSimple #RS1036
+
+RestoExpresionSimple TOKEN_MAS Termino RestoExpresionSimple #RS1036
+RestoExpresionSimple TOKEN_MENOS Termino RestoExpresionSimple #RS1036
+RestoExpresionSimple TOKEN_MAS_ROMANO Termino RestoExpresionSimple #RS1036
+RestoExpresionSimple TOKEN_MENOS_ROMANO Termino RestoExpresionSimple #RS1036
+RestoExpresionSimple
+
+Termino Factor RestoTermino #RS1035
+
+RestoTermino TOKEN_MULTIPLICACION Factor RestoTermino #RS1035
+RestoTermino TOKEN_DIVISION Factor RestoTermino #RS1035
+RestoTermino TOKEN_MODULO Factor RestoTermino #RS1035
+RestoTermino TOKEN_MULTIPLICACION_ROMANO Factor RestoTermino #RS1035
+RestoTermino TOKEN_DIVISION_ROMANO Factor RestoTermino #RS1035
+RestoTermino TOKEN_MODULO_ROMANO Factor RestoTermino #RS1035
+RestoTermino
+
+
+Factor FactorIzq OperacionesInfijas #RS1037
+
+FactorIzq TOKEN_ID #RS1031 #RS1032 RestoFactorId
+FactorIzq LiteralConst #RS1032
+FactorIzq TOKEN_PAR_REDONDO_ABRIR Expresion #RS1032 TOKEN_PAR_REDONDO_CERRAR
+FactorIzq TOKEN_KAI FactorIzq #RS1032
+FactorIzq TOKEN_DAKA FactorIzq #RS1032
+FactorIzq TOKEN_DAWA FactorIzq #RS1032
+FactorIzq TOKEN_TOLO FactorIzq #RS1032
+FactorIzq TOKEN_JELA FactorIzq #RS1032
+FactorIzq TOKEN_JURU FactorIzq #RS1032
+FactorIzq TOKEN_KARI FactorIzq #RS1032
+FactorIzq TOKEN_MATSII FactorIzq #RS1032
+FactorIzq TOKEN_JAREBO FactorIzq #RS1032
+FactorIzq TOKEN_BIKO FactorIzq #RS1032
+
+RestoFactorId TOKEN_PAR_REDONDO_ABRIR #RS1026 ListaExpresiones #RS1029 #RS1028 TOKEN_PAR_REDONDO_CERRAR
+RestoFactorId ListaAccesoArray
+RestoFactorId TOKEN_ARROBA TOKEN_ID #RS1031 #RS1032 RestoFactorId
+RestoFactorId
+
+OperacionesInfijas TOKEN_BAWA Factor #RS1033
+OperacionesInfijas TOKEN_TIA ExpresionTia TOKEN_TIA ExpresionTia #RS1034
+OperacionesInfijas TOKEN_KJA ExpresionTia TOKEN_TIA ExpresionTia #RS1034
+OperacionesInfijas TOKEN_KUA Expresion #RS1033
+OperacionesInfijas TOKEN_WOBOGO Factor #RS1033
+OperacionesInfijas TOKEN_SHENAWA Factor #RS1033
+OperacionesInfijas TOKEN_NAWOTKO Factor #RS1033
+OperacionesInfijas TOKEN_PAKAKIREI Factor #RS1033
+OperacionesInfijas TOKEN_DODWA Factor #RS1033
+OperacionesInfijas
+
+ExpresionTia TOKEN_INT #RS1004
+ExpresionTia TOKEN_ID #RS1032
+
+ListaAccesoArray TOKEN_PAR_CUADRADO_ABRIR Expresion TOKEN_PAR_CUADRADO_CERRAR RestoListaAccesoArray
+
+RestoListaAccesoArray ListaAccesoArray
+RestoListaAccesoArray
+
+LiteralConst LiteralAsignacionVar #RS1005
+
+ConstConjunto TOKEN_ABRIR_CONJUNTO ListaConstConjunto TOKEN_CERRAR_CONJUNTO #RS1011
+
+ListaConstConjunto TOKEN_CHAR #RS1010 RestoListaConstConjunto
+ListaConstConjunto
+
+RestoListaConstConjunto TOKEN_COMA TOKEN_CHAR #RS1010 RestoListaConstConjunto
+RestoListaConstConjunto 
+
+CuerpoPrograma TOKEN_JARREE ListaSentencias TOKEN_WEIKA TOKEN_PUNTO

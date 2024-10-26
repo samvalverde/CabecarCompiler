@@ -27,12 +27,24 @@
     <ClInclude Include="Headers\TreeNode.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="Headers\CSymbolInfo.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Headers\CSymbolTable.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Sources\CParser.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="Sources\TreeNode.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Sources\CSymbolInfo.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Sources\CSymbolTable.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

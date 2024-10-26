@@ -57,5 +57,34 @@ namespace ParserLib
 			this->children[i]->print(nivel + 1);
 		}
 	}
+
+	void TreeNode::SetType(std::string type) {
+		this->type = type;
+	}
+	string TreeNode::GetType() {
+		return this->type;
+	}
+
+	void TreeNode::SetValue(std::string value) {
+		this->value = value;
+	}
+	string TreeNode::GetValue() {
+		return this->value;
+	}
+
+	void TreeNode::SetDims(std::string dims) {
+		this->dims = dims;
+	}
+	string TreeNode::GetDims() {
+		return this->dims;
+	}
+
+	void TreeNode::SetScope(std::string scope) {
+		this->scope = scope;
+	}
+	string TreeNode::GetScope() {
+		return this->scope;
+	}
+
 }
 

@@ -1,4 +1,6 @@
 ﻿  CParser.cpp
+  CSymbolInfo.cpp
+  CSymbolTable.cpp
   TreeNode.cpp
   Generating Code...
   ParserLib.vcxproj -> D:\Personal\EKP\Compiler\x64\Debug\ParserLib.lib
