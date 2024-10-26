@@ -23,32 +23,32 @@
     <ProjectGuid>{5CA594F2-AAE2-4179-8637-79C21EAE7F37}</ProjectGuid>
     <Keyword>Win32Proj</Keyword>
     <RootNamespace>ParserLib</RootNamespace>
-    <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
+    <WindowsTargetPlatformVersion>10.0.17763.0</WindowsTargetPlatformVersion>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
     <ConfigurationType>StaticLibrary</ConfigurationType>
     <UseDebugLibraries>true</UseDebugLibraries>
-    <PlatformToolset>v143</PlatformToolset>
+    <PlatformToolset>v141</PlatformToolset>
     <CharacterSet>Unicode</CharacterSet>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
     <ConfigurationType>StaticLibrary</ConfigurationType>
     <UseDebugLibraries>false</UseDebugLibraries>
-    <PlatformToolset>v143</PlatformToolset>
+    <PlatformToolset>v141</PlatformToolset>
     <WholeProgramOptimization>true</WholeProgramOptimization>
     <CharacterSet>Unicode</CharacterSet>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
     <ConfigurationType>StaticLibrary</ConfigurationType>
     <UseDebugLibraries>true</UseDebugLibraries>
-    <PlatformToolset>v143</PlatformToolset>
+    <PlatformToolset>v141</PlatformToolset>
     <CharacterSet>Unicode</CharacterSet>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
     <ConfigurationType>StaticLibrary</ConfigurationType>
     <UseDebugLibraries>false</UseDebugLibraries>
-    <PlatformToolset>v143</PlatformToolset>
+    <PlatformToolset>v141</PlatformToolset>
     <WholeProgramOptimization>true</WholeProgramOptimization>
     <CharacterSet>Unicode</CharacterSet>
   </PropertyGroup>
@@ -156,12 +156,16 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClInclude Include="Headers\CParser.h" />
+    <ClInclude Include="Headers\CSymbolInfo.h" />
+    <ClInclude Include="Headers\CSymbolTable.h" />
     <ClInclude Include="Headers\FOLLOW.h" />
     <ClInclude Include="Headers\GRAMATIC.h" />
     <ClInclude Include="Headers\TreeNode.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Sources\CParser.cpp" />
+    <ClCompile Include="Sources\CSymbolInfo.cpp" />
+    <ClCompile Include="Sources\CSymbolTable.cpp" />
     <ClCompile Include="Sources\TreeNode.cpp" />
   </ItemGroup>
   <ItemGroup>

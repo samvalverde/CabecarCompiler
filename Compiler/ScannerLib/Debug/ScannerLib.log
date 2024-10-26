@@ -1,1 +1,5 @@
-﻿  ScannerLib.vcxproj -> C:\Erick_Kauffmann_P\TEC\IIS-2024\Compi\etapa-2\Compiler\Debug\ScannerLib.lib
+﻿  CBuffer.cpp
+  CToken.cpp
+  CScanner.cpp
+  Generating Code...
+  ScannerLib.vcxproj -> D:\Personal\EKP\Compiler\Debug\ScannerLib.lib

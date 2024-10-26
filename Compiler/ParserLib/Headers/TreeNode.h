@@ -18,6 +18,10 @@ namespace ParserLib
 		vector <TreeNode*> children;
 		int idRegla;
 		string data;
+		string type;
+		string value;
+		string dims = "";
+		string scope;
 
 	public:
 		TreeNode();
@@ -39,6 +43,17 @@ namespace ParserLib
 
 		void print(int nivel);
 
+		void SetType(std::string type);
+		string GetType();
+
+		void SetValue(std::string value);
+		string GetValue();
+
+		void SetDims(std::string dims);
+		string GetDims();
+
+		void SetScope(std::string scope);
+		string GetScope();
 	};
 
 }

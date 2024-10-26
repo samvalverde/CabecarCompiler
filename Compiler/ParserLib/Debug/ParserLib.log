@@ -1,1 +1,6 @@
-﻿  ParserLib.vcxproj -> C:\Erick_Kauffmann_P\TEC\IIS-2024\Compi\etapa-2\Compiler\Debug\ParserLib.lib
+﻿  CParser.cpp
+  CSymbolInfo.cpp
+  CSymbolTable.cpp
+  TreeNode.cpp
+  Generating Code...
+  ParserLib.vcxproj -> D:\Personal\EKP\Compiler\Debug\ParserLib.lib
