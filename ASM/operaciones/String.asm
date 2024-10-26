@@ -22,6 +22,7 @@ datos segment
     mensajeRecortado db 13, 10, 'Recortado: $'
     mensajeEncontrado db 13, 10, 'Carácter encontrado en la posición: $'
     mensajeNoEncontrado db 13, 10, 'Carácter no encontrado.$'
+    mensajeTamaño db 'Longitud de cadena: $', 13, 10, '$'
     blank db 13, 10, '$'
     acercaDe db 'Operaciones con String (Shéj).$'
 
@@ -236,6 +237,24 @@ kua proc near
         ret
 kua endp
 
+BikoString proc near
+    lea si, string1          ; Apuntar al inicio de la cadena
+    xor cx, cx               ; Inicializar contador
+
+contarCaracteresS:
+    mov al, [si]
+    cmp al, '$'              ; Verificar el final de la cadena
+    je finBikoString
+    inc cx                   ; Incrementar contador
+    inc si                   ; Mover al siguiente carácter
+    jmp contarCaracteresS
+
+finBikoString:
+    mov ax, cx               ; Guardar el tamaño en AX
+    Print mensajeTamaño
+    ret
+BikoString endp
+
 ; ---------------------------------------------------------------
 ; Programa principal
 ; ---------------------------------------------------------------
@@ -269,6 +288,8 @@ main:
 
     call kjätiä            ; Recortar el string
     call imprimirString
+
+    call 
 
     ; Terminar el programa
     mov ax, 4C00h

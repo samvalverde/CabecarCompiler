@@ -24,6 +24,7 @@ datos segment
     mensajeNoVacio db 13, 10, 'El conjunto no está vacío.$'
     mensajePertenece db 13, 10, 'El elemento pertenece al conjunto.$'
     mensajeNoPertenece db 13, 10, 'El elemento no pertenece al conjunto.$'
+    mensajeTamaño db 'Longitud de conjunto: $', 13, 10, '$'
     blank db 13, 10, '$'
     acercaDe db 'Operaciones con Conjuntos (Járjá): Agregar, Borrar, Unión, Intersección, Pertenencia, Vacío.$'
 
@@ -226,6 +227,24 @@ járebo proc near
         ret
 járebo endp
 
+BikoSet proc near
+    lea si, conjunto1         ; Apuntar al conjunto
+    xor cx, cx               ; Inicializar contador
+
+contarElementos:
+    mov al, [si]
+    cmp al, '$'              ; Verificar el final del conjunto
+    je finBikoSet
+    inc cx                   ; Incrementar contador
+    inc si                   ; Mover al siguiente elemento
+    jmp contarElementos
+
+finBikoSet:
+    mov ax, cx               ; Guardar el tamaño en AX
+    Print mensajeTamaño
+    ret
+BikoSet endp
+
 imprimirConjunto proc near
     ; Imprimir el conjunto actual
     lea dx, conjunto1
@@ -269,6 +288,8 @@ main:
 
     call dodwa               ; Verificar pertenencia
     call járebo              ; Verificar si está vacío
+
+    call BikoSet             ; SizeOf
 
     ; Terminar el programa
     mov ax, 4C00h

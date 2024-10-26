@@ -28,6 +28,7 @@ datos segment
     mensajeResiduo db 13, 10, 'Resultado del residuo: $'
     mensajePotencia db 13, 10, 'Resultado de la potencia: $'
     mensajeMCD db 13, 10, 'Resultado del MCD: $'
+    mensajeTamaño db 'Longitud de número romano: $', 13, 10, '$'
     blank db 13, 10, '$'
     acercaDe db 'Operaciones con Números Romanos (wömële): Suma, Resta, Multiplicación, División, Residuo, Potencia, MCD, Bidireccional, Switch random.$'
     
@@ -258,6 +259,24 @@ residuo proc near
     ret
 residuo endp
 
+BikoRoman proc near
+    lea si, numeroRomano     ; Apuntar al número romano
+    xor cx, cx               ; Inicializar contador
+
+contarSimbolos:
+    mov al, [si]
+    cmp al, '$'              ; Verificar el final
+    je finBikoRoman
+    inc cx                   ; Incrementar contador
+    inc si                   ; Mover al siguiente símbolo
+    jmp contarSimbolos
+
+finBikoRoman:
+    mov ax, cx               ; Guardar la longitud en AX
+    Print mensajeTamaño
+    ret
+BikoRoman endp
+
 kalwa proc near
     ; Calcular la potencia del número entero
     mov ax, entero         ; Cargar el número entero convertido del argumento
@@ -298,6 +317,67 @@ finMCD:
     ret
 saka endp
 
+reversoRomano proc near
+    ; Invertir el contenido de 'numeroRomano'
+    lea si, numeroRomano       ; Apuntar al inicio de la cadena
+    lea di, resultadoRomano    ; Apuntar al buffer donde se guardará el resultado
+    mov cx, 0                  ; Inicializar el contador de longitud
+
+    ; Calcular la longitud de numeroRomano
+    contarLongitud:
+        mov al, [si + cx]
+        cmp al, '$'
+        je invertir
+        inc cx
+        jmp contarLongitud
+
+    invertir:
+        dec cx                  ; Ajustar el índice a la última posición
+        invertirLoop:
+            mov al, [si + cx]   ; Obtener el último carácter
+            mov [di], al        ; Guardarlo en el buffer de resultado
+            dec cx              ; Retroceder en la cadena original
+            inc di              ; Avanzar en el buffer de resultado
+            cmp cx, -1          ; Revisar si llegamos al inicio
+            jne invertirLoop
+
+        mov byte ptr [di], '$'  ; Terminar la cadena con '$'
+        Print mensajeResultado
+        ret
+reversoRomano endp
+
+switchRandom proc near
+    ; Cambiar el orden de los símbolos en 'numeroRomano' de forma pseudoaleatoria
+    lea si, numeroRomano       ; Apuntar al inicio de la cadena
+    lea di, resultadoRomano    ; Apuntar al buffer de resultado
+    mov cx, 0                  ; Contador de longitud
+    mov bx, 0                  ; Índice temporal
+
+    ; Contar la longitud del número romano
+    contarLongitudSwitch:
+        mov al, [si + cx]
+        cmp al, '$'
+        je intercambiar
+        inc cx
+        jmp contarLongitudSwitch
+
+    intercambiar:
+        mov bx, cx              ; Guardar la longitud total en BX
+        dec bx                  ; Ajustar índice para intercambios
+
+        ; Intercambio de símbolos
+        mov al, [si]            ; Primer símbolo
+        mov ah, [si + bx]       ; Último símbolo
+        mov [di], ah            ; Escribe el último al inicio
+        mov [di + bx], al       ; Escribe el primero al final
+        ; Copia el resto en orden
+        mov cx, bx
+        dec di
+
+        mov byte ptr [di], '$'  ; Finalizar cadena
+        Print mensajeResultado
+        ret
+switchRandom endp
 
 ; ---------------------------------------------------------------
 ; Programa principal
@@ -326,9 +406,12 @@ main:
     call producto
     call division
     call residuo
+    call biko
     ; operaciones extra
     call kalwa
     call saka
+    call reversoRomano
+    call switchRandom
 
     ; Convertir el resultado de nuevo a número romano
     call enteroARomano

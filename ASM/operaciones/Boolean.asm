@@ -23,6 +23,7 @@ datos segment
     mensajeMenorIgual db 13, 10, 'Verdadero: Menor o igual.$'
     mensajeDistinto db 13, 10, 'Verdadero: Distinto.$'
     mensajeFalso db 13, 10, 'Falso.$'
+    mensajeTamaño db 'Longitud de booleano: 1$', 13, 10, '$'
     blank db 13, 10, '$'
     acercaDe db 'Operaciones con Booleano (YínaKulíwa).$'
     
@@ -162,6 +163,12 @@ finDistinto:
     ret
 compDistinto endp
 
+BikoBoolean proc near
+    mov ax, 1               ; Longitud fija de un booleano
+    Print mensajeTamaño
+    ret
+BikoBoolean endp
+
 ; ---------------------------------------------------------------
 ; Programa principal
 ; ---------------------------------------------------------------
@@ -189,6 +196,8 @@ main:
     call compMayorIgual    ; Comparar >=
     call compMenorIgual    ; Comparar <=
     call compDistinto      ; Comparar ><
+
+    call BikoBoolean       ; Tamaño de un booleano
 
     ; Terminar el programa
     mov ax, 4C00h

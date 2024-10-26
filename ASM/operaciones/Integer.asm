@@ -1,22 +1,19 @@
-; Proyecto - Etapa 2: Operaciones por tipo de dato
-; Samuel Valverde A.
-; Erick Kauffmann P.
-; IC5701 - Compiladores e Intérpretes, GR 2
-; Prof. Kirstein Gatjens S.
-; II Semestre 2024
-; Fecha de Entrega: 09/10/2024
-
-; ###### Manual de Usuario ######
-
-; Este programa recibe un entero por la pila
-; e imprime en la pantalla las diferentes operaciones
-; relacionadas con el tipo de dato en forma de bitácora o tour. 
-; Se usan valores de ejemplo.
-
-; ---------------------------------------------------------------
-
 datos segment
+    entero dw ?                     ; Variable para almacenar el entero procesado
+    numeroPredefinido dw 10         ; Número con el que se comparará el argumento
     mensajeResultado db 13, 10, 'Resultado: $'
+    mensajeTamaño db 'Longitud de entero: $', 13, 10, '$'
+    mensajeSuma db 13, 10, 'Resultado de la suma: $'
+    mensajeResta db 13, 10, 'Resultado de la resta: $'
+    mensajeMultiplicacion db 13, 10, 'Resultado de la multiplicación: $'
+    mensajeDivision db 13, 10, 'Resultado de la división: $'
+    mensajeResiduo db 13, 10, 'Resultado del residuo: $'
+    mensajeMayor db 'Resultado de > : $', 13, 10, '$'
+    mensajeMenor db 'Resultado de < : $', 13, 10, '$'
+    mensajeIgual db 'Resultado de = : $', 13, 10, '$'
+    mensajeMayorIgual db 'Resultado de >= : $', 13, 10, '$'
+    mensajeMenorIgual db 'Resultado de <= : $', 13, 10, '$'
+    mensajeDiferente db 'Resultado de >< : $', 13, 10, '$'
     blank db 13, 10, '$'
     acercaDe db 'Operaciones con Enteros.$'
 datos ends
@@ -36,11 +33,10 @@ EndM
 ; ---------------------------------------------------------------
 
 leerArgumento proc near
-    ; Leer el argumento pasado desde la línea de comandos
     mov si, 80h            ; Dirección del PSP para el argumento
-    mov cl, byte ptr [si]   ; Leer la longitud del argumento
+    mov cl, byte ptr [si]  ; Leer la longitud del argumento
     inc si
-    xor cx, cx              ; Reiniciar el valor en CX
+    xor cx, cx             ; Reiniciar el valor en CX
 
     leerDigito:
         mov al, byte ptr [si] ; Leer un carácter del argumento
@@ -54,12 +50,12 @@ leerArgumento proc near
         jmp leerDigito
 
     finLectura:
-        push cx               ; Empujar el valor leído en la pila
+        mov entero, cx        ; Almacenar en `entero` para las operaciones
+        push cx               ; Empujar el valor en la pila
         ret
 leerArgumento endp
 
 imprimirEntero proc near
-    ; Imprimir el entero desde la pila
     pop ax                  ; Obtener el valor desde la pila
     xor cx, cx              ; Inicializar el contador
 
@@ -91,62 +87,151 @@ imprimirEntero proc near
 imprimirEntero endp
 
 ; ---------------------------------------------------------------
-; Operaciones aritméticas
+; Operaciones Aritméticas y Comparación
 ; ---------------------------------------------------------------
 
 operacionSuma proc near
-    ; Suma dos enteros (uno desde la pila y otro alambrado)
-    pop ax                  ; Obtener el valor de la pila
-    mov bx, 10              ; Número alambrado para la prueba
-    add ax, bx              ; Sumar los valores
-    push ax                 ; Empujar el resultado en la pila
+    pop ax
+    mov bx, numeroPredefinido
+    add ax, bx
+    push ax
+    Print mensajeSuma
     ret
 operacionSuma endp
 
 operacionResta proc near
-    ; Resta dos enteros (uno desde la pila y otro alambrado)
-    pop ax                  ; Obtener el valor de la pila
-    mov bx, 10              ; Número alambrado para la prueba
-    sub ax, bx              ; Restar los valores
-    push ax                 ; Empujar el resultado en la pila
+    pop ax
+    mov bx, numeroPredefinido
+    sub ax, bx
+    push ax
+    Print mensajeResta
     ret
 operacionResta endp
 
 operacionMultiplicacion proc near
-    ; Multiplica dos enteros (uno desde la pila y otro alambrado)
-    pop ax                  ; Obtener el valor de la pila
-    mov bx, 10              ; Número alambrado para la prueba
-    mul bx                  ; Multiplicar los valores
-    push ax                 ; Empujar el resultado en la pila
+    pop ax
+    mov bx, numeroPredefinido
+    mul bx
+    push ax
+    Print mensajeMultiplicacion
     ret
 operacionMultiplicacion endp
 
 operacionDivision proc near
-    ; Divide dos enteros (uno desde la pila y otro alambrado)
-    pop ax                  ; Obtener el valor de la pila
-    mov bx, 10              ; Número alambrado para la prueba
-    xor dx, dx              ; Limpiar DX para la división
-    div bx                  ; Dividir AX entre BX
-    push ax                 ; Empujar el cociente en la pila
+    pop ax
+    mov bx, numeroPredefinido
+    xor dx, dx
+    div bx
+    push ax
+    Print mensajeDivision
     ret
 operacionDivision endp
 
 operacionResiduo proc near
-    ; Calcula el residuo de la división entre dos enteros
-    pop ax                  ; Obtener el valor de la pila
-    mov bx, 10              ; Número alambrado para la prueba
-    xor dx, dx              ; Limpiar DX para la división
-    div bx                  ; Dividir AX entre BX
-    push dx                 ; Empujar el residuo en la pila
+    pop ax
+    mov bx, numeroPredefinido
+    xor dx, dx
+    div bx
+    push dx
+    Print mensajeResiduo
     ret
 operacionResiduo endp
+
+mayor proc near
+    pop ax
+    cmp ax, numeroPredefinido
+    jg esMayor
+    Print mensajeMenor
+    ret
+
+esMayor:
+    Print mensajeMayor
+    ret
+mayor endp
+
+menor proc near
+    pop ax
+    cmp ax, numeroPredefinido
+    jl esMenor
+    Print mensajeMayorIgual
+    ret
+
+esMenor:
+    Print mensajeMenor
+    ret
+menor endp
+
+igual proc near
+    pop ax
+    cmp ax, numeroPredefinido
+    je esIgual
+    Print mensajeDiferente
+    ret
+
+esIgual:
+    Print mensajeIgual
+    ret
+igual endp
+
+mayorIgual proc near
+    pop ax
+    cmp ax, numeroPredefinido
+    jge esMayorIgual
+    Print mensajeMenor
+    ret
+
+esMayorIgual:
+    Print mensajeMayorIgual
+    ret
+mayorIgual endp
+
+menorIgual proc near
+    pop ax
+    cmp ax, numeroPredefinido
+    jle esMenorIgual
+    Print mensajeMayor
+    ret
+
+esMenorIgual:
+    Print mensajeMenorIgual
+    ret
+menorIgual endp
+
+diferente proc near
+    pop ax
+    cmp ax, numeroPredefinido
+    jne esDiferente
+    Print mensajeIgual
+    ret
+
+esDiferente:
+    Print mensajeDiferente
+    ret
+diferente endp
+
+BikoInteger proc near
+    mov ax, entero           ; Cargar el entero almacenado
+    xor cx, cx               ; Inicializar el contador de dígitos
+
+contarDigitos:
+    cmp ax, 0
+    je finBikoInteger
+    mov dx, 0
+    div word ptr 10          ; Dividir AX por 10
+    inc cx                   ; Incrementar el contador de dígitos
+    jmp contarDigitos
+
+finBikoInteger:
+    mov ax, cx               ; Guardar el número de dígitos en AX
+    Print mensajeTamaño
+    ret
+BikoInteger endp
 
 ; ---------------------------------------------------------------
 ; Programa principal
 ; ---------------------------------------------------------------
 
 main:
-    ; Inicializar segmentos
     mov ax, datos
     mov ds, ax
     mov es, ax
@@ -157,27 +242,32 @@ main:
     ; Leer el argumento pasado en la línea de comandos (integer 24)
     call leerArgumento       ; Empujar el valor del argumento en la pila
 
-    ; Realizar las operaciones
-    Print mensajeResultado
+    Print acercaDe
+    Print blank
 
-    call operacionSuma        ; Suma
+    ; Realizar y mostrar resultados de las operaciones
+    call operacionSuma
+    call imprimirEntero
+    call operacionResta
+    call imprimirEntero
+    call operacionMultiplicacion
+    call imprimirEntero
+    call operacionDivision
+    call imprimirEntero
+    call operacionResiduo
     call imprimirEntero
 
-    call operacionResta       ; Resta
-    call imprimirEntero
+    ; Comparaciones
+    call mayor
+    call menor
+    call igual
+    call mayorIgual
+    call menorIgual
+    call diferente
 
-    call operacionMultiplicacion ; Multiplicación
-    call imprimirEntero
-
-    call operacionDivision    ; División
-    call imprimirEntero
-
-    call operacionResiduo     ; Residuo
-    call imprimirEntero
+    call BikoInteger
 
     ; Terminar el programa
     mov ax, 4C00h
     int 21h
 end main
-
-; integer 24
