@@ -16,7 +16,6 @@
 ; ---------------------------------------------------------------
 ; Proyecto - Operaciones para Números Romanos (wömële)
 ; IC5701 - Compiladores e Intérpretes
-; Operaciones: Aritméticas, Potencia, MCD, Bidireccional, Switch random
 ; ---------------------------------------------------------------
 
 datos segment

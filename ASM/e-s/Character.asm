@@ -12,7 +12,6 @@
 ; y la imprime en pantalla. Este es uno de los seis programas para los 6 tipos de datos que se
 ; manejarán en el proyecto de Compiladores e Intérpretes.
 
-; ---------------------------------------------------------------
 datos segment
     caracter db ?             ; Variable para almacenar el carácter
     mensajeEntrada db 'Por favor, ingrese un carácter:$'

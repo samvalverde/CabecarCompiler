@@ -14,6 +14,10 @@
 ; Se usan valores de ejemplo.
 
 ; ---------------------------------------------------------------
+; Proyecto - Operaciones para Booleanos (YinaKuliwa)
+; IC5701 - Compiladores e Intérpretes
+; ---------------------------------------------------------------
+
 datos segment
     mensajeResultado db 13, 10, 'Resultado: $'
     mensajeMayor db 13, 10, 'Verdadero: Mayor que.$'

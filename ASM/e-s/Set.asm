@@ -1,4 +1,4 @@
-; Proyecto - Etapa 0: Rutinas de Archivos de Texto
+; Proyecto - Etapa 0: Rutinas de Conjuntos
 ; Samuel Valverde A.
 ; Erick Kauffmann P.
 ; IC5701 - Compiladores e Intérpretes, GR 2

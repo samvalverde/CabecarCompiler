@@ -1,7 +1,21 @@
+; Proyecto - Etapa 2: Operaciones por tipo de dato
+; Samuel Valverde A.
+; Erick Kauffmann P.
+; IC5701 - Compiladores e Intérpretes, GR 2
+; Prof. Kirstein Gatjens S.
+; II Semestre 2024
+; Fecha de Entrega: 09/10/2024
+
+; ###### Manual de Usuario ######
+
+; Este programa recibe un caracter por la pila
+; e imprime en la pantalla las diferentes operaciones
+; relacionadas con el tipo de dato en forma de bitácora o tour. 
+; Se usan valores de ejemplo.
+
 ; ---------------------------------------------------------------
-; Proyecto - Operaciones para Carácter (ékla)
+; Proyecto - Operaciones para Enteros (shtawa)
 ; IC5701 - Compiladores e Intérpretes
-; Operaciones: Comparación, Conversión a Mayúscula/Minúscula, Verificación de Letra/Dígito
 ; ---------------------------------------------------------------
 
 datos segment
