@@ -50,6 +50,8 @@ Print Macro mensaje
     int 21h
 EndM
 
+codigo segment
+    assume cs:codigo, ds:datos, ss:pila
 ; ---------------------------------------------------------------
 ; Conversión de Romano a Entero
 ; ---------------------------------------------------------------
@@ -258,7 +260,7 @@ residuo proc near
     ret
 residuo endp
 
-BikoRoman proc near
+biko proc near
     lea si, numeroRomano     ; Apuntar al número romano
     xor cx, cx               ; Inicializar contador
 
@@ -274,7 +276,7 @@ finBikoRoman:
     mov ax, cx               ; Guardar la longitud en AX
     Print mensajeTamaño
     ret
-BikoRoman endp
+biko endp
 
 kalwa proc near
     ; Calcular la potencia del número entero
