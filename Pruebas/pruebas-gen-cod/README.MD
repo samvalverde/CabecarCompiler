@@ -1,0 +1,3 @@
+en esta carpeta se encuentran pruebas para la etapa de generación de código, así como los resultados generados en código ensamblador.
+los archivos que contienen programas en wogawg son los de extensión .wgw que son: wgwinput1.wgw y tareaWgw.wgw
+al compilar estos archivos se generan los asm respectivos para cada uno, sin embargo, no se logró implementar la impresión a la salida estándar, por lo que para que pueda revisar los resultados de los asm, hay dos archivos en los que se agregó manualmente la impresión de los resultados para revisarlos en la salida estándar. Estos archivos son prfin1 para wgwinput1, y prfin2 para tareaWgw.

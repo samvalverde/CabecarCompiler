@@ -1,0 +1,31 @@
+$* Esta es una tarea sencilla que tuvimos que hacer en el curso
+de intro con la profe Ivannia
+La tarea fue una tarea que consistía simplemente en programar 
+una función de Fibonacci.*$
+
+
+Wögawg  EjemploPequeno .                 $ apertura del programa
+
+Kaska                                $ sección de variables
+   Shtáwa Result := 0.
+
+Wäkiri                                $ sección de prototipos
+    kiana fibonacci ( Shtáwa N ) chani Shtáwa .         $ la lista de parámetros es obligatoria en los prototipos
+	  
+Prá                                     $ sección de rutinas
+
+   kiana fibonacci ( Shtáwa N ) chani Shtáwa shä
+   ká
+     chagö N < 2 jéná 
+       toli N .
+     shirína
+	 ká
+       toli fibonacci( N - 1 )+fibonacci( N - 2 ) .
+     tuína ..
+   tuína .
+
+Jarree
+   
+   Result wáka fibonacci(6).
+
+wëikä . 
