@@ -1,0 +1,63 @@
+$* Este es un ejemplo pequeno del uso de todos 
+
+los elementos del lenguaje wogawg *$
+
+
+Wögawg  EjemploPequeno .                 $ apertura del programa
+
+Kará                                    $ sección de constantes
+   Ñákjëë Shtáwa Constante1 wáka 27   .
+   Ñákjëë ékla Constante2 wáka 'A'.
+   Ñákjëë shéj Constante3 wáka "Hola mundo$" .
+   Ñákjëë yínaKulíwa boolConst1 wáka Kóyuwé .
+
+Klo                                     $ sección de tipos
+
+   Edad :> Shtáwa .
+
+Kaska                                $ sección de variables
+   Shtáwa Num2 := 35, Num3 := 42 . 
+   Shéj strPrueba := "7$".
+   Shéj strTest := "345$".
+   YínaKulíwa esValido := Síwa.
+   YínaKulíwa esMayor := Kóyuwé.
+
+Wäkiri                                $ sección de prototipos
+    kiana fibonacci ( Shtáwa N ) chani Shtáwa .         $ la lista de parámetros es obligatoria en los prototipos
+	  
+Prá                                     $ sección de rutinas
+
+   kiana fibonacci ( Shtáwa N ) chani Shtáwa shä
+   ká
+     chagö N < 2 jéná 
+       toli N .
+     shirína
+	 ká
+       toli fibonacci( N - 1 )+fibonacci( N - 2 ) .
+     tuína ..
+   tuína .
+
+Jarree
+   Num3 wáka Num2.
+   strPrueba wáka Constante3.
+   esMayor wáka (Num3 > 5 irä esValido) irälé boolConst1 .
+   chagö Num2 < 2 jéná 
+   ká
+     Num2 wáka 5.
+	 strPrueba wáka "MENOR$".
+   tuína
+   shirína
+   ká
+     Num2 wáka 2 + 7 * 3..
+	 strPrueba wáka "MAYOR$".
+   tuína.
+   
+   daleika Num2 < 50 shä
+   ká
+	  Num2 wáka Num2 + 1.
+	  Num3 wáka Num3 - 1.
+   tuína.
+   
+   Num2 wáka fibonacci(4).
+
+wëikä . 

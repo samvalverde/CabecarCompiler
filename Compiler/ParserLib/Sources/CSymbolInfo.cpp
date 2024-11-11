@@ -56,6 +56,23 @@ namespace ParserLib
 		this->name = name;
 	}
 
+	void CSymbolInfo::setPosPila(int posPila) {
+		this->posPila = posPila;
+	}
+
+	void CSymbolInfo::setCallValue(string value) {
+		this->callValue = value;
+	}
+
+	int CSymbolInfo::getPosPila() {
+		return this->posPila;
+	}
+
+	std::string CSymbolInfo::getCallValue() {
+		return this->callValue;
+	}
+
+
 	bool CSymbolInfo::getIsReference() {
 		return this->isReference;
 	}
@@ -68,13 +85,49 @@ namespace ParserLib
 		return &(this->lstFormalParams);
 	}
 
+	int CSymbolInfo::getFormalParamsSize() {
+		int size_tipo = 0;
+		int cont = 0;
+		for (CSymbolInfo * symbol : this->lstFormalParams) {
+			if (symbol->getType() == "TOKEN_SHTAWA") {
+				size_tipo = 2;
+			}
+			else if (symbol->getType() == "TOKEN_SHEJ") {
+				size_tipo = 4;//se guarda el segmento y el offset.
+			}
+			else if (symbol->getType() == "TOKEN_EKLA") {
+				size_tipo = 2;
+			}
+			else if (symbol->getType() == "TOKEN_YINAKULIWA") {
+				size_tipo = 2;
+			}
+			else {
+				size_tipo = 2;
+			}
+			cont += size_tipo;
+		}
+		return cont;
+	}
+
 	vector<CSymbolInfo *> * CSymbolInfo::getFunctionalParams() {
 		return &(this->lstFunctionalParams);
 	}
 
 
-	void CSymbolInfo::addFormalParam(CSymbolInfo * param) {
-		lstFormalParams.insert(lstFormalParams.end(), param);
+	void CSymbolInfo::addFormalParam(CSymbolInfo * param, bool checkDuplicate) {
+		bool insert = true;
+		if (checkDuplicate) {
+			insert = true;
+			for (CSymbolInfo * symbol : lstFormalParams) {
+				if (symbol->getName() == param->getName()) {
+					insert = false;
+					break;
+				}
+			}
+		}
+		if (insert) {
+			lstFormalParams.insert(lstFormalParams.end(), param);
+		}
 	}
 
 	void CSymbolInfo::addFunctionalParam(CSymbolInfo * param) {

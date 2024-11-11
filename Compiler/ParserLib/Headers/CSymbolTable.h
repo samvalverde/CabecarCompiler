@@ -4,6 +4,7 @@
 #include <iostream>
 #include <unordered_map>
 #include <string>
+#include "CMemoryTable.h";
 #include "CSymbolInfo.h"
 
 using namespace std;
@@ -30,6 +31,17 @@ namespace ParserLib
 
 		// Mostrar todos los símbolos en la tabla
 		void display();
+
+		void genVarCode(CMemoryTable * memoryTable);
+		string genCodeAssignConstString();
+
+		void genParamsCode(ofstream * genCodeFile);
+		void genPosPila();
+
+		void ReserveConstVarMemory(CMemoryTable * memoryTable);
+
+		static string ReplaceAll(string str, const string& from, const string& to);
+
 	};
 }
 

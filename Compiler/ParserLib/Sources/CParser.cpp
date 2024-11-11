@@ -4,6 +4,7 @@
 #include <string>
 #include <stack>
 #include <vector>
+#include <fstream>
 #include "GRAMATIC.h"
 #include "FOLLOW.h"
 #include "CToken.h"
@@ -23,6 +24,10 @@ using namespace ScannerLib;
 //falta guardar los valores iniciales de un array
 //falta guardar los valores iniciales de un registro.
 namespace ParserLib {
+
+	const int tam_memoria = 4096;
+	int globalConstLiterales = 1;
+	int globalEtiquetas = 1;
 
 	bool isTerminal(int prod) {
 		return TERMINAL(prod);
@@ -68,6 +73,7 @@ namespace ParserLib {
 		if (value == "TOKEN_INT") { result = "TOKEN_SHTAWA"; }
 		else if (value == "TOKEN_CHAR") { result = "TOKEN_EKLA"; }
 		else if (value == "TOKEN_STRING") { result = "TOKEN_SHEJ"; }
+		else if (value == "TOKEN_YINAKULIWA") { result = "TOKEN_YINAKULIWA"; }
 		else if (value == "TOKEN_SIWA") { result = "TOKEN_YINAKULIWA"; }
 		else if (value == "TOKEN_KOYUWE") { result = "TOKEN_YINAKULIWA"; }
 		else if (value == "TOKEN_ROMANO") { result = "TOKEN_WOMELE"; }
@@ -101,6 +107,939 @@ namespace ParserLib {
 			}
 		}
 		return result;
+	}
+
+	void CParser::fnGC0001(int top, TreeNode * topNode, Token currentToken, CSymbolTable * currentSymbolTable) {
+		string strErrSem;
+		TreeNode * parent = topNode->GetParent();
+		if (parent != NULL) {
+			//(*genCodeFile) << ".model small\n";
+			//(*genCodeFile) << ".stack 100h\n";
+			(*genCodeFile) << "pila segment stack 'stack'\n";
+			(*genCodeFile) << "  dw 256 dup(? )\n";
+			(*genCodeFile) << "pila endS\n\n";
+
+			(*genCodeFile) << "codigo segment\n";
+			(*genCodeFile) << "  assume cs : codigo, ds : datos, ss : pila\n\n";
+
+			//para llamar a AllocateString:
+			//MOV CX, 50             ; Establece el tamaño del string a reservar en 50 bytes
+			//CALL AllocateString
+			(*genCodeFile) << "  AllocateString PROC\n";
+			(*genCodeFile) << "    PUSH BP; Guardar el puntero base actual\n";
+			(*genCodeFile) << "    MOV BP, SP; Establecer BP como base del marco de pila\n";
+			(*genCodeFile) << "    ; Cargar el tamaño del string desde la pila(parámetro)\n";
+			//(*genCodeFile) << "    MOV CX, [BP + 4]; CX contiene el tamaño del string solicitado\n";
+			(*genCodeFile) << "    ; Comprobar si hay suficiente espacio en MemoriaDinamica\n";
+			(*genCodeFile) << "    MOV AX, word ptr NextFree; Cargar el índice de la próxima asignación en AX\n";
+			(*genCodeFile) << "    ADD AX, CX; Calcular posición después de la asignación\n";
+			(*genCodeFile) << "    CMP AX, " + to_string(tam_memoria) + "; Comparar con el tamaño total de MemoriaDinamica\n";
+			(*genCodeFile) << "    JG NoSpace; Si excede 200 bytes, no hay suficiente espacio\n";
+			(*genCodeFile) << "    ; Realizar la asignación\n";
+			(*genCodeFile) << "    MOV DI, word ptr NextFree; DI apunta al inicio de la asignación actual\n";
+			(*genCodeFile) << "    ADD DI, OFFSET MemoriaDinamica; DI ahora apunta al bloque reservado en MemoriaDinamica\n";
+			(*genCodeFile) << "    ; Aquí DI es el puntero al bloque asignado que puedes usar para almacenar el string\n";
+			(*genCodeFile) << "    ; Actualizar NextFree para la próxima asignación\n";
+			(*genCodeFile) << "    MOV AX, word ptr NextFree\n";
+			(*genCodeFile) << "    ADD AX, CX; Sumar el tamaño reservado a NextFree\n";
+			(*genCodeFile) << "    MOV word ptr NextFree, AX; Guardar el nuevo valor en NextFree\n";
+			(*genCodeFile) << "    POP BP; Restaurar el puntero base original\n";
+			(*genCodeFile) << "    RET; \n";
+			(*genCodeFile) << "    NoSpace:\n";
+			(*genCodeFile) << "    ; Manejo del caso en el que no hay espacio suficiente\n";
+			(*genCodeFile) << "    ; (por ejemplo, retornar un valor de error o manejar la situación de otra forma)\n";
+			(*genCodeFile) << "    POP BP; Restaurar el puntero base\n";
+			(*genCodeFile) << "    RET\n";
+			(*genCodeFile) << "  AllocateString ENDP\n\n";
+
+			//para llamar a ReserveStringOnStack 
+			//MOV CX, 50             ; Establece el tamaño del string a reservar en 50 bytes en la pila
+			//CALL AllocateString
+			(*genCodeFile) << "  ReserveStringOnStack PROC\n";
+			(*genCodeFile) << "    ; Este procedimiento recibe el tamaño del string en el registro CX\n";
+			(*genCodeFile) << "    ; Guardar el puntero base actual y establecer un nuevo marco de pila\n";
+			(*genCodeFile) << "    PUSH BP\n";
+			(*genCodeFile) << "    MOV BP, SP\n";
+			(*genCodeFile) << "    ; Reservar espacio en la pila para el string\n";
+			(*genCodeFile) << "    SUB SP, CX; Restar el valor en CX del puntero de pila para reservar espacio\n";
+
+
+			//(*genCodeFile) << "    ; En este punto, SP apunta al inicio del espacio reservado en la pila.\n";
+			//(*genCodeFile) << "    ; Puedes usar SP o[BP - CX] como puntero al espacio de string reservado.\n";
+			//(*genCodeFile) << "    ; ... (código que utiliza el espacio reservado) ...\n";
+			//(*genCodeFile) << "    ; Ejemplo: almacenar datos en el espacio reservado\n"; 
+			//(*genCodeFile) << "    ; MOV[SP], 'H'; Colocar una letra en el inicio del espacio reservado\n";
+			//(*genCodeFile) << "    ; Liberar el espacio reservado antes de salir\n";
+			//(*genCodeFile) << "    ADD SP, CX; Restaurar SP al valor original liberando el espacio reservado\n";
+
+			(*genCodeFile) << "    POP BP; Restaurar el puntero base original\n";
+			(*genCodeFile) << "    RET\n";
+			(*genCodeFile) << "  ReserveStringOnStack ENDP\n\n\n";
+
+			//Para llamar a CopyStringToDynamicMemory
+			//MOV AX, SEG SourceString; Cargar el segmento de SourceString en DS
+			//MOV DS, AX
+			//MOV SI, OFFSET SourceString; Cargar el offset del string de origen en SI
+			//MOV DI, 20; Offset de inicio en MemoriaDinamica
+			//CALL CopyStringToDynamicMemory; Llamada a la función de copia
+			(*genCodeFile) << "  CopyStringToDynamicMemory PROC\n";
+			(*genCodeFile) << "    ; Parámetros de entrada :\n";
+			(*genCodeFile) << "    ; DS:SI->Dirección del string de origen en el segmento de datos\n";
+			(*genCodeFile) << "    ; DI->Offset en MemoriaDinamica donde iniciar la copia\n";
+
+			(*genCodeFile) << "    PUSH BP; Guardar el puntero base\n";
+			(*genCodeFile) << "    MOV BP, SP; Establecer el marco de pila\n";
+
+			(*genCodeFile) << "    ; Configurar ES para apuntar a la dirección base de MemoriaDinamica\n";
+			(*genCodeFile) << "    MOV AX, SEG MemoriaDinamica; Cargar el segmento de MemoriaDinamica en AX\n";
+			(*genCodeFile) << "    MOV ES, AX; Mover el segmento a ES\n";
+
+			(*genCodeFile) << "    ; Inicio de la copia\n";
+			(*genCodeFile) << "    CopyLoop :\n";
+			(*genCodeFile) << "    MOV AL, DS:[SI]; Cargar un byte del string de origen en AL\n";
+			(*genCodeFile) << "    MOV ES:[DI], AL; Copiar el byte al destino en MemoriaDinamica\n";
+			(*genCodeFile) << "    INC SI; Avanzar al siguiente byte en el string de origen\n";
+			(*genCodeFile) << "    INC DI; Avanzar al siguiente byte en el destino\n";
+			(*genCodeFile) << "    CMP AL, 0; Verificar si es el final del string(byte nulo)\n";
+			(*genCodeFile) << "    JNZ CopyLoop; Si no es el final, continuar copiando\n";
+
+			(*genCodeFile) << "    POP BP; Restaurar el puntero base\n";
+			(*genCodeFile) << "    RET; Retorno de la función\n";
+			(*genCodeFile) << "  CopyStringToDynamicMemory ENDP\n\n";
+
+			//Para llamar a LenString
+			//MOV AX, SEG string; Cargar el segmento de SourceString en DS
+			//MOV DS, AX
+			//MOV SI, OFFSET string; Cargar el offset del string de origen en SI
+			//CALL LenString; Llamada a la función de copia
+			//el resultado queda en CX
+			(*genCodeFile) << "  LenString PROC\n";
+			(*genCodeFile) << "    ; Parámetros de entrada :\n";
+			(*genCodeFile) << "    ; DS:SI->Dirección del string \n";
+			(*genCodeFile) << "    ; Contador queda en CX\n";
+
+			(*genCodeFile) << "    PUSH BP; Guardar el puntero base\n";
+			(*genCodeFile) << "    MOV BP, SP; Establecer el marco de pila\n";
+
+			(*genCodeFile) << "    MOV CX, 0; Establecer el marco de pila\n";
+			(*genCodeFile) << "    ; Inicio del contador\n";
+			(*genCodeFile) << "    ContLoop :\n";
+			(*genCodeFile) << "    MOV AL, DS:[SI]; Cargar un byte del string de origen en AL\n";
+			(*genCodeFile) << "    INC CX\n";
+			(*genCodeFile) << "    INC SI\n";
+			(*genCodeFile) << "    CMP AL, 0; Verificar si es el final del string(byte nulo)\n";
+			(*genCodeFile) << "    JNZ ContLoop; Si no es el final, continuar contando\n";
+			(*genCodeFile) << "    DEC CX\n";
+
+			(*genCodeFile) << "    POP BP; Restaurar el puntero base\n";
+			(*genCodeFile) << "    RET; Retorno de la función\n";
+			(*genCodeFile) << "  LenString ENDP\n\n";
+
+
+			(*genCodeFile) << "  PrintStringFromDynamicMemory PROC\n";
+			(*genCodeFile) << "    ; Parámetro de entrada :\n";
+
+			(*genCodeFile) << "    ; DI->Offset en MemoriaDinamica donde comienza el string\n";
+
+			(*genCodeFile) << "    PUSH BP; Guardar el puntero base\n";
+			(*genCodeFile) << "    MOV BP, SP; Establecer el marco de pila\n";
+
+			(*genCodeFile) << "    ; Configurar el segmento de datos para MemoriaDinamica\n";
+			(*genCodeFile) << "    MOV AX, SEG MemoriaDinamica; Cargar el segmento de MemoriaDinamica en AX\n";
+			(*genCodeFile) << "    MOV DS, AX; Mover el segmento a DS\n";
+
+			(*genCodeFile) << "    ; Configurar el offset del string en DX\n";
+			(*genCodeFile) << "    MOV DX, DI; Cargar el offset dentro de MemoriaDinamica en DX\n";
+
+			(*genCodeFile) << "    ; Llamar a la interrupción DOS para imprimir el string\n";
+			(*genCodeFile) << "    MOV AH, 09h; Función DOS para imprimir un string terminado en $\n";
+			(*genCodeFile) << "    INT 21h; Llamar a la interrupción DOS\n";
+
+			(*genCodeFile) << "    POP BP; Restaurar el puntero base\n";
+			(*genCodeFile) << "    RET; Retorno del procedimiento\n";
+			(*genCodeFile) << "  PrintStringFromDynamicMemory ENDP\n\n";
+
+		}
+	}
+
+	void CParser::fnGC0002(int top, TreeNode * topNode, Token currentToken, CSymbolTable * currentSymbolTable) {
+		string strErrSem;
+		int defData = 0;
+		TreeNode * parent = topNode->GetParent();
+		if (parent != NULL) {
+
+			(*genCodeFile) << "main:\n\n\n";
+			//asignar los valores a los espacios de memoria de las variables o constantes.
+			//memoryTable->genCodForConstVarValues(this->genCodeFile);
+
+			(*genCodeFile) << "Inicio:\n";
+
+			(*genCodeFile) << "  mov ax, ds; Pone al ES a apuntar al inicio del PSP\n";
+			(*genCodeFile) << "  mov es, ax  \n";
+
+			(*genCodeFile) << "  mov ax, datos;  El DS que apuntaba al PSP se debe poner a apuntar al segmento de datos para poder usar las variables \n";
+			(*genCodeFile) << "  mov ds, ax  \n";
+
+			(*genCodeFile) << "  mov ax, pila  \n";
+			(*genCodeFile) << "  mov ss, ax  \n\n";
+
+			if (currentSymbolTable != NULL && currentSymbolTable->parent == NULL) {
+				//variables globales
+				(*genCodeFile) << currentSymbolTable->genCodeAssignConstString();
+			}
+
+			//definiendo variables globales
+			if (currentSymbolTable->parent == NULL) {
+				//currentSymbolTable->ReserveConstVarMemory(memoryTable);
+				currentSymbolTable->genVarCode(memoryTable);
+			}
+		}
+	}
+
+	void CParser::fnGC0003(int top, TreeNode * topNode, Token currentToken, CSymbolTable * currentSymbolTable) {
+		string strErrSem;
+		TreeNode * parent = topNode->GetParent();
+		if (parent != NULL) {
+			(*genCodeFile) << "\n  mov ax, 4C00h\n";
+			(*genCodeFile) << "  int 21h\n\n";
+
+			(*genCodeFile) << "\ncodigo endS\n\n";
+			(*genCodeFile) << "end main\n";		
+
+			memoryTable->addDataConstVar("datos endS\n");
+		}
+	}
+
+	void CParser::fnGC0004(int top, TreeNode * topNode, Token currentToken, CSymbolTable * currentSymbolTable) {
+		string strErrSem;
+		TreeNode * parent = topNode->GetParent();
+		if (parent != NULL) {
+			TreeNode * nodeProcId = SearchInChildrenByData(parent, "TOKEN_ID");
+			if (nodeProcId != NULL)
+			{
+				(*genCodeFile) << "  " + nodeProcId->GetChildren()[0]->GetValue() + " proc\n";
+
+				(*genCodeFile) << "  PUSH BP; Guardar el puntero base \n";
+				(*genCodeFile) << "  MOV BP, SP; Establecer el nuevo marco de pila \n"; 
+/*
+				int offset = 4;//el retorno son los primeros 4 bytes de la pila
+				TreeNode * defParams = SearchInChildrenByData(parent, "<DefFuncFormalParams>");
+				if (defParams == NULL) {
+					defParams = SearchInChildrenByData(parent, "<DefProcFormalParams>");
+				}
+				if (defParams != NULL) {
+					while (defParams != NULL) {
+						TreeNode * nodeTipoSimple = SearchInChildrenByData(defParams, "<TipoSimple>");
+						//aqui sé cual es el tipo (tamaño a reservar en la pila
+						int tipo_size = 2;//por el momento asumo enteros de 2 bytes. 
+						if (nodeTipoSimple != NULL) {
+							TreeNode * Ids = SearchInChildrenByData(defParams, "<ListaIDs>");
+							if (Ids == NULL) {
+								Ids = SearchInChildrenByData(defParams, "<ListaProcIDs>");
+							}
+							while (Ids != NULL) {
+								TreeNode * nombreId = SearchInChildrenByData(Ids, "TOKEN_ID");
+								if (nombreId != NULL) {
+									//aqui sé los nombres para saber en qué posición de la pila queda el parametro
+									//(*genCodeFile) << "  ; Acceso a los parámetros : \n";
+									//(*genCodeFile) << "  ; Suponiendo que el primer parámetro(a) está en BP + 4 \n";
+									//(*genCodeFile) << "  ; y el segundo parámetro(b) está en BP + 6 \n";
+									string strId = nombreId->GetChildren()[0]->GetValue();
+									(*genCodeFile) << "  ; id = " + strId + " = [BP + " + (to_string(offset)) + "]; Cargar el parámetro a en AX \n";
+									offset += tipo_size;
+								}
+								TreeNode * IdsTmp = SearchInChildrenByData(Ids, "<SiguientesListaIDs>");
+								if (IdsTmp == NULL) {
+									IdsTmp = SearchInChildrenByData(Ids, "<SiguientesListaProcIDs>");
+								}
+								Ids = IdsTmp;
+								if (Ids != NULL) {
+									IdsTmp = SearchInChildrenByData(Ids, "<ListaIDs>");
+									if (IdsTmp == NULL) {
+										IdsTmp = SearchInChildrenByData(Ids, "<ListaProcIDs>");
+									}
+									Ids = IdsTmp;
+								}
+							}
+						}
+						TreeNode * defParamsTmp = SearchInChildrenByData(defParams, "<SigDefFuncFormalParams>");
+						if (defParamsTmp == NULL) {
+							defParamsTmp = SearchInChildrenByData(defParams, "<SigDefProcFormalParams>");
+						}
+						defParams = defParamsTmp;
+
+						if (defParams != NULL) {
+							defParamsTmp = SearchInChildrenByData(defParams, "<DefFuncFormalParams>");
+							if (defParamsTmp == NULL) {
+								defParamsTmp = SearchInChildrenByData(defParams, "<DefProcFormalParams>");
+							}
+							defParams = defParamsTmp;
+						}
+					}
+				}
+*/
+			}
+
+			currentSymbolTable->genParamsCode(this->genCodeFile);
+		}
+	}
+
+	void CParser::fnGC0005(int top, TreeNode * topNode, Token currentToken, CSymbolTable * currentSymbolTable) {
+		string strErrSem;
+		TreeNode * parent = topNode->GetParent();
+		if (parent != NULL) {
+			TreeNode * nodeProcId = SearchInChildrenByData(parent, "TOKEN_ID");
+			if (nodeProcId != NULL)
+			{
+				CSymbolInfo * symbol = currentSymbolTable->getSymbol(nodeProcId->GetChildren()[0]->GetValue(), true);
+				if (symbol != NULL)
+				{
+					(*genCodeFile) << "    ; ... código de la función ... \n";
+
+					if (symbol->getSymbolType() == ST_Funcion) {
+
+						//contar el espacio de los parámetros.
+						int cantBytes = symbol->getFormalParamsSize();
+
+						(*genCodeFile) << "  POP AX; \n";
+						(*genCodeFile) << "  MOV [BP+" + to_string(4 + cantBytes) + "], AX \n";
+
+						(*genCodeFile) << "  POP BP; Restaurar el puntero base \n";
+
+
+						if (cantBytes > 0) {
+							(*genCodeFile) << "  RET " + to_string(cantBytes) + "  ; Retornar de la función \n";
+						}
+						else {
+							(*genCodeFile) << "  RET; Retornar de la función \n";
+						}
+					}
+					else {
+						(*genCodeFile) << "  POP BP; Restaurar el puntero base \n";
+						(*genCodeFile) << "  RET; Retornar de la función \n";
+					}
+
+					//????? Ojo antes del Retorno debe meter el resultado de la función, y en el retorno debe liberar la pila
+					(*genCodeFile) << "  " + nodeProcId->GetChildren()[0]->GetValue() + " endp\n\n";
+				}
+			}
+		}
+	}
+
+	void CParser::fnGC0006(int top, TreeNode * topNode, Token currentToken, CSymbolTable * currentSymbolTable) {
+		string strErrSem;
+		TreeNode * parent = topNode->GetParent();
+		if (parent != NULL) {
+
+		}
+	}
+
+	void CParser::fnGC0007(int top, TreeNode * topNode, Token currentToken, CSymbolTable * currentSymbolTable) {
+		string strErrSem;
+		TreeNode * parent = topNode->GetParent();
+		if (parent != NULL) {
+			if (parent->GetData() == "<FactorIzq>") {
+				TreeNode * node = SearchInChildrenByData(parent, "<LiteralConst>");
+				if (node != NULL) {
+					if (node->GetType() == "TOKEN_SHTAWA") {
+						//integer
+						(*genCodeFile) << "  MOV AX, " + node->GetChildren()[0]->GetValue() + "\n";
+						(*genCodeFile) << "  PUSH AX\n";
+					}
+					else if (node->GetType() == "TOKEN_EKLA") {
+						(*genCodeFile) << "  MOV AX, " + node->GetChildren()[0]->GetValue() + "\n";
+						(*genCodeFile) << "  PUSH AX\n";
+					}
+					else if (node->GetType() == "TOKEN_YINAKULIWA") {
+						string valBool = ((node->GetValue() == "Síwa" || node->GetValue() == "síwa") ? "1" : "0");
+						(*genCodeFile) << "  MOV AX, " + valBool + "\n";
+						(*genCodeFile) << "  PUSH AX\n";
+					}
+					else if (node->GetType() == "TOKEN_SHEJ") {
+						//agregarlo a las constantes y luego usarlo
+						string nombreVar = "const_" + to_string(globalConstLiterales);
+						globalConstLiterales += 1;
+						string dato = "  " + nombreVar + " " + "db " + CSymbolTable::ReplaceAll(node->GetChildren()[0]->GetValue(), "\"", "'") + ", 0";
+						memoryTable->addDataConstVar(dato);//se crea la variable para guardar el offset
+						//para un string se guarda el segmento y el offset, como es una constante
+						(*genCodeFile) << "  MOV AX, SEG " + nombreVar + "\n";
+						(*genCodeFile) << "  PUSH AX\n";
+						(*genCodeFile) << "  MOV AX, OFFSET " + nombreVar + "\n";;
+						(*genCodeFile) << "  PUSH AX\n";
+					}
+				}
+				else {
+					node = SearchInChildrenByData(parent, "TOKEN_ID");
+					if (node != NULL) {
+						bool esParamVarLocal = false;
+						//variable
+						node = node->GetChildren()[0];
+						CSymbolInfo * symbol = currentSymbolTable->getSymbol(node->GetValue());
+						if (symbol == NULL) {
+							if (currentSymbolTable->parent != NULL) {
+								symbol = currentSymbolTable->getSymbol(node->GetValue(), true);
+								esParamVarLocal = false;
+							}
+						}
+						else {
+							if (currentSymbolTable->parent != NULL) {
+								esParamVarLocal = true;
+							}
+							else {
+								esParamVarLocal = false;
+							}
+						}
+						if (symbol != NULL) {
+							if (symbol->getSymbolType() == ST_Constante || symbol->getSymbolType() == ST_Variable) {
+								string tipo = symbol->getType();
+								if (tipo == "TOKEN_SHTAWA") {
+									//integer
+									if (esParamVarLocal) {
+										(*genCodeFile) << "  MOV AX, [BP+" + to_string(4 + symbol->getPosPila()) + "]\n";
+									}
+									else {
+										(*genCodeFile) << "  MOV AX, word ptr " + node->GetValue() + "\n";
+									}
+									(*genCodeFile) << "  PUSH AX  ;guardó en la pila el valor que está en la variable/constante " + node->GetValue() + "\n";
+								}
+								else if (tipo == "TOKEN_EKLA") {
+									//char
+									if (esParamVarLocal) {
+										(*genCodeFile) << "  MOV AX, [BP+" + to_string(4 + symbol->getPosPila()) + "]\n";
+									}
+									else {
+										(*genCodeFile) << "  MOV AX, 0\n";
+										(*genCodeFile) << "  MOV AL, byte ptr " + node->GetValue() + "\n";
+									}
+									(*genCodeFile) << "  PUSH AX  ;guardó en la pila el valor que está en la variable/constante " + node->GetValue() + "\n";
+								}
+								else if (tipo == "TOKEN_YINAKULIWA") {
+									//bool
+									if (esParamVarLocal) {
+										(*genCodeFile) << "  MOV AX, [BP+" + to_string(4 + symbol->getPosPila()) + "]\n";
+									}
+									else {
+										(*genCodeFile) << "  MOV AX, 0\n";
+										(*genCodeFile) << "  MOV AL, byte ptr " + node->GetValue() + "\n";
+									}
+									(*genCodeFile) << "  PUSH AX  ;guardó en la pila el valor que está en la variable/constante " + node->GetValue() + "\n";
+								}
+								else if (tipo == "TOKEN_SHEJ") {
+									//para un string se guarda el segmento y el offset, como es una constante
+									if (symbol->getSymbolType() == ST_Constante) {
+										(*genCodeFile) << "  MOV AX, SEG " + node->GetValue() + "\n";
+										(*genCodeFile) << "  PUSH AX\n";
+										(*genCodeFile) << "  MOV AX, OFFSET " + node->GetValue() + "\n";
+										(*genCodeFile) << "  PUSH AX  ;guardó en la pila el segment:offset del string " + node->GetValue() + "\n";
+									}
+									else if (symbol->getSymbolType() == ST_Variable) {
+										if (esParamVarLocal) {
+											(*genCodeFile) << "  MOV AX, [BP+" + to_string(4 + symbol->getPosPila()) + "]\n";
+											(*genCodeFile) << "  PUSH AX\n";
+											(*genCodeFile) << "  MOV AX, [BP+" + to_string(4 + symbol->getPosPila() + 2) + "]\n";
+											(*genCodeFile) << "  PUSH AX\n";
+										}
+										else {
+											(*genCodeFile) << "  MOV AX, SEG MemoriaDinamica\n";
+											(*genCodeFile) << "  PUSH AX\n";
+											(*genCodeFile) << "  MOV AX, word ptr " + node->GetValue() + "\n";
+											(*genCodeFile) << "  PUSH AX  ;guardó en la pila el segment:offset del string " + node->GetValue() + "\n";
+										}
+									}
+								}
+							}
+						}
+						else {
+							//error no se encontró la variable o constante
+						}
+					}
+				}
+			}
+		}
+	}
+
+	void CParser::fnGC0008(int top, TreeNode * topNode, Token currentToken, CSymbolTable * currentSymbolTable) {
+		string strErrSem;
+		TreeNode * parent = topNode->GetParent();
+		if (parent != NULL) {
+			if (parent->GetData() == "<RestoExpresionSimple>") {
+				TreeNode * node = SearchInChildrenByData(parent, "TOKEN_MAS");
+				if (node != NULL) {
+					if (parent->GetType() == "TOKEN_SHTAWA") {
+						(*genCodeFile) << "  POP BX\n";
+						(*genCodeFile) << "  POP AX\n";
+						(*genCodeFile) << "  ADD AX, BX\n";
+						(*genCodeFile) << "  PUSH AX  ; Realiza una suma\n";
+					}
+				}
+				if (node == NULL) {
+					node = SearchInChildrenByData(parent, "TOKEN_MENOS");
+					if (node != NULL) {
+						if (parent->GetType() == "TOKEN_SHTAWA") {
+							(*genCodeFile) << "  POP BX\n";
+							(*genCodeFile) << "  POP AX\n";
+							(*genCodeFile) << "  SUB AX, BX\n";
+							(*genCodeFile) << "  PUSH AX  ; Realiza una resta\n";
+						}
+					}
+				}
+				if (node == NULL) {
+					node = SearchInChildrenByData(parent, "TOKEN_MAS_ROMANO");
+					if (node != NULL) {
+						if (parent->GetType() == "TOKEN_SHTAWA") {
+							(*genCodeFile) << "  POP BX\n";
+							(*genCodeFile) << "  POP AX\n";
+							(*genCodeFile) << "  ADD AX, BX\n";
+							(*genCodeFile) << "  PUSH AX  ; Realiza una suma romana\n";
+						}
+					}
+				}
+				if (node == NULL) {
+					node = SearchInChildrenByData(parent, "TOKEN_MENOS_ROMANO");
+					if (node != NULL) {
+						if (parent->GetType() == "TOKEN_SHTAWA") {
+							(*genCodeFile) << "  POP BX\n";
+							(*genCodeFile) << "  POP AX\n";
+							(*genCodeFile) << "  SUB AX, BX\n";
+							(*genCodeFile) << "  PUSH AX  ; Realiza una resta romana\n";
+						}
+					}
+				}
+			}
+			else if (parent->GetData() == "<RestoTermino>") {
+				TreeNode * node = SearchInChildrenByData(parent, "TOKEN_MULTIPLICACION");
+				if (node != NULL) {
+					if (parent->GetType() == "TOKEN_SHTAWA") {
+						(*genCodeFile) << "  POP BX\n";
+						(*genCodeFile) << "  POP AX\n";
+						(*genCodeFile) << "  MUL BX\n";
+						(*genCodeFile) << "  PUSH AX  ; Realiza una multiplicacion\n";
+					}
+				}
+				if (node == NULL) {
+					node = SearchInChildrenByData(parent, "TOKEN_DIVISION");
+					if (node != NULL) {
+						if (parent->GetType() == "TOKEN_SHTAWA") {
+							(*genCodeFile) << "  POP BX\n";
+							(*genCodeFile) << "  POP AX\n";
+							(*genCodeFile) << "  DIV BX\n";
+							(*genCodeFile) << "  PUSH AX  ; Realiza una division\n";
+						}
+					}
+				}
+				if (node == NULL) {
+					node = SearchInChildrenByData(parent, "TOKEN_MODULO");
+					if (node != NULL) {
+						if (parent->GetType() == "TOKEN_SHTAWA") {
+							(*genCodeFile) << "  POP BX\n";
+							(*genCodeFile) << "  POP AX\n";
+							(*genCodeFile) << "  DIV BX\n";
+							(*genCodeFile) << "  MOV AL, AH\n";//mover el resto al al
+							(*genCodeFile) << "  MOV AH, 0\n";//limpiar la parte alta del AX
+							(*genCodeFile) << "  PUSH AX  ; Realiza un modulo\n";
+						}
+					}
+				}
+				if (node == NULL) {
+					node = SearchInChildrenByData(parent, "TOKEN_MULTIPLICACION_ROMANO");
+					if (node != NULL) {
+						if (parent->GetType() == "TOKEN_SHTAWA") {
+							(*genCodeFile) << "  POP BX\n";
+							(*genCodeFile) << "  POP AX\n";
+							(*genCodeFile) << "  MUL BX\n";
+							(*genCodeFile) << "  PUSH AX  ; Realiza una multiplicacion romana\n";
+						}
+					}
+				}
+				if (node == NULL) {
+					node = SearchInChildrenByData(parent, "TOKEN_DIVISION_ROMANO");
+					if (node != NULL) {
+						if (parent->GetType() == "TOKEN_SHTAWA") {
+							(*genCodeFile) << "  POP BX\n";
+							(*genCodeFile) << "  POP AX\n";
+							(*genCodeFile) << "  DIV BX\n";
+							(*genCodeFile) << "  PUSH AX  ; Realiza una division romana\n";
+						}
+					}
+				}
+				if (node == NULL) {
+					node = SearchInChildrenByData(parent, "TOKEN_MODULO_ROMANO");
+					if (node != NULL) {
+						if (parent->GetType() == "TOKEN_SHTAWA") {
+							(*genCodeFile) << "  POP BX\n";
+							(*genCodeFile) << "  POP AX\n";
+							(*genCodeFile) << "  DIV BX   ; Realiza una division romana\n";
+							(*genCodeFile) << "  MOV AL, AH\n";//mover el resto al al
+							(*genCodeFile) << "  MOV AH, 0\n";//limpiar la parte alta del AX
+							(*genCodeFile) << "  PUSH AX\n";
+						}
+					}
+				}
+			}
+			else if (parent->GetData() == "<RestoExpresion>") {
+				TreeNode * node = SearchInChildrenByData(parent, "TOKEN_IRA");
+				if (node != NULL) {
+					(*genCodeFile) << "  POP BX\n";
+					(*genCodeFile) << "  POP AX\n";
+					(*genCodeFile) << "  AND AX, BX\n";
+					(*genCodeFile) << "  PUSH AX  ; Realiza un AND\n";
+				}
+				if (node == NULL) {
+					node = SearchInChildrenByData(parent, "TOKEN_IRALE");
+					if (node != NULL) {
+						(*genCodeFile) << "  POP BX\n";
+						(*genCodeFile) << "  POP AX\n";
+						(*genCodeFile) << "  OR AX, BX\n";
+						(*genCodeFile) << "  PUSH AX  ; Realiza un OR\n";
+					}
+				}
+				if (node == NULL) {
+					node = SearchInChildrenByData(parent, "TOKEN_JEBA");
+					if (node != NULL) {
+						(*genCodeFile) << "  POP BX\n";
+						(*genCodeFile) << "  POP AX\n";
+						(*genCodeFile) << "  XOR AX, BX\n";
+						(*genCodeFile) << "  PUSH AX  ; Realiza un XOR\n";
+					}
+				}
+			}
+			else if (parent->GetData() == "<ExpresionOperRel>") {
+				TreeNode * node = SearchInChildrenByData(parent, "TOKEN_COMPARADOR");
+				if (node != NULL) {
+					string strComp = node->GetChildren()[0]->GetValue();
+					(*genCodeFile) << "  POP BX\n";
+					(*genCodeFile) << "  POP AX\n";
+					(*genCodeFile) << "  CMP AX, BX\n";
+					if (strComp == "=") {
+						(*genCodeFile) << "  JE comp_" + to_string(globalEtiquetas) + "\n";
+					}
+					else if (strComp == ">") {
+						(*genCodeFile) << "  JG comp_" + to_string(globalEtiquetas) + "\n";
+					}
+					else if (strComp == ">=") {
+						(*genCodeFile) << "  JGE comp_" + to_string(globalEtiquetas) + "\n";
+					}
+					else if (strComp == "<") {
+						(*genCodeFile) << "  JL comp_" + to_string(globalEtiquetas) + "\n";
+					}
+					else if (strComp == "<=") {
+						(*genCodeFile) << "  JLE comp_" + to_string(globalEtiquetas) + "\n";
+					}
+					(*genCodeFile) << "  MOV AX, 0  ; asigna false\n";
+					(*genCodeFile) << "  JMP compF_" + to_string(globalEtiquetas) + "\n";
+					(*genCodeFile) << "comp_" + to_string(globalEtiquetas) + ":\n";
+					(*genCodeFile) << "  MOV AX, 1  ; asigna true\n";
+					(*genCodeFile) << "compF_" + to_string(globalEtiquetas) + ":\n";
+					(*genCodeFile) << "  PUSH AX  ; Guarda el valor booleano (0 o 1)\n";
+					globalEtiquetas += 1;
+
+				}
+			}
+		}
+	}
+
+	void CParser::fnGC0009(int top, TreeNode * topNode, Token currentToken, CSymbolTable * currentSymbolTable) {
+		string strErrSem;
+		TreeNode * parent = topNode->GetParent();
+		if (parent != NULL) {
+			TreeNode * node = SearchInChildrenByData(parent, "<Asignacion>");
+			TreeNode * nodeId = parent->GetParent();//es <sentencia>
+			if (node != NULL && nodeId != NULL)
+			{
+				TreeNode * nodeExp = SearchInChildrenByData(node, "<Expresion>");
+				if (nodeExp != NULL) {
+					nodeId = SearchInChildrenByData(nodeId, "TOKEN_ID");
+					if (nodeId != NULL) {
+						if (nodeExp->GetType() == "TOKEN_SHTAWA")
+						{
+							//el resultado de esa expresión tiene que estar en el top de la pila
+							(*genCodeFile) << "  POP AX\n";
+							(*genCodeFile) << "  MOV word ptr " + nodeId->GetChildren()[0]->GetValue () + ", AX   ; Asigna el resultado en la variable " + nodeId->GetChildren()[0]->GetValue() +  "\n\n";
+							//falta analizar si la variable es global o local
+						}
+						else if (nodeExp->GetType() == "TOKEN_EKLA") {
+							(*genCodeFile) << "  POP AX\n";
+							(*genCodeFile) << "  MOV byte ptr " + nodeId->GetChildren()[0]->GetValue() + ", AL   ; Asigna el resultado en la variable " + nodeId->GetChildren()[0]->GetValue() + "\n\n";
+						}
+						else if (nodeExp->GetType() == "TOKEN_YINAKULIWA") {
+							(*genCodeFile) << "  POP AX\n";
+							(*genCodeFile) << "  MOV byte ptr " + nodeId->GetChildren()[0]->GetValue() + ", AL   ; Asigna el resultado en la variable " + nodeId->GetChildren()[0]->GetValue() + "\n\n";
+						}
+						else if (nodeExp->GetType() == "TOKEN_SHEJ") {
+							//en la pila está el segmento y el offset del string
+							(*genCodeFile) << "  ;toma de la pila el segment y offset del string, y cuenta cuántos caracteres tiene\n";
+							(*genCodeFile) << "  POP AX\n";//saca el offset
+							(*genCodeFile) << "  MOV word ptr TmpOff, AX\n"; //guardar el offset del string origen
+							(*genCodeFile) << "  MOV SI, AX\n";//deja el offset en el SI
+							(*genCodeFile) << "  POP AX\n";//saca el segment
+							(*genCodeFile) << "  MOV word ptr TmpSeg, AX\n"; //guardar el segment del string origen
+							(*genCodeFile) << "  MOV DS, AX\n";//deja el segment en el DS
+							(*genCodeFile) << "  CALL LenString\n";//deja el resultado en CX
+							(*genCodeFile) << "  MOV word ptr TmpLenStr, CX\n\n"; //guardar el largo del string
+							//en CX está la cantidad de bytes que hay que reservar para el nuevo string
+
+							string nombreVar = nodeId->GetChildren()[0]->GetValue();
+							(*genCodeFile) << "  ;reserva el espacio para el nuevo string\n";
+							(*genCodeFile) << "  MOV AX, word ptr NextFree\n";
+							(*genCodeFile) << "  MOV " + nombreVar + ", AX\n";//se guarda el offset donde inicia el nuevo string dentro de MemoriaDinamica
+							(*genCodeFile) << "  MOV CX, word ptr TmpLenStr\n";
+							(*genCodeFile) << "  INC CX   ;  hay que dejar el espacio para el 0 final\n";
+							(*genCodeFile) << "  CALL AllocateString\n";
+
+							(*genCodeFile) << "  ;copia el string del lado derecho de la asignación a la Memoria Dinamica\n";
+							(*genCodeFile) << "  MOV AX, word ptr TmpSeg ; Cargar el segmento de la constante en DS\n";
+							(*genCodeFile) << "  MOV DS, AX\n";
+							(*genCodeFile) << "  MOV SI, word ptr TmpOff ; Cargar el offset del string de origen en SI\n";
+							(*genCodeFile) << "  MOV AX, " + nombreVar + "\n";
+							(*genCodeFile) << "  MOV DI, AX ;Offset de inicio en MemoriaDinamica\n";
+							(*genCodeFile) << "  CALL CopyStringToDynamicMemory; Llamada a la función de copia\n\n";
+
+						}
+						//falta otros tipos
+					}
+				}
+			}
+		}
+	}
+
+
+
+	void CParser::fnGC0010(int top, TreeNode * topNode, Token currentToken, CSymbolTable * currentSymbolTable) {
+		string strErrSem;
+		TreeNode * parent = topNode->GetParent();
+		if (parent != NULL) {
+			topNode->SetValue(to_string(globalEtiquetas));
+			(*genCodeFile) << "  ; Inicia IF después de evaluar expresión\n";
+			(*genCodeFile) << "  POP AX  ; Obtener el resultado de la expresión booleana del IF \n";
+			(*genCodeFile) << "  CMP AL, 1  ;verifica si la expresión del IF es verdadera\n";
+			(*genCodeFile) << "  JNE etiq_ELSE_" + to_string(globalEtiquetas) + "\n";
+			globalEtiquetas += 1;
+		}
+	}
+
+	void CParser::fnGC0011(int top, TreeNode * topNode, Token currentToken, CSymbolTable * currentSymbolTable) {
+		string strErrSem;
+		TreeNode * parent = topNode->GetParent();
+		if (parent != NULL) {
+			TreeNode * node = SearchInChildrenByData(parent, "SR:" + to_string(GC0010));
+			if (node != NULL) {
+				string etiq = node->GetValue();
+				(*genCodeFile) << "  JMP etiq_IF_F_" + etiq + "   ; finaliza parte verdadera del if \n";
+				(*genCodeFile) << "etiq_ELSE_" + etiq + ":   ; inicia el else del if\n";
+			}
+		}
+	}
+
+	void CParser::fnGC0012(int top, TreeNode * topNode, Token currentToken, CSymbolTable * currentSymbolTable) {
+		string strErrSem;
+		TreeNode * parent = topNode->GetParent();
+		if (parent != NULL) {
+			TreeNode * node = SearchInChildrenByData(parent, "SR:" + to_string(GC0010));
+			if (node != NULL) {
+				string etiq = node->GetValue();
+				(*genCodeFile) << "etiq_IF_F_" + etiq + ":    ;finaliza else del if \n\n";
+			}
+		}
+	}
+
+	void CParser::fnGC0013(int top, TreeNode * topNode, Token currentToken, CSymbolTable * currentSymbolTable) {
+		string strErrSem;
+		TreeNode * parent = topNode->GetParent();
+		if (parent != NULL) {
+			topNode->SetValue(to_string(globalEtiquetas));
+			(*genCodeFile) << "etiq_WHILE_" + to_string(globalEtiquetas) + ":\n  ; inicio del while\n";
+			globalEtiquetas += 1;
+		}
+	}
+
+	void CParser::fnGC0014(int top, TreeNode * topNode, Token currentToken, CSymbolTable * currentSymbolTable) {
+		string strErrSem;
+		TreeNode * parent = topNode->GetParent();
+		if (parent != NULL) {
+			topNode->SetValue(to_string(globalEtiquetas));
+			(*genCodeFile) << "  POP AX  ; el resultado de la evaluación de la expresión booleana de un while \n";
+			(*genCodeFile) << "  CMP AL, 1\n";
+			(*genCodeFile) << "  JNE etiq_WHILE_F_" + to_string(globalEtiquetas) + "\n";
+			globalEtiquetas += 1;
+		}
+	}
+
+	void CParser::fnGC0015(int top, TreeNode * topNode, Token currentToken, CSymbolTable * currentSymbolTable) {
+		string strErrSem;
+		TreeNode * parent = topNode->GetParent();
+		if (parent != NULL) {
+			TreeNode * nodeInic = SearchInChildrenByData(parent, "SR:" + to_string(GC0013));
+			TreeNode * node = SearchInChildrenByData(parent, "SR:" + to_string(GC0014));
+			if (nodeInic != NULL && node != NULL) {
+				string etiqInic = nodeInic->GetValue();
+				string etiq = node->GetValue();
+				(*genCodeFile) << "  JMP etiq_WHILE_" + etiqInic + "    ;inicie el ciclo del while nuevamente\n";
+				(*genCodeFile) << "etiq_WHILE_F_" + etiq + ":    ;fin del while\n\n";
+			}
+		}
+	}
+
+	void CParser::fnGC0016(int top, TreeNode * topNode, Token currentToken, CSymbolTable * currentSymbolTable) {
+		string strErrSem;
+		TreeNode * parent = topNode->GetParent();
+		if (parent != NULL) {
+			(*genCodeFile) << "Falta";
+		}
+	}
+
+	void CParser::fnGC0017(int top, TreeNode * topNode, Token currentToken, CSymbolTable * currentSymbolTable) {
+		string strErrSem;
+		TreeNode * parent = topNode->GetParent();
+		if (parent != NULL) {
+			(*genCodeFile) << "Falta";
+		}
+	}
+
+	void CParser::fnGC0018(int top, TreeNode * topNode, Token currentToken, CSymbolTable * currentSymbolTable) {
+		string strErrSem;
+		TreeNode * parent = topNode->GetParent();
+		if (parent != NULL) {
+			(*genCodeFile) << "Falta";
+		}
+	}
+
+	void CParser::fnGC0019(int top, TreeNode * topNode, Token currentToken, CSymbolTable * currentSymbolTable) {
+		//manejo de expresión en el llamado de una función.
+		string strErrSem;
+		TreeNode * parent = topNode->GetParent();
+		if (parent != NULL) {
+			(*genCodeFile) << "  ; Fin de expresion parametro\n";
+		}
+	}
+
+	void CParser::fnGC0020(int top, TreeNode * topNode, Token currentToken, CSymbolTable * currentSymbolTable) {
+		//manejo de expresión en el llamado de una función.
+		string strErrSem;
+		TreeNode * parent = topNode->GetParent();
+		bool treeOK = false;
+		bool comoSentencia = false;
+		if (parent != NULL) {
+			if (parent->GetData() == "<LlamadaProcFunc>") {
+				parent = parent->GetParent();
+				if (parent != NULL && parent->GetData() == "<SentenciaInicId>") {
+					parent = parent->GetParent();
+					if (parent != NULL && parent->GetData() == "<Sentencia>") {
+						comoSentencia = true;
+						treeOK = true;
+					}
+				}
+			}
+			else {
+				if (parent->GetData() == "<RestoFactorId>") {
+					parent = parent->GetParent();
+					if (parent != NULL && parent->GetData() == "<FactorIzq>") {
+						treeOK = true;
+					}
+				}
+			}
+			if (treeOK) {
+				TreeNode * nodeTokenId = SearchInChildrenByData(parent, "TOKEN_ID");
+				if (nodeTokenId != NULL) {
+					(*genCodeFile) << "  CALL " + nodeTokenId->GetChildren()[0]->GetValue() + "  ; llamado a Procedimiento o función\n";
+					if (comoSentencia) 
+					{
+						CSymbolInfo * symbol = currentSymbolTable->getSymbol(nodeTokenId->GetChildren()[0]->GetValue(), true);
+						if (symbol != NULL) {
+							if (symbol->getSymbolType() == ST_Funcion) {
+								string tipo = symbol->getType();
+								//si es llamado como si fuera un proc, hay que sacar el resultado de la pila.
+								if (tipo == "TOKEN_SHTAWA") {
+									//integer 2 bytes
+									(*genCodeFile) << "  POP AX  ;  Saca de la pila el resultado de la funcion\n";
+								}
+								else if (tipo == "TOKEN_EKLA") {
+									//char 2 bytes
+									(*genCodeFile) << "  POP AX  ;  Saca de la pila el resultado de la funcion\n";
+								}
+								else if (tipo == "TOKEN_YINAKULIWA") {
+									//bool 2 bytes;
+									(*genCodeFile) << "  POP AX  ;  Saca de la pila el resultado de la funcion\n";
+								}
+								else if (tipo == "TOKEN_SHEJ") {
+									//string 4 bytes: 2 de segmento y 2 de offset
+									(*genCodeFile) << "  POP AX\n";
+									(*genCodeFile) << "  POP AX  ;  Saca de la pila el resultado de la funcion\n";
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+
+	void CParser::fnGC0021(int top, TreeNode * topNode, Token currentToken, CSymbolTable * currentSymbolTable) {
+		//manejo de expresión en el llamado de una función.
+		string strErrSem;
+		TreeNode * parent = topNode->GetParent();
+		if (parent != NULL) {
+			TreeNode * previous = SearchPreviousSiblingNode(parent, topNode);
+			if (previous != NULL && previous->GetData() == "<Expresion>") {
+				if (previous->GetType() == "TOKEN_SHTAWA") {
+					//integer 2 bytes
+				}
+				else if (previous->GetType() == "TOKEN_EKLA") {
+					//char 2 bytes
+				}
+				else if (previous->GetType() == "TOKEN_YINAKULIWA") {
+					//bool 2 bytes;
+				}
+				else if (previous->GetType() == "TOKEN_SHEJ") {
+					//string 4 bytes: 2 de segmento y 2 de offset
+				}
+			}
+			//no hay que hacer nada porque la evaluación de la expresión dejó el resultado en la pila.
+		}
+	}
+
+	void CParser::fnGC0022(int top, TreeNode * topNode, Token currentToken, CSymbolTable * currentSymbolTable) {
+		//manejo de expresión en el llamado de una función.
+		string strErrSem;
+		TreeNode * parent = topNode->GetParent();
+		bool treeOK = false;
+		if (parent != NULL) {
+			if (parent->GetData() == "<RestoFactorId>") {
+				parent = parent->GetParent();
+				if (parent != NULL && parent->GetData() == "<FactorIzq>") {
+					treeOK = true;
+				}
+			}
+		}
+		if (treeOK) {
+			TreeNode * nodeTokenId = SearchInChildrenByData(parent, "TOKEN_ID");
+			if (nodeTokenId != NULL) {
+				CSymbolInfo * symbol = currentSymbolTable->getSymbol(nodeTokenId->GetChildren()[0]->GetValue(), true);
+				if (symbol->getSymbolType() == ST_Funcion) {
+					if (symbol->getType() == "TOKEN_SHTAWA") {
+						//integer 2 bytes
+						(*genCodeFile) << "  MOV DX, 0\n";
+						(*genCodeFile) << "  PUSH DX   ; espacio para retorno de la funcion \n";
+					}
+					else if (symbol->getType() == "TOKEN_EKLA") {
+						//char 2 bytes
+						(*genCodeFile) << "  MOV DX, 0\n";
+						(*genCodeFile) << "  PUSH DX   ; espacio para retorno de la funcion \n";
+					}
+					else if (symbol->getType() == "TOKEN_YINAKULIWA") {
+						//bool 2 bytes;
+						(*genCodeFile) << "  MOV DX, 0\n";
+						(*genCodeFile) << "  PUSH DX   ; espacio para retorno de la funcion \n";
+					}
+					else if (symbol->getType() == "TOKEN_SHEJ") {
+						//string 4 bytes: 2 de segmento y 2 de offset
+						(*genCodeFile) << "  MOV DX, 0\n";
+						(*genCodeFile) << "  PUSH DX \n; ";
+						(*genCodeFile) << "  MOV DX, 0\n";
+						(*genCodeFile) << "  PUSH DX   ; espacio para retorno de la funcion de tipo string \n";
+					}
+				}
+			}
+		}
 	}
 
 
@@ -582,6 +1521,16 @@ namespace ParserLib {
 	{
 		//insertar un parámetro de una función o subrutina
 		TreeNode * parent = topNode->GetParent();
+
+		bool esPrototipo = false;
+		TreeNode * parentProto = parent->GetParent();
+		if (parentProto != NULL) {
+			parentProto = parentProto->GetParent();
+			if (parentProto != NULL && parentProto->GetData() == "<SeccionPrototipos>") {
+				esPrototipo = true;
+			}
+		}
+
 		CSymbolInfo * symbolFunc;
 		CSymbolInfo * symbolParam;
 		TreeNode * nodeId = SearchInChildrenByData(parent, "TOKEN_ID");
@@ -603,7 +1552,12 @@ namespace ParserLib {
 					else {
 						symbolParam->setIsReference(false);
 					}
-					symbolFunc->addFormalParam(symbolParam);
+					if (esPrototipo) {
+						symbolFunc->addFormalParam(symbolParam);
+					}
+					else {
+						symbolFunc->addFormalParam(symbolParam, true);
+					}
 				}
 			}
 			else {
@@ -998,7 +1952,8 @@ namespace ParserLib {
 		TreeNode * oper1 = SearchInChildrenByData(parent, "<ExpresionSimple>");//El oper1 es <Factor>
 		TreeNode * oper2 = SearchInChildrenByData(parent, "<ExpresionOperRel>");//El oper2 es <RestoTermino> el cual puede tener epsilon
 		if (oper1 != NULL && oper2 != NULL) {
-			if (oper1->GetType() == oper2->GetType()) {
+			if (oper1->GetType() == oper2->GetType() && oper1->GetType() != "") 
+			{
 				//todo OK
 				parent->SetType("TOKEN_YINAKULIWA"); //la comparacion de dos expresiones es un resultado booleano
 			}
@@ -1008,7 +1963,7 @@ namespace ParserLib {
 				parent->SetType(oper1->GetType()); //solamente era la ExpresionSimple, por tanto se traspasa el tipo de ExpresionSimple
 			}
 			else {
-				string strErrSem = "Error semantico: Los operadores dos operadores aritméticos no son compatibles.";
+				string strErrSem = "Error semantico: Los operadores aritméticos no son compatibles.";
 				strErrSem += ". Line:" + std::to_string(currentToken.getCurrentLine()) + " Col:" + std::to_string(currentToken.getCurrentPosInLine()) + "\n";
 				erroresSemanticos.insert(erroresSemanticos.end(), strErrSem);
 			}
@@ -1051,7 +2006,73 @@ namespace ParserLib {
 
 
 	void CParser::ejecutarAccionSemantica(int top, TreeNode * topNode, Token currentToken, CSymbolTable * currentSymbolTable) {
-		if (top == RS1003) {
+		if (top == GC0001) {
+			fnGC0001(top, topNode, currentToken, currentSymbolTable);
+		}
+		else if (top == GC0002) {
+			fnGC0002(top, topNode, currentToken, currentSymbolTable);
+		}
+		else if (top == GC0003) {
+			fnGC0003(top, topNode, currentToken, currentSymbolTable);
+		}
+		else if (top == GC0004) {
+			fnGC0004(top, topNode, currentToken, currentSymbolTable);
+		}
+		else if (top == GC0005) {
+			fnGC0005(top, topNode, currentToken, currentSymbolTable);
+		}
+		else if (top == GC0006) {
+			fnGC0006(top, topNode, currentToken, currentSymbolTable);
+		}
+		else if (top == GC0007) {
+			fnGC0007(top, topNode, currentToken, currentSymbolTable);
+		}
+		else if (top == GC0008) {
+			fnGC0008(top, topNode, currentToken, currentSymbolTable);
+		}
+		else if (top == GC0009) {
+			fnGC0009(top, topNode, currentToken, currentSymbolTable);
+		}
+		else if (top == GC0010) {
+			fnGC0010(top, topNode, currentToken, currentSymbolTable);
+		}
+		else if (top == GC0011) {
+			fnGC0011(top, topNode, currentToken, currentSymbolTable);
+		}
+		else if (top == GC0012) {
+			fnGC0012(top, topNode, currentToken, currentSymbolTable);
+		}
+		else if (top == GC0013) {
+			fnGC0013(top, topNode, currentToken, currentSymbolTable);
+		}
+		else if (top == GC0014) {
+			fnGC0014(top, topNode, currentToken, currentSymbolTable);
+		}
+		else if (top == GC0015) {
+			fnGC0015(top, topNode, currentToken, currentSymbolTable);
+		}
+		else if (top == GC0016) {
+			fnGC0016(top, topNode, currentToken, currentSymbolTable);
+		}
+		else if (top == GC0017) {
+			fnGC0017(top, topNode, currentToken, currentSymbolTable);
+		}
+		else if (top == GC0018) {
+			fnGC0018(top, topNode, currentToken, currentSymbolTable);
+		}
+		else if (top == GC0019) {
+			fnGC0019(top, topNode, currentToken, currentSymbolTable);
+		}
+		else if (top == GC0020) {
+			fnGC0020(top, topNode, currentToken, currentSymbolTable);
+		}
+		else if (top == GC0021) {
+			fnGC0021(top, topNode, currentToken, currentSymbolTable);
+		}
+		else if (top == GC0022) {
+			fnGC0022(top, topNode, currentToken, currentSymbolTable);
+		}
+		else if (top == RS1003) {
 			//Revisar la compatibilidad del tipo en la definición de una constante
 			//Crear un registro en la tabla de símbolos para la constante
 			fnRS1003(top, topNode, currentToken, currentSymbolTable);
@@ -1214,8 +2235,17 @@ namespace ParserLib {
 		symbolTableGlobal = new CSymbolTable();
 	}
 
+	void CParser::initDataSegment() {
+		memoryTable->addDataConstVar("datos segment");
+		memoryTable->addDataConstVar("  MemoriaDinamica db " + to_string(tam_memoria) + " DUP(?)");
+		memoryTable->addDataConstVar("  NextFree DW 0");
+		memoryTable->addDataConstVar("  TmpLenStr DW 0");
+		memoryTable->addDataConstVar("  TmpSeg DW 0");
+		memoryTable->addDataConstVar("  TmpOff DW 0");
+	}
+
 	// TODO: This is an example of a library function
-	int CParser::Parse(string fileName)
+	int CParser::Parse(string fileName, ofstream * genCodeFile)
 	{
 		int result = 0;
 		int contError = 0;
@@ -1227,6 +2257,8 @@ namespace ParserLib {
 		CScanner scanner;
 		TreeNode * topNode;
 
+		this->genCodeFile = genCodeFile;
+
 		this->currentSymbolTable = this->symbolTableGlobal;
 		symbolTableLocal = NULL;
 
@@ -1235,6 +2267,8 @@ namespace ParserLib {
 		if (resInit == 1) {
 			return 1;
 		}
+
+		initDataSegment();
 
 		TreeNode * syntaxTree = new TreeNode();
 		syntaxTree->SetData(SIMBOLOINICIAL, getStrProduccion(SIMBOLOINICIAL));
@@ -1371,7 +2405,6 @@ namespace ParserLib {
 		}
 		cout << "***************************************************************\n";
 
-
 		cout << "\n" << "------------------------"  << "\n" << "Árbol Sintáctico: " << "\n" << "------------------------" << "\n";
 		if (syntaxTree != NULL) {
 			syntaxTree->print(0);
@@ -1380,5 +2413,7 @@ namespace ParserLib {
 		return result;
 	}//Parse
 
-
+	void CParser::genDataSegment(ofstream * genCodeFile) {
+		memoryTable->genDataSegment(genCodeFile);
+	}
 }

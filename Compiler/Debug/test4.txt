@@ -5959,7 +5959,7 @@ leyendo token: TOKEN_EOF   , Line:136 Col:1
 ejecute regla semantica: 189
 ***************************************************************
 Parsing con 4 error(es)
-Análisis Semántico: 45 errores semánticos:
+Análisis Semántico: 42 errores semánticos:
 Error semantico: Está definiendo una variable o constante que ya fue definida anteriormente.(Constante1). Line:10 Col:37
 Error semantico: No coincide el tipo de dato.  La constante se definió de tipo TOKEN_SHTAWA y el valor es de tipo TOKEN_EKLA. Line:11 Col:38
 Error semantico: Está definiendo una variable o constante que ya fue definida anteriormente.(regEstudiante). Line:26 Col:11
@@ -5975,35 +5975,32 @@ Error semantico: Identificador x no definido.. Line:110 Col:5
 Error semantico: Identificador y no definido.. Line:110 Col:12
 Error semantico: Los operadores aritméticos no son compatibles.. Line:111 Col:13
 Error semantico: Los operadores aritméticos no son compatibles.. Line:111 Col:13
-Error semantico: No son compatibles el tipo de la variable al lado izquierdo () y la expresión del lado derecho (TOKEN_YINAKULIWA). Line:111 Col:13
 Error semantico: Identificador abc no definido.. Line:118 Col:29
 Error semantico: Los operadores dos operadores aritméticos no son compatibles.. Line:118 Col:31
 Error semantico: Los operadores aritméticos no son compatibles.. Line:118 Col:33
 Error semantico: Los operadores aritméticos no son compatibles.. Line:118 Col:48
 Error semantico: Los operadores aritméticos no son compatibles.. Line:118 Col:48
 Error semantico: Los operadores dos operadores aritméticos no son compatibles.. Line:118 Col:48
-Error semantico: No son compatibles el tipo de la variable al lado izquierdo (TOKEN_SHTAWA) y la expresión del lado derecho (TOKEN_YINAKULIWA). Line:118 Col:48
+Error semantico: No son compatibles el tipo de la variable al lado izquierdo (TOKEN_SHTAWA) y la expresión del lado derecho (). Line:118 Col:48
 Error semantico: Identificador rom1 no definido.. Line:119 Col:16
 Error semantico: Identificador rom3 no definido.. Line:119 Col:34
 Error semantico: Los operadores aritméticos no son compatibles.. Line:119 Col:34
 Error semantico: Identificador rom4 no definido.. Line:119 Col:44
-Error semantico: No son compatibles el tipo de la variable al lado izquierdo (TOKEN_SHTAWA) y la expresión del lado derecho (TOKEN_YINAKULIWA). Line:119 Col:44
+Error semantico: No son compatibles el tipo de la variable al lado izquierdo (TOKEN_SHTAWA) y la expresión del lado derecho (). Line:119 Col:44
 Error semantico: Identificador f no definido.. Line:121 Col:30
 Error semantico: La cantidad de parametros formales y funcionales no coincide en 'f'. Se esperan 0 parámetros y se usaron 1. Line:121 Col:32
 Error semantico: Los operadores dos operadores aritméticos no son compatibles.. Line:121 Col:34
 Error semantico: Los operadores dos operadores aritméticos no son compatibles.. Line:121 Col:34
-Error semantico: Los operadores dos operadores aritméticos no son compatibles.. Line:121 Col:37
+Error semantico: Los operadores aritméticos no son compatibles.. Line:121 Col:37
 Error semantico: Identificador h no definido.. Line:121 Col:53
-Error semantico: Los operadores dos operadores aritméticos no son compatibles.. Line:121 Col:53
-Error semantico: Los operadores dos operadores aritméticos no son compatibles. Line:121 Col:56
+Error semantico: Los operadores aritméticos no son compatibles.. Line:121 Col:53
 Error semantico: Identificador BákShtáwa no definido.. Line:123 Col:15
 Error semantico: La cantidad de parametros formales y funcionales no coincide en 'BákShtáwa'. Se esperan 0 parámetros y se usaron 1. Line:123 Col:17
 Error semantico: La cantidad de parametros formales y funcionales no coincide en 'f'. Se esperan 0 parámetros y se usaron 1. Line:127 Col:37
 Error semantico: Los operadores dos operadores aritméticos no son compatibles.. Line:127 Col:39
 Error semantico: Los operadores dos operadores aritméticos no son compatibles.. Line:127 Col:39
-Error semantico: Los operadores dos operadores aritméticos no son compatibles.. Line:127 Col:42
-Error semantico: Los operadores dos operadores aritméticos no son compatibles.. Line:127 Col:57
-Error semantico: Los operadores dos operadores aritméticos no son compatibles. Line:127 Col:59
+Error semantico: Los operadores aritméticos no son compatibles.. Line:127 Col:42
+Error semantico: Los operadores aritméticos no son compatibles.. Line:127 Col:57
 Error semantico: La cantidad de parametros formales y funcionales no coincide en 'BákShtáwa'. Se esperan 0 parámetros y se usaron 1. Line:129 Col:17
 ***************************************************************
 

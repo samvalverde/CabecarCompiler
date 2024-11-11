@@ -4,6 +4,8 @@ d:\personal\ekp\compiler\parserlib\debug\treenode.obj
 d:\personal\ekp\compiler\parserlib\debug\csymboltable.obj
 d:\personal\ekp\compiler\parserlib\debug\csymbolinfo.obj
 d:\personal\ekp\compiler\parserlib\debug\cparser.obj
+d:\personal\ekp\compiler\parserlib\debug\cmemorytable.obj
+d:\personal\ekp\compiler\parserlib\debug\cmemoryinfo.obj
 d:\personal\ekp\compiler\debug\parserlib.lib
 d:\personal\ekp\compiler\debug\parserlib.pdb
 d:\personal\ekp\compiler\parserlib\debug\parserlib.tlog\cl.command.1.tlog

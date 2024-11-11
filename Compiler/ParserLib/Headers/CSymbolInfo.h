@@ -28,8 +28,11 @@ namespace ParserLib
 		bool isReference;  // esto es para parámetros por referencia.
 		std::vector<CSymbolInfo *> lstFormalParams;
 		std::vector<CSymbolInfo *> lstFunctionalParams;
-
 		int symbolType; //1:constantes, 2: tipos del usuario, 3:variables, 4: prototipos, 5: Rutinas
+		//para generacion de código
+		int posPila = 0;
+		string callValue;
+
 	public:
 		CSymbolInfo();
 		CSymbolInfo(const std::string name, const std::string type, const std::string value, const int symbolType);
@@ -38,17 +41,22 @@ namespace ParserLib
 		std::string getType();
 		std::string getValue();
 		std::string getDims();
+		int getPosPila();
+		std::string getCallValue();
 		bool getIsReference();
 		void setName(string name);
 		void setValue(string value);
 		void setType(string type);
 		void setDims(string dims);
 		void setIsReference(bool isRef);
+		void setPosPila(int posPila);
+		void setCallValue(string value);
 		int getSymbolType();
-		void addFormalParam(CSymbolInfo * param);
+		void addFormalParam(CSymbolInfo * param, bool checkDuplicate = false);
 		void addFunctionalParam(CSymbolInfo * param);
 		vector<CSymbolInfo *> * getFormalParams();
 		vector<CSymbolInfo *> * getFunctionalParams();
+		int getFormalParamsSize();
 		CSymbolInfo * clone();
 	};
 }

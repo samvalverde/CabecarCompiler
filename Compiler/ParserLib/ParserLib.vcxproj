@@ -155,7 +155,9 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="Headers\CMemoryInfo.h" />
     <ClInclude Include="Headers\CParser.h" />
+    <ClInclude Include="Headers\CMemoryTable.h" />
     <ClInclude Include="Headers\CSymbolInfo.h" />
     <ClInclude Include="Headers\CSymbolTable.h" />
     <ClInclude Include="Headers\FOLLOW.h" />
@@ -163,6 +165,8 @@
     <ClInclude Include="Headers\TreeNode.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="Sources\CMemoryInfo.cpp" />
+    <ClCompile Include="Sources\CMemoryTable.cpp" />
     <ClCompile Include="Sources\CParser.cpp" />
     <ClCompile Include="Sources\CSymbolInfo.cpp" />
     <ClCompile Include="Sources\CSymbolTable.cpp" />

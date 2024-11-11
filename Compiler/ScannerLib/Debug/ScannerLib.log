@@ -1,5 +1,2 @@
-﻿  CBuffer.cpp
-  CToken.cpp
-  CScanner.cpp
-  Generating Code...
+﻿  CScanner.cpp
   ScannerLib.vcxproj -> D:\Personal\EKP\Compiler\Debug\ScannerLib.lib

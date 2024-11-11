@@ -363,7 +363,7 @@ namespace ScannerLib
 			(strcmp(uPalabra, upperCabecar("Shtáwa")) == 0) ||
 			(strcmp(uPalabra, upperCabecar("ékla")) == 0) ||
 			(strcmp(uPalabra, upperCabecar("Shéj")) == 0) ||
-			(strcmp(uPalabra, upperCabecar("YínaKulíwa")) == 0) ||
+			(strcmp(uPalabra, upperCabecar("YínaKulíwa")) == 0) ||
 			(strcmp(uPalabra, upperCabecar("Járjá")) == 0) ||
 			(strcmp(uPalabra, upperCabecar("Kichána")) == 0) ||
 			(strcmp(uPalabra, upperCabecar("bikö")) == 0) ||
@@ -422,13 +422,13 @@ namespace ScannerLib
 			//(strcmp(uPalabra, upperCabecar("äwéShtáwa")) == 0) ||
 			//(strcmp(uPalabra, upperCabecar("äwéékla")) == 0) ||
 			//(strcmp(uPalabra, upperCabecar("äwéShéj")) == 0) ||
-			//(strcmp(uPalabra, upperCabecar("äwéYínaKulíwa")) == 0) ||
+			//(strcmp(uPalabra, upperCabecar("äwéYínaKulíwa")) == 0) ||
 			//(strcmp(uPalabra, upperCabecar("äwéJárjá")) == 0) ||
 			//(strcmp(uPalabra, upperCabecar("äwéwömële")) == 0) ||
 			//(strcmp(uPalabra, upperCabecar("BákShtáwa")) == 0) ||
 			//(strcmp(uPalabra, upperCabecar("Bákékla")) == 0) ||
 			//(strcmp(uPalabra, upperCabecar("BákShéj")) == 0) ||
-			//(strcmp(uPalabra, upperCabecar("BákYínaKulíwa")) == 0) ||
+			//(strcmp(uPalabra, upperCabecar("BákYínaKulíwa")) == 0) ||
 			//(strcmp(uPalabra, upperCabecar("BákJárjá")) == 0) ||
 			//(strcmp(uPalabra, upperCabecar("Bákwömële")) == 0) ||
 			(strcmp(uPalabra, upperCabecar("wëikä")) == 0) ||
@@ -481,7 +481,7 @@ namespace ScannerLib
 		else if (strcmp(palabra, upperCabecar("Shéj")) == 0) {
 			return TOKEN_SHEJ;
 		}
-		else if (strcmp(palabra, upperCabecar("YínaKulíwa")) == 0) {
+		else if (strcmp(palabra, upperCabecar("YínaKulíwa")) == 0) {
 			return TOKEN_YINAKULIWA;
 		}
 		else if (strcmp(palabra, upperCabecar("Járjá")) == 0) {
@@ -653,7 +653,7 @@ namespace ScannerLib
 		else if (strcmp(palabra, upperCabecar("äwéShéj")) == 0) {
 			return TOKEN_AWESHEJ;
 		}
-		else if (strcmp(palabra, upperCabecar("äwéYínaKulíwa")) == 0) {
+		else if (strcmp(palabra, upperCabecar("äwéYínaKulíwa")) == 0) {
 			return TOKEN_AWEYINAKULIWA;
 		}
 		else if (strcmp(palabra, upperCabecar("äwéJárjá")) == 0) {
@@ -671,7 +671,7 @@ namespace ScannerLib
 		else if (strcmp(palabra, upperCabecar("BákShéj")) == 0) {
 			return TOKEN_BAKSHEJ;
 		}
-		else if (strcmp(palabra, upperCabecar("BákYínaKulíwa")) == 0) {
+		else if (strcmp(palabra, upperCabecar("BákYínaKulíwa")) == 0) {
 			return 	TOKEN_BAKYINAKULIWA;
 		}
 		else if (strcmp(palabra, upperCabecar("BákJárjá")) == 0) {

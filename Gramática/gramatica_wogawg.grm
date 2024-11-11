@@ -5,13 +5,13 @@ TOKEN_INT TOKEN_ID TOKEN_CHAR TOKEN_STRING TOKEN_TIPO TOKEN_INICIALIZAR TOKEN_AB
 PRODUCCIONES
 
 
-Programa #RS1001 EncabezadoPrograma Definiciones CuerpoPrograma #RS1002
+Programa #RS1001 #GC0001 EncabezadoPrograma Definiciones #GC0002 CuerpoPrograma #RS1002 #GC0003
 
 EncabezadoPrograma TOKEN_WOGAWG TOKEN_ID TOKEN_PUNTO
 
 Definiciones TOKEN_KARA #RS1017 SeccionConstantes Definiciones
 Definiciones TOKEN_KLO #RS1017 SeccionTipos Definiciones
-Definiciones TOKEN_KASKA #RS1017 SeccionVariables Definiciones
+Definiciones TOKEN_KASKA #RS1017 SeccionVariables Definiciones 
 Definiciones TOKEN_WAKIRI #RS1017 SeccionPrototipos Definiciones
 Definiciones TOKEN_PRA #RS1017 SeccionRutinas Definiciones
 Definiciones
@@ -121,8 +121,8 @@ ListaProcIDs TOKEN_IAWA TOKEN_ID #RS1021 SiguientesListaProcIDs
 SiguientesListaProcIDs TOKEN_COMA ListaProcIDs
 SiguientesListaProcIDs
 
-SeccionRutinas TOKEN_KIANA TOKEN_ID TOKEN_PAR_REDONDO_ABRIR #RS1023 DefFuncFormalParams TOKEN_PAR_REDONDO_CERRAR TOKEN_CHANI TipoSimple TOKEN_SHA BloqueProcFunc #RS1024 TOKEN_PUNTO SiguientesRutinas
-SeccionRutinas TOKEN_WAYUA TOKEN_ID TOKEN_PAR_REDONDO_ABRIR #RS1023 DefProcFormalParams TOKEN_PAR_REDONDO_CERRAR TOKEN_SHA BloqueProcFunc #RS1024 TOKEN_PUNTO SiguientesRutinas
+SeccionRutinas TOKEN_KIANA TOKEN_ID TOKEN_PAR_REDONDO_ABRIR #RS1023 DefFuncFormalParams TOKEN_PAR_REDONDO_CERRAR TOKEN_CHANI TipoSimple TOKEN_SHA #GC0004 BloqueProcFunc #GC0005 #RS1024 TOKEN_PUNTO SiguientesRutinas
+SeccionRutinas TOKEN_WAYUA TOKEN_ID TOKEN_PAR_REDONDO_ABRIR #RS1023 DefProcFormalParams TOKEN_PAR_REDONDO_CERRAR TOKEN_SHA #GC0004 BloqueProcFunc #GC0005 #RS1024 TOKEN_PUNTO SiguientesRutinas
 
 SiguientesRutinas SeccionRutinas
 SiguientesRutinas
@@ -153,62 +153,62 @@ CicloSentenciaSwitch TOKEN_SHA ListaSentencias TOKEN_NUI CicloSentenciaSwitch
 CicloSentenciaSwitch TOKEN_TSU ListaSentencias TOKEN_NUI CicloSentenciaSwitch
 CicloSentenciaSwitch
 
-SentenciaInicId Asignacion TOKEN_PUNTO
+SentenciaInicId Asignacion #GC0009 TOKEN_PUNTO
 SentenciaInicId LlamadaProcFunc TOKEN_PUNTO
 
 Asignacion TOKEN_WAKA #RS1025 Expresion #RS1027 #RS1028
 
-LlamadaProcFunc TOKEN_PAR_REDONDO_ABRIR #RS1026 ListaExpresiones #RS1029 #RS1028 TOKEN_PAR_REDONDO_CERRAR
+LlamadaProcFunc TOKEN_PAR_REDONDO_ABRIR #RS1026 #GC0022 ListaExpresiones #RS1029 #RS1028 TOKEN_PAR_REDONDO_CERRAR #GC0020
 
-SentenciaCondicional TOKEN_CHAGO Expresion TOKEN_JENA Sentencia TOKEN_SHIRINA Sentencia
+SentenciaCondicional TOKEN_CHAGO Expresion #GC0010 TOKEN_JENA Sentencia #GC0011 TOKEN_SHIRINA Sentencia #GC0012
 
-SentenciaCiclo TOKEN_DALEIKA Expresion TOKEN_SHA Sentencia
-SentenciaCiclo TOKEN_SHANI Sentencia TOKEN_KANA Expresion
+SentenciaCiclo TOKEN_DALEIKA #GC0013 Expresion #GC0014 TOKEN_SHA Sentencia #GC0015
+SentenciaCiclo TOKEN_SHANI #GC0016 Sentencia #GC0017 TOKEN_KANA Expresion #GC0018
 SentenciaCiclo TOKEN_TUNA TOKEN_ID TOKEN_INICIALIZAR Expresion TOKEN_KATSO Expresion TOKEN_NAI Expresion TOKEN_SHA
 
-Retorno TOKEN_TOLI Expresion
+Retorno TOKEN_TOLI Expresion #GC0021
 
-ListaExpresiones Expresion #RS1030 RestoListaExpresiones
+ListaExpresiones Expresion #RS1030 #GC0019 RestoListaExpresiones
 ListaExpresiones
 
-RestoListaExpresiones TOKEN_COMA Expresion #RS1030 RestoListaExpresiones
+RestoListaExpresiones TOKEN_COMA Expresion #RS1030 #GC0019 RestoListaExpresiones
 RestoListaExpresiones
 
 Expresion ExpresionRelacional RestoExpresion #RS1040
-RestoExpresion TOKEN_IRALE ExpresionRelacional RestoExpresion #RS1040
-RestoExpresion TOKEN_IRA ExpresionRelacional RestoExpresion #RS1040
-RestoExpresion TOKEN_JEBA ExpresionRelacional RestoExpresion #RS1040
+RestoExpresion TOKEN_IRALE ExpresionRelacional RestoExpresion #RS1040 #GC0008
+RestoExpresion TOKEN_IRA ExpresionRelacional RestoExpresion #RS1040 #GC0008
+RestoExpresion TOKEN_JEBA ExpresionRelacional RestoExpresion #RS1040 #GC0008
 RestoExpresion TOKEN_CHAR_POS ExpresionRelacional RestoExpresion #RS1040
 RestoExpresion
 
 ExpresionRelacional ExpresionSimple ExpresionOperRel #RS1039
 
-ExpresionOperRel TOKEN_COMPARADOR ExpresionSimple #RS1038
+ExpresionOperRel TOKEN_COMPARADOR ExpresionSimple #RS1038 #GC0008
 ExpresionOperRel
 
 ExpresionSimple Termino RestoExpresionSimple #RS1036
 
-RestoExpresionSimple TOKEN_MAS Termino RestoExpresionSimple #RS1036
-RestoExpresionSimple TOKEN_MENOS Termino RestoExpresionSimple #RS1036
-RestoExpresionSimple TOKEN_MAS_ROMANO Termino RestoExpresionSimple #RS1036
-RestoExpresionSimple TOKEN_MENOS_ROMANO Termino RestoExpresionSimple #RS1036
+RestoExpresionSimple TOKEN_MAS Termino RestoExpresionSimple #RS1036 #GC0008
+RestoExpresionSimple TOKEN_MENOS Termino RestoExpresionSimple #RS1036 #GC0008
+RestoExpresionSimple TOKEN_MAS_ROMANO Termino RestoExpresionSimple #RS1036 #GC0008
+RestoExpresionSimple TOKEN_MENOS_ROMANO Termino RestoExpresionSimple #RS1036 #GC0008
 RestoExpresionSimple
 
 Termino Factor RestoTermino #RS1035
 
-RestoTermino TOKEN_MULTIPLICACION Factor RestoTermino #RS1035
-RestoTermino TOKEN_DIVISION Factor RestoTermino #RS1035
-RestoTermino TOKEN_MODULO Factor RestoTermino #RS1035
-RestoTermino TOKEN_MULTIPLICACION_ROMANO Factor RestoTermino #RS1035
-RestoTermino TOKEN_DIVISION_ROMANO Factor RestoTermino #RS1035
-RestoTermino TOKEN_MODULO_ROMANO Factor RestoTermino #RS1035
+RestoTermino TOKEN_MULTIPLICACION Factor RestoTermino #RS1035 #GC0008
+RestoTermino TOKEN_DIVISION Factor RestoTermino #RS1035 #GC0008
+RestoTermino TOKEN_MODULO Factor RestoTermino #RS1035 #GC0008
+RestoTermino TOKEN_MULTIPLICACION_ROMANO Factor RestoTermino #RS1035 #GC0008
+RestoTermino TOKEN_DIVISION_ROMANO Factor RestoTermino #RS1035 #GC0008
+RestoTermino TOKEN_MODULO_ROMANO Factor RestoTermino #RS1035 #GC0008
 RestoTermino
 
 
 Factor FactorIzq OperacionesInfijas #RS1037
 
-FactorIzq TOKEN_ID #RS1031 #RS1032 RestoFactorId
-FactorIzq LiteralConst #RS1032
+FactorIzq TOKEN_ID #RS1031 #RS1032 RestoFactorId #GC0007
+FactorIzq LiteralConst #RS1032 #GC0007
 FactorIzq TOKEN_PAR_REDONDO_ABRIR Expresion #RS1032 TOKEN_PAR_REDONDO_CERRAR
 FactorIzq TOKEN_KAI FactorIzq #RS1032
 FactorIzq TOKEN_DAKA FactorIzq #RS1032
@@ -221,7 +221,7 @@ FactorIzq TOKEN_MATSII FactorIzq #RS1032
 FactorIzq TOKEN_JAREBO FactorIzq #RS1032
 FactorIzq TOKEN_BIKO FactorIzq #RS1032
 
-RestoFactorId TOKEN_PAR_REDONDO_ABRIR #RS1026 ListaExpresiones #RS1029 #RS1028 TOKEN_PAR_REDONDO_CERRAR
+RestoFactorId TOKEN_PAR_REDONDO_ABRIR #RS1026 #GC0022 ListaExpresiones #RS1029 #RS1028 TOKEN_PAR_REDONDO_CERRAR #GC0020
 RestoFactorId ListaAccesoArray
 RestoFactorId TOKEN_ARROBA TOKEN_ID #RS1031 #RS1032 RestoFactorId
 RestoFactorId
@@ -255,4 +255,4 @@ ListaConstConjunto
 RestoListaConstConjunto TOKEN_COMA TOKEN_CHAR #RS1010 RestoListaConstConjunto
 RestoListaConstConjunto 
 
-CuerpoPrograma TOKEN_JARREE ListaSentencias TOKEN_WEIKA TOKEN_PUNTO
+CuerpoPrograma TOKEN_JARREE #GC0006 ListaSentencias TOKEN_WEIKA TOKEN_PUNTO

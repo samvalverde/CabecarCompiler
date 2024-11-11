@@ -3,6 +3,7 @@
 #include <iostream>
 #include <string>
 #include <list>
+#include <fstream>
 #include "CToken.h"
 #include "CScanner.h"
 #include "CParser.h"
@@ -154,6 +155,10 @@ int main(int argc, char *argv[])
 	string fileName;
 	std::cout << "Hola!! Soy el Parser Cabecar\n";
 
+	const string genCodeFileName = "GenCodeW.asm";
+	ofstream * genCodeFile;
+
+
 	if (argc > 1) {
 		fileName = string(argv[1]);
 	}
@@ -166,12 +171,30 @@ int main(int argc, char *argv[])
 
 	CParser parser;
 
-
-	int result = parser.Parse(fileName);
+	genCodeFile = new ofstream(fileName + ".tmp");
+	int result = parser.Parse(fileName, genCodeFile);
 	if (result == 1) {
 		std::cout << "Error abriendo archivo: " << fileName << "\n";
 	}
+	genCodeFile->close();
+	genCodeFile = new ofstream(fileName + ".asm");
+	
+	string strEncabezado = "";
 
+	strEncabezado += "; Proyecto Compilador Wogawg\n";
+	strEncabezado += "; Compiladores e Intérpretes\n";
+	strEncabezado += "  ; Erick Kauffmann Porcar c.2022180244\n";
+	strEncabezado += "  ; Samuel Valverde Arguedas c.2022090162\n";
+
+
+	(*genCodeFile) << strEncabezado;
+	parser.genDataSegment(genCodeFile);
+	ifstream * tmpFile = new ifstream(fileName + ".tmp");
+	string line;
+	while (getline(*tmpFile, line)) {
+		(*genCodeFile) << line << "\n";
+	}
+	genCodeFile->close();
 }
 
 int mainScanner(int argc, char *argv[])

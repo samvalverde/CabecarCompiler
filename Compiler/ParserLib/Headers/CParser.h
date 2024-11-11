@@ -4,7 +4,9 @@
 #include <string>
 #include <vector>
 #include <stack>
+#include <fstream>
 
+#include "CMemoryTable.h"
 #include "CSymbolTable.h"
 #include "CSymbolInfo.h"
 #include "TreeNode.h"
@@ -25,8 +27,39 @@ namespace ParserLib
 			vector<CSymbolInfo *> temporalRegVar;
 			stack<CSymbolInfo *> pilaLlamados;
 			vector<string> erroresSemanticos;
+			ofstream * genCodeFile;
+			CMemoryTable * memoryTable = new CMemoryTable();
+
+			bool gData = false;
+			bool gCode = false;
 
 			int currentSection;
+
+			void initDataSegment();
+
+			void fnGC0001(int top, TreeNode * topNode, Token currentToken, CSymbolTable * currentSymbolTable);
+			void fnGC0002(int top, TreeNode * topNode, Token currentToken, CSymbolTable * currentSymbolTable);
+			void fnGC0003(int top, TreeNode * topNode, Token currentToken, CSymbolTable * currentSymbolTable);
+			void fnGC0004(int top, TreeNode * topNode, Token currentToken, CSymbolTable * currentSymbolTable);
+			void fnGC0005(int top, TreeNode * topNode, Token currentToken, CSymbolTable * currentSymbolTable);
+			void fnGC0006(int top, TreeNode * topNode, Token currentToken, CSymbolTable * currentSymbolTable);
+			void fnGC0007(int top, TreeNode * topNode, Token currentToken, CSymbolTable * currentSymbolTable);
+			void fnGC0008(int top, TreeNode * topNode, Token currentToken, CSymbolTable * currentSymbolTable);
+			void fnGC0009(int top, TreeNode * topNode, Token currentToken, CSymbolTable * currentSymbolTable);
+			void fnGC0010(int top, TreeNode * topNode, Token currentToken, CSymbolTable * currentSymbolTable);
+			void fnGC0011(int top, TreeNode * topNode, Token currentToken, CSymbolTable * currentSymbolTable);
+			void fnGC0012(int top, TreeNode * topNode, Token currentToken, CSymbolTable * currentSymbolTable);
+			void fnGC0013(int top, TreeNode * topNode, Token currentToken, CSymbolTable * currentSymbolTable);
+			void fnGC0014(int top, TreeNode * topNode, Token currentToken, CSymbolTable * currentSymbolTable);
+			void fnGC0015(int top, TreeNode * topNode, Token currentToken, CSymbolTable * currentSymbolTable);
+			void fnGC0016(int top, TreeNode * topNode, Token currentToken, CSymbolTable * currentSymbolTable);
+			void fnGC0017(int top, TreeNode * topNode, Token currentToken, CSymbolTable * currentSymbolTable);
+			void fnGC0018(int top, TreeNode * topNode, Token currentToken, CSymbolTable * currentSymbolTable);
+			void fnGC0019(int top, TreeNode * topNode, Token currentToken, CSymbolTable * currentSymbolTable);
+			void fnGC0020(int top, TreeNode * topNode, Token currentToken, CSymbolTable * currentSymbolTable);
+			void fnGC0021(int top, TreeNode * topNode, Token currentToken, CSymbolTable * currentSymbolTable);
+			void fnGC0022(int top, TreeNode * topNode, Token currentToken, CSymbolTable * currentSymbolTable);
+
 			void fnRS1003(int top, TreeNode * topNode, Token currentToken, CSymbolTable * currentSymbolTable);
 			void fnRS1004(int top, TreeNode * topNode, Token currentToken, CSymbolTable * currentSymbolTable);
 			void fnRS1005(int top, TreeNode * topNode, Token currentToken, CSymbolTable * currentSymbolTable);
@@ -66,9 +99,11 @@ namespace ParserLib
 			void fnRS1039(int top, TreeNode * topNode, Token currentToken, CSymbolTable * currentSymbolTable);
 			void fnRS1040(int top, TreeNode * topNode, Token currentToken, CSymbolTable * currentSymbolTable);
 			void ejecutarAccionSemantica(int top, TreeNode * topNode, Token currentToken, CSymbolTable * currentSymbolTable);
+
 		public:
 			CParser();
-			int Parse(string fileName);
+			int Parse(string fileName, ofstream * genCodeFile);
+			void genDataSegment(ofstream * genCodeFile);
 	};
 }
 #endif
